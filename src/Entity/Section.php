@@ -28,9 +28,13 @@ class Section
     #[ORM\ManyToMany(targetEntity: Page::class, mappedBy: 'PageSection')]
     private Collection $pages;
 
+    #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section')]
+    private Collection $videos;
+
     public function __construct()
     {
         $this->pages = new ArrayCollection();
+        $this->videos = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -96,6 +100,33 @@ class Section
     {
         if ($this->pages->removeElement($page)) {
             $page->removePageSection($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Video>
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): static
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos->add($video);
+            $video->addSection($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): static
+    {
+        if ($this->videos->removeElement($video)) {
+            $video->removeSection($this);
         }
 
         return $this;
