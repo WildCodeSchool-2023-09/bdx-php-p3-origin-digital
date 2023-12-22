@@ -21,6 +21,15 @@ class VideoRepository extends ServiceEntityRepository
         parent::__construct($registry, Video::class);
     }
 
+    public function findAllPublic(): array
+    {
+        return $this->createQueryBuilder('v')
+            ->where('v.isPublic = :public')
+            ->setParameter('public', true)
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Video[] Returns an array of Video objects
 //     */
