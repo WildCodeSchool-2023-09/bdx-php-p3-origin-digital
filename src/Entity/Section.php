@@ -25,15 +25,14 @@ class Section
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
 
-    #[ORM\ManyToMany(targetEntity: Page::class, mappedBy: 'PageSection')]
-    private Collection $pages;
-
     #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section')]
     private Collection $videos;
 
+    #[ORM\ManyToOne(inversedBy: 'section_id')]
+    private ?PageSection $pageSection = null;
+
     public function __construct()
     {
-        $this->pages = new ArrayCollection();
         $this->videos = new ArrayCollection();
     }
 
@@ -79,33 +78,6 @@ class Section
     }
 
     /**
-     * @return Collection<int, Page>
-     */
-    public function getPages(): Collection
-    {
-        return $this->pages;
-    }
-
-    public function addPage(Page $page): static
-    {
-        if (!$this->pages->contains($page)) {
-            $this->pages->add($page);
-            $page->addPageSection($this);
-        }
-
-        return $this;
-    }
-
-    public function removePage(Page $page): static
-    {
-        if ($this->pages->removeElement($page)) {
-            $page->removePageSection($this);
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, Video>
      */
     public function getVideos(): Collection
@@ -128,6 +100,18 @@ class Section
         if ($this->videos->removeElement($video)) {
             $video->removeSection($this);
         }
+
+        return $this;
+    }
+
+    public function getPageSection(): ?PageSection
+    {
+        return $this->pageSection;
+    }
+
+    public function setPageSection(?PageSection $pageSection): static
+    {
+        $this->pageSection = $pageSection;
 
         return $this;
     }
