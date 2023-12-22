@@ -42,6 +42,7 @@ class Video
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'video')]
     private Collection $categories;
 
+
     #[ORM\ManyToMany(targetEntity: Section::class, mappedBy: 'video')]
     private Collection $sections;
 
@@ -50,6 +51,7 @@ class Video
         $this->favoris = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->sections = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -195,6 +197,7 @@ class Video
     /**
      * @return Collection<int, Section>
      */
+
     public function getSections(): Collection
     {
         return $this->sections;
@@ -215,7 +218,6 @@ class Video
         if ($this->sections->removeElement($section)) {
             $section->removeVideo($this);
         }
-
         return $this;
     }
 }
