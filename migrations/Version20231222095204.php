@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20231220110610 extends AbstractMigration
+final class Version20231222095204 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -25,6 +25,7 @@ final class Version20231220110610 extends AbstractMigration
         $this->addSql('CREATE TABLE page (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE page_section (page_id INT NOT NULL, section_id INT NOT NULL, INDEX IDX_D713917AC4663E4 (page_id), INDEX IDX_D713917AD823E37A (section_id), PRIMARY KEY(page_id, section_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE section (id INT AUTO_INCREMENT NOT NULL, type_id INT NOT NULL, name VARCHAR(255) NOT NULL, slug_section VARCHAR(255) NOT NULL, INDEX IDX_2D737AEFC54C8C93 (type_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE section_video (section_id INT NOT NULL, video_id INT NOT NULL, INDEX IDX_EB90BD48D823E37A (section_id), INDEX IDX_EB90BD4829C1004E (video_id), PRIMARY KEY(section_id, video_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE type (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE user (id INT AUTO_INCREMENT NOT NULL, email VARCHAR(180) NOT NULL, roles JSON NOT NULL, password VARCHAR(255) NOT NULL, user_name VARCHAR(255) NOT NULL, photo VARCHAR(255) NOT NULL, role VARCHAR(255) NOT NULL, UNIQUE INDEX UNIQ_8D93D649E7927C74 (email), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE video (id INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) NOT NULL, file VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, datetime DATETIME NOT NULL COMMENT \'(DC2Type:datetime_immutable)\', slug_video VARCHAR(255) NOT NULL, is_public TINYINT(1) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
@@ -35,6 +36,8 @@ final class Version20231220110610 extends AbstractMigration
         $this->addSql('ALTER TABLE page_section ADD CONSTRAINT FK_D713917AC4663E4 FOREIGN KEY (page_id) REFERENCES page (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE page_section ADD CONSTRAINT FK_D713917AD823E37A FOREIGN KEY (section_id) REFERENCES section (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE section ADD CONSTRAINT FK_2D737AEFC54C8C93 FOREIGN KEY (type_id) REFERENCES type (id)');
+        $this->addSql('ALTER TABLE section_video ADD CONSTRAINT FK_EB90BD48D823E37A FOREIGN KEY (section_id) REFERENCES section (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE section_video ADD CONSTRAINT FK_EB90BD4829C1004E FOREIGN KEY (video_id) REFERENCES video (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE video_user ADD CONSTRAINT FK_8A048B9529C1004E FOREIGN KEY (video_id) REFERENCES video (id) ON DELETE CASCADE');
         $this->addSql('ALTER TABLE video_user ADD CONSTRAINT FK_8A048B95A76ED395 FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE');
     }
@@ -47,6 +50,8 @@ final class Version20231220110610 extends AbstractMigration
         $this->addSql('ALTER TABLE page_section DROP FOREIGN KEY FK_D713917AC4663E4');
         $this->addSql('ALTER TABLE page_section DROP FOREIGN KEY FK_D713917AD823E37A');
         $this->addSql('ALTER TABLE section DROP FOREIGN KEY FK_2D737AEFC54C8C93');
+        $this->addSql('ALTER TABLE section_video DROP FOREIGN KEY FK_EB90BD48D823E37A');
+        $this->addSql('ALTER TABLE section_video DROP FOREIGN KEY FK_EB90BD4829C1004E');
         $this->addSql('ALTER TABLE video_user DROP FOREIGN KEY FK_8A048B9529C1004E');
         $this->addSql('ALTER TABLE video_user DROP FOREIGN KEY FK_8A048B95A76ED395');
         $this->addSql('DROP TABLE category');
@@ -54,6 +59,7 @@ final class Version20231220110610 extends AbstractMigration
         $this->addSql('DROP TABLE page');
         $this->addSql('DROP TABLE page_section');
         $this->addSql('DROP TABLE section');
+        $this->addSql('DROP TABLE section_video');
         $this->addSql('DROP TABLE type');
         $this->addSql('DROP TABLE user');
         $this->addSql('DROP TABLE video');
