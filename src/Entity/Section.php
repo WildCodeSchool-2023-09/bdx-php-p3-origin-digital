@@ -28,12 +28,12 @@ class Section
     #[ORM\ManyToMany(targetEntity: Page::class, mappedBy: 'PageSection')]
     private Collection $pages;
 
-
     #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section')]
     private Collection $videos;
 
     public function __construct()
     {
+        $this->pages = new ArrayCollection();
         $this->videos = new ArrayCollection();
     }
 
@@ -128,6 +128,7 @@ class Section
         if ($this->videos->removeElement($video)) {
             $video->removeSection($this);
         }
+
         return $this;
     }
 }

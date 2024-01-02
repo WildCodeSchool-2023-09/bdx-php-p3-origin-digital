@@ -317,6 +317,82 @@ body {
     box-sizing: border-box;
 }
 
+/* carousel */
+
+.image_carousel {
+    width:600px;
+    height:400px;
+  }
+  
+  .slider-1 {
+    max-width: 600px;
+    margin: 100px auto;
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+  }
+
+  .slider-1 .slider {
+    animation: slider-1 50s infinite ease-in-out;
+    display: flex;
+  
+
+  }
+  .slider-1 img {
+    background: #000;
+    flex-shrink: 0;
+    padding: 72px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    color: #f1f1f1;
+  }
+  
+  @keyframes slider-1 {
+    0%,
+    6% {
+      transform: translateX(0);
+    }
+    10%,
+    16% {
+      transform: translateX(-100%);
+    }
+    20%,
+    26% {
+      transform: translateX(-200%);
+    }
+    30%,
+    36% {
+      transform: translateX(-300%);
+    }
+    40%,
+    46% {
+      transform: translateX(-400%);
+    }
+    50%,
+    56% {
+      transform: translateX(-500%);
+    }
+    60%,
+    66% {
+      transform: translateX(-600%);
+    }
+    70%,
+    76% {
+      transform: translateX(-700%);
+    }
+    80%,
+    86% {
+      transform: translateX(-800%);
+    }
+    90%,
+    96% {
+      transform: translateX(-900%);
+    }
+    100% {
+      transform: translateX(-1000%);
+    }
+  } 
+
 @media only screen and (max-width: 850px) {
     .logo {
         order: 1;
