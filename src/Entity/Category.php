@@ -18,6 +18,10 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 255, unique: true)]
+    private ?string $slugCategory = null;
+
+
     #[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'categories')]
     private Collection $video;
 
@@ -64,6 +68,17 @@ class Category
     {
         $this->video->removeElement($video);
 
+        return $this;
+    }
+
+    public function getSlugCategory(): ?string
+    {
+        return $this->slugCategory;
+    }
+
+    public function setSlugCategory(string $slugCategory): self
+    {
+        $this->slugCategory = $slugCategory;
         return $this;
     }
 }
