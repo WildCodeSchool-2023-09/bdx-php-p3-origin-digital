@@ -8,9 +8,10 @@ use App\Entity\Video;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use DateTimeImmutable;
 
-class VideoFixtures extends Fixture
+class VideoFixtures extends Fixture implements DependentFixtureInterface
 {
     private SluggerInterface $slugger;
 
@@ -23,11 +24,11 @@ class VideoFixtures extends Fixture
     {
         $video = new Video();
         $video->setTitle('Beach-volley : à la rencontre de. Clémence Vieira et Aline Chamereau');
-        $video->setFile('https://www.youtube.com/
-        watch?v=B549yay8K_M&list=PLK7yPhWUuO9XYTogt2WZFPmmvZVowtbof&index=2&ab_channel=SportenFrance');
+        $video->setFile('Beach-volley  à la rencontre de. Clémence Vieira et Aline Chamereau.mp4');
         $video->setImage('beachvolley.webp');
         $video->setDescription('Double championnes de France de beach-volley Clémence Vieira et 
         Aline Chamereau visent une participation aux Jeux Olympiques de Paris 2024.');
+        $video->addCategory($this->getReference('category_Beach Volley'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
@@ -36,11 +37,11 @@ class VideoFixtures extends Fixture
 
         $video = new Video();
         $video->setTitle('INSIDE - PSG : le film de la qualif');
-        $video->setFile('https://www.youtube.com/watch?v=0AGP3ujvITU&list=PLK7yPhWUuO9XYTogt2WZFPmmvZVowtbof&index=
-        1&ab_channel=SportenFrance');
+        $video->setFile('INSIDE - PSG  le film de la qualif.mp4');
         $video->setImage('psg.webp');
         $video->setDescription('Le Paris Saint-Germain jouait sa qualification en Ligue des Champions 
         féminine face à Manchester United.');
+        $video->addCategory($this->getReference('category_Football'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
@@ -49,11 +50,11 @@ class VideoFixtures extends Fixture
 
         $video = new Video();
         $video->setTitle('INSIDE - PSG : le film de la qualif');
-        $video->setFile('https://www.youtube.com/watch?v=0AGP3ujvITU&list=
-        PLK7yPhWUuO9XYTogt2WZFPmmvZVowtbof&index=1&ab_channel=SportenFrance');
+        $video->setFile('INSIDE - PSG  le film de la qualif.mp4');
         $video->setImage('psg.webp');
         $video->setDescription('Le Paris Saint-Germain jouait sa qualification en 
         Ligue des Champions féminine face à Manchester United.');
+        $video->addCategory($this->getReference('category_Football'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
@@ -62,28 +63,27 @@ class VideoFixtures extends Fixture
 
         $video = new Video();
         $video->setTitle('INSIDE - PSG : le film de la qualif');
-        $video->setFile('https://www.youtube.com/watch?v=0AGP3ujvITU&list=
-        PLK7yPhWUuO9XYTogt2WZFPmmvZVowtbof&index=1&ab_channel=SportenFrance');
+        $video->setFile('INSIDE - PSG  le film de la qualif.mp4');
         $video->setImage('psg.webp');
         $video->setDescription('Le Paris Saint-Germain jouait sa qualification en Ligue 
         des Champions féminine face à Manchester United.');
+        $video->addCategory($this->getReference('category_Football'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
         $video->setIsPublic(true);
         $manager->persist($video);
 
-
-        // Créer des vidéos privées
 
         $video = new Video();
         $video->setTitle('Le passage triomphal de Manon Hily, au championnat de France 
         d\'escalade de difficulté 2023 !');
-        $video->setFile('https://www.youtube.com/watch?v=2fd0nmNyiJk&list=
-        PLK7yPhWUuO9XYTogt2WZFPmmvZVowtbof&index=5&ab_channel=SportenFrance');
+        $video->setFile('Le passage triomphal de Manon Hily, au championnat de France 
+        d escalade de difficulté 2023 !.mp4');
         $video->setImage('escalade.webp');
         $video->setDescription('Manon Hily est devenue championne de France 2023 
-        d\'escalade de difficulté, pour la première fois de sa carrière.');
+        d escalade de difficulté, pour la première fois de sa carrière.');
+        $video->addCategory($this->getReference('category_Escalade'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
@@ -92,5 +92,12 @@ class VideoFixtures extends Fixture
 
 
         $manager->flush();
+    }
+
+    public function getDependencies(): array
+    {
+        return [
+            CategoryFixtures::class,
+        ];
     }
 }

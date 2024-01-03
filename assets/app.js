@@ -13,3 +13,6 @@ import './bootstrap';
 
 // Slider JS
 import './src/slider';
+
+//Play Video JS
+import './src/playVideo';
