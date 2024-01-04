@@ -18,12 +18,12 @@ class Page
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Section::class, inversedBy: 'pages')]
-    private Collection $pageSection;
+    #[ORM\ManyToOne(inversedBy: 'page_id')]
+    private ?PageSection $pageSection = null;
+
 
     public function __construct()
     {
-        $this->pageSection = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -43,26 +43,14 @@ class Page
         return $this;
     }
 
-    /**
-     * @return Collection<int, Section>
-     */
-    public function getPageSection(): Collection
+    public function getPageSection(): ?PageSection
     {
         return $this->pageSection;
     }
 
-    public function addPageSection(Section $pageSection): static
+    public function setPageSection(?PageSection $pageSection): static
     {
-        if (!$this->pageSection->contains($pageSection)) {
-            $this->pageSection->add($pageSection);
-        }
-
-        return $this;
-    }
-
-    public function removePageSection(Section $pageSection): static
-    {
-        $this->pageSection->removeElement($pageSection);
+        $this->pageSection = $pageSection;
 
         return $this;
     }

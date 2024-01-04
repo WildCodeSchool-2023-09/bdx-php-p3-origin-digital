@@ -31,13 +31,15 @@ class VideoController extends AbstractController
     }
 
     #[Route("/video/{slugVideo}", name: "show_video")]
-    public function showVideo(SluggerInterface $slugger, Video $video): Response
+    public function showVideo(SluggerInterface $slugger, Video $video, VideoRepository $videoRepository): Response
     {
         $slug = $slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
+        $videos = $videoRepository->findAllPublic();
 
         return $this->render('video/show.html.twig', [
             'video' => $video,
+            'videos' => $videos,
         ]);
     }
 }

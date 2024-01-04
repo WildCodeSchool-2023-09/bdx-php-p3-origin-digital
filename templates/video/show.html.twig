@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ video.title }}{% endblock %}
+
+{% block body %}
+    <div class="video-detail">
+        
+        
+        {% if video.file %}
+            <div class="video-embed">
+                <video width="1280" height="720" controls>
+                    <source src="{{ asset('build/videos/' ~ video.file) }}" type="video/mp4">
+                    Votre navigateur ne supporte pas les vidéos HTML5.
+                </video>
+        {% else %}
+            <p>URL de la vidéo non disponible.</p>
+        {% endif %}
+       
+        <h1>{{ video.title }}</h1>
+        <p><h3>{{ video.description }}</h3></p>
+
+        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+
+        <div class="video-categories">
+          {% for category in video.getCategories %}
+         <a href="{{ path('category_videos', {'slugCategory': category.getSlugCategory}) }}" class="button_validate">
+                {{ category.getName }}
+            </a>
+            {% endfor %}
+        </div>   
+    </div>
+
+    <div class="video-slider">
+    <div class="videos">
+        {% for video in videos %}
+            {% if video.isIsPublic %}
+                <div class="video">
+                    <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                        <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
+                    </a>
+                    <h2>{{ video.title }}</h2>
+                </div>
+            {% endif %}
+        {% else %}
+            <p>Aucune vidéo publique disponible pour le moment.</p>
+        {% endfor %}
+    </div>
+    <div class="slider-buttons">
+        <button class="slide-btn left-btn">&#8592;</button>
+        <button class="slide-btn right-btn">&#8594;</button>
+    </div>
+</div>
+
+{% endblock %}
