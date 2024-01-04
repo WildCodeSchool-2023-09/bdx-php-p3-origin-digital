@@ -18,9 +18,11 @@
     </head>
     <body>
         {% block header %}
-                {% include '_navbar.html.twig' %}
+            {% include '_navbar.html.twig' %}
         {% endblock %}
-        {% block body %}
+
+        {% block content %}
+            {% include '_carousel.html.twig' %}
         {% endblock %}
     </body>
 </html>

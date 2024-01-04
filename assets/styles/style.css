@@ -21,95 +21,12 @@ body {
     color: var(--color-five);
 }
 
-/* carousel */
-
-.image_carousel {
-    width:600px;
-    height:400px;
-}
-
-.slider-1 {
-    max-width: 600px;
-    margin: 100px auto;
-    overflow: hidden;
-    border: 1px solid #f1f1f1;
-}
-
-.slider-1 .slider {
-    animation: slider-1 50s infinite ease-in-out;
-    display: flex;
-
-
-}
-.slider-1 img {
-    background: #000;
-    flex-shrink: 0;
-    padding: 72px 0;
-    width: 100%;
-    text-align: center;
-    font-size: 45px;
-    color: #f1f1f1;
-}
-
-@keyframes slider-1 {
-    0%,
-    6% {
-        transform: translateX(0);
-    }
-    10%,
-    16% {
-        transform: translateX(-100%);
-    }
-    20%,
-    26% {
-        transform: translateX(-200%);
-    }
-    30%,
-    36% {
-        transform: translateX(-300%);
-    }
-    40%,
-    46% {
-        transform: translateX(-400%);
-    }
-    50%,
-    56% {
-        transform: translateX(-500%);
-    }
-    60%,
-    66% {
-        transform: translateX(-600%);
-    }
-    70%,
-    76% {
-        transform: translateX(-700%);
-    }
-    80%,
-    86% {
-        transform: translateX(-800%);
-    }
-    90%,
-    96% {
-        transform: translateX(-900%);
-    }
-    100% {
-        transform: translateX(-1000%);
-    }
-}
-
-/*navbar*/
 .navbar {
     background-color: var(--color-five);
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
-}
-
-.register {
-    height: 500px;
-    margin-left: 500px;
-
 }
 
 .menu-icon {
@@ -135,7 +52,6 @@ body {
 
 .links {
     display: flex;
-    font-weight: 600;
     margin-top: 10px;
     margin-right: 15px;
     border-radius: 10px;
@@ -145,10 +61,8 @@ body {
     color: var(--color-two);
     background-color: var(--color-five);
     text-decoration: none;
-    padding: 8px;
-}
-.links>a:hover {
-    color: var(--color-two-hover);
+    padding: 5px;
+    border-radius: 10px;
 }
 
 .search {
@@ -268,7 +182,7 @@ body {
 .button_arrow_back {
     width: 150px;
     height: 40px;
-    background-color: var(--color-four);
+    border-radius: 10px;
     background-color: var(--color-four);
     text-align: center;
     font-size: 20px;
@@ -403,6 +317,82 @@ body {
     box-sizing: border-box;
 }
 
+/* carousel */
+
+.image_carousel {
+    width:600px;
+    height:400px;
+  }
+  
+  .slider-1 {
+    max-width: 600px;
+    margin: 100px auto;
+    overflow: hidden;
+    border: 1px solid #f1f1f1;
+  }
+
+  .slider-1 .slider {
+    animation: slider-1 50s infinite ease-in-out;
+    display: flex;
+  
+
+  }
+  .slider-1 img {
+    background: #000;
+    flex-shrink: 0;
+    padding: 72px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 45px;
+    color: #f1f1f1;
+  }
+  
+  @keyframes slider-1 {
+    0%,
+    6% {
+      transform: translateX(0);
+    }
+    10%,
+    16% {
+      transform: translateX(-100%);
+    }
+    20%,
+    26% {
+      transform: translateX(-200%);
+    }
+    30%,
+    36% {
+      transform: translateX(-300%);
+    }
+    40%,
+    46% {
+      transform: translateX(-400%);
+    }
+    50%,
+    56% {
+      transform: translateX(-500%);
+    }
+    60%,
+    66% {
+      transform: translateX(-600%);
+    }
+    70%,
+    76% {
+      transform: translateX(-700%);
+    }
+    80%,
+    86% {
+      transform: translateX(-800%);
+    }
+    90%,
+    96% {
+      transform: translateX(-900%);
+    }
+    100% {
+      transform: translateX(-1000%);
+    }
+  } 
+
 @media only screen and (max-width: 850px) {
     .logo {
         order: 1;
@@ -434,202 +424,5 @@ body {
         padding: 10px 20px;
         border-bottom: 1px solid #555;
         background-color: #e9e9e9;
-    }
-}
-/* Styles généraux pour le slider et les vidéos */
-.videos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px; /* Augmentation de l'espacement entre les éléments */
-}
-
-.video {
-    flex-basis: calc(33.333% - 30px); /* Ajustement de la largeur en fonction du nouvel espacement */
-    max-width: calc(40% - 30px);
-}
-
-.video img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px; /* Bord arrondi, si souhaité */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
-}
-
-@media (max-width: 768px) {
-    .video {
-        flex-basis: calc(50% - 30px); /* Ajustement pour les petits écrans */
-        max-width: 70%;
-    }
-}
-
-@media (max-width: 480px) {
-    .videos {
-        display: flex;
-        flex-wrap: nowrap; /* Empêche les vidéos de passer à la ligne suivante */
-        overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
-    }
-    h2 {
-        font-size: smaller;
-    }
-    h3 {
-        font-size: smaller;
-    }
-
-
-}
-
-.video {
-    flex: 0 0 100%; /* Chaque vidéo prend 100% de la largeur du conteneur */
-    box-sizing: border-box;
-    padding: 10px;
-    transition: transform 0.5s ease;
-}
-
-/* Style pour les boutons radio (à cacher) */
-.video-slider input[type="radio"] {
-    display: none;
-}
-
-/* Lorsqu'un bouton radio est sélectionné, affiche la vidéo correspondante */
-.video-slider input[type="radio"]:nth-child(1):checked ~ .videos { transform: translateX(0%); }
-.video-slider input[type="radio"]:nth-child(2):checked ~ .videos { transform: translateX(-100%); }
-.video-slider input[type="radio"]:nth-child(3):checked ~ .videos { transform: translateX(-200%); }
-/* Ajoutez plus de règles si vous avez plus de vidéos */
-
-
-.slider-buttons {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding: 10px 0;
-    margin: 0 10px;
-}
-
-
-.videos {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    transition: transform 0.3s ease-in-out;
-}
-
-.video {
-    flex: 0 0 auto;
-    box-sizing: border-box;
-}
-
-.video h2 {
-    white-space: nowrap;  /* Empêche le texte de passer à la ligne suivante */
-    overflow: hidden;     /* Cache le texte qui dépasse du conteneur */
-    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
-    max-width: 100%;      /* Définit une largeur maximale pour le titre */
-    margin: 0 0 10px 0;   /* Ajustez les marges selon vos besoins */
-}
-
-.video h3 {
-    white-space: nowrap;  /* Empêche le texte de passer à la ligne suivante */
-    overflow: hidden;     /* Cache le texte qui dépasse du conteneur */
-    text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
-    max-width: 100%;      /* Définit une largeur maximale pour le titre */
-    margin: 0 0 10px 0;   /* Ajustez les marges selon vos besoins */
-}
-.video-detail {
-    background-color: var(--color-one);
-    color: var(--color-five);
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 100%;
-
-    h1 {
-        color: var(--color-five);
-        margin-bottom: 15px;
-    }
-
-    p {
-        margin-bottom: 10px;
-    }
-
-    .video-embed {
-        margin-bottom: 20px;
-        margin: auto; // Centre le div dans son conteneur parent
-        width: 80%;
-    
-        video {
-            border-radius: 10px; // Ajoute un bord arrondi à la vidéo
-            max-width: 100%; // S'assure que la vidéo ne dépasse pas la largeur de son conteneur
-            height: auto; // Maintient le ratio d'aspect de la vidéo
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); // Optionnel: Ajoute une légère ombre autour de la vidéo
-            width: 100%;
-        }
-    }
-
-    .video-image {
-        width: 400px;
-        height: auto;
-        border-radius: 10px;
-        cursor: pointer;
-        margin-bottom: 20px;
-    }
-}
-
-// Styles pour les petits écrans
-@media only screen and (max-width: 768px) {
-    .video-detail {
-        h1 {
-            font-size: 23px;
-        }
-        h2 {
-            font-size: smaller;
-        }
-        h3 {
-            font-size: smaller;
-        }
-        .video-embed {
-            iframe {
-                height: 300px;
-            }
-        }
-    }
-}
-.video-slider {
-    width: 100%;
-    overflow: hidden;
-    .videos {
-        display: flex;
-        justify-content: start;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 20px;
-        padding: 10px;
-    }
-    .video {
-        flex: 0 0 auto;
-        width: 500px; // Ajustez selon la taille souhaitée
-        text-align: center;
-        .video-image {
-            width: 100%;
-            border-radius: 10px;
-        }
-        h3 {
-            margin-top: 5px;
-            font-size: 1rem;
-        }
-    }
-    .slider-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        .slide-btn {
-            cursor: pointer;
-            background-color: var(--color-four);
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            color: var(--color-five);
-            &:hover {
-                background-color: var(--color-four-hover);
-            }
-        }
     }
 }
