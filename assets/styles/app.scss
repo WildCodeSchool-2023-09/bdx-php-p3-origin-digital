@@ -559,11 +559,17 @@ body {
     }
 
     .video-image {
-        width: 400px;
+        width: 450px;
         height: auto;
         border-radius: 10px;
         cursor: pointer;
         margin-bottom: 20px;
+    }
+
+    .video {
+        flex: 0 0 auto;
+        width: 480px;
+        padding: 0 10px;
     }
 }
 
@@ -586,44 +592,50 @@ body {
         }
     }
 }
+
 .video-slider {
     width: 100%;
     overflow: hidden;
-    .videos {
-        display: flex;
-        justify-content: start;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 20px;
-        padding: 10px;
-    }
-    .video {
-        flex: 0 0 auto;
-        width: 500px; // Ajustez selon la taille souhaitée
-        text-align: center;
-        .video-image {
-            width: 100%;
-            border-radius: 10px;
-        }
-        h3 {
-            margin-top: 5px;
-            font-size: 1rem;
-        }
-    }
-    .slider-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        .slide-btn {
-            cursor: pointer;
-            background-color: var(--color-four);
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            color: var(--color-five);
-            &:hover {
-                background-color: var(--color-four-hover);
-            }
-        }
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.videos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px; /* Ajustez l'espacement selon vos besoins */
+    padding: 10px;
+    flex-grow: 1;
+    margin: 0 -10px; /* Compenser le padding pour éviter le défilement horizontal */
+}
+
+.video {
+    flex: 0 0 auto;
+    width: 500px; /* Ajustez la largeur si nécessaire */
+    padding: 0 10px; /* Ajouter du padding interne pour chaque vidéo */
+}
+
+.slide-btn {
+    cursor: pointer;
+    background-color: var(--color-four);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--color-five);
+    z-index: 10;
+    &:hover {
+        background-color: var(--color-four-hover);
     }
 }
+
+.left-btn {
+    margin-right: 10px;
+}
+
+.right-btn {
+    margin-left: 10px;
+}
+
