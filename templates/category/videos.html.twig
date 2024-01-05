@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Vidéos dans la catégorie : {{ category.getName }}</h1>
 
-    <div class="videos">
+    <div class="videos-category">
                 {% for video in videos %}
                 {% if video.isIsPublic %}
                     <div class="video">

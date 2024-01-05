@@ -23,7 +23,7 @@ class UserFixtures extends Fixture
         $contributor = new User();
         $contributor->setUserName('CONTRIBUTOR');
         $contributor->setPhoto('ihiuui');
-        $contributor->setRole('ROLE_CONTRIBUTOR');
+        $contributor->setRoles(['ROLE_CONTRIBUTOR']);
         $contributor->setEmail('contributor@monsite.com');
         $hashedPassword = $this->passwordHasher->hashPassword(
             $contributor,
@@ -38,7 +38,7 @@ class UserFixtures extends Fixture
         $admin->setUserName('ADMIN');
         $admin->setPhoto('hefiuzhf');
         $admin->setEmail('admin@monsite.com');
-        $admin->setRole('ROLE_ADMIN');
+        $admin->setRoles(['ROLE_ADMIN']);
         $hashedPassword = $this->passwordHasher->hashPassword(
             $admin,
             'adminpassword'

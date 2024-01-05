@@ -31,24 +31,25 @@
     </div>
 
     <div class="video-slider">
-    <div class="videos">
-        {% for video in videos %}
-            {% if video.isIsPublic %}
-                <div class="video">
-                    <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                        <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
-                    </a>
-                    <h2>{{ video.title }}</h2>
-                </div>
-            {% endif %}
-        {% else %}
-            <p>Aucune vidéo publique disponible pour le moment.</p>
-        {% endfor %}
-    </div>
-    <div class="slider-buttons">
         <button class="slide-btn left-btn">&#8592;</button>
+
+        <div class="videos">
+            {% for video in videos %}
+                {% if video.isIsPublic %}
+                    <div class="video">
+                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                            <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
+                        </a>
+                        <h2>{{ video.title }}</h2>
+                        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <p>Aucune vidéo publique disponible pour le moment.</p>
+            {% endfor %}
+        </div>
+
         <button class="slide-btn right-btn">&#8594;</button>
     </div>
-</div>
 
 {% endblock %}
