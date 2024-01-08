@@ -74,6 +74,19 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setIsPublic(true);
         $manager->persist($video);
 
+        $video = new Video();
+        $video->setTitle('Dans les coulisses de la Ligue des Nations I FFF 2023');
+        $video->setFile('Dans les coulisses de la Ligue des Nations I FFF 2023.mp4');
+        $video->setImage('fff.jpg');
+        $video->setDescription('Découvrez comment les joueuses d\'Hervé Renard se sont imposées en Norvège, 
+        avant de faire match nul face à cette même équipe');
+        $video->addCategory($this->getReference('category_Football'));
+        $video->setDatetime(new DateTimeImmutable());
+        $slug = $this->slugger->slug($video->getTitle());
+        $video->setSlugVideo($slug);
+        $video->setIsPublic(true);
+        $manager->persist($video);
+
 
         $video = new Video();
         $video->setTitle('Le passage triomphal de Manon Hily, au championnat de France 
