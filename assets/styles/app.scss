@@ -9,7 +9,6 @@
     --color-three-hover: #d62b8d;
     --color-four-hover: #3f75c8;
     --color-five-hover: #e6e6e6;
-
 }
 
 body {
@@ -20,7 +19,12 @@ body {
     background-color: var(--color-one);
     color: var(--color-five);
 }
-
+h2 {
+    text-align: center;
+}
+h2>a {
+    color: white;
+}
 /* carousel */
 
 .image_carousel {
@@ -554,7 +558,7 @@ body {
         margin-bottom: 20px;
         margin: auto; // Centre le div dans son conteneur parent
         width: 80%;
-    
+
         video {
             border-radius: 10px; // Ajoute un bord arrondi à la vidéo
             max-width: 100%; // S'assure que la vidéo ne dépasse pas la largeur de son conteneur
