@@ -21,6 +21,27 @@ body {
     color: var(--color-five);
 }
 
+.login {
+    padding-top: 2%;
+    width: 26%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_label {
+    padding-top: 20px;
+    text-align: left;
+    height: 15px;
+    margin-bottom: 10px;
+}
+
+.register {
+    height: 500px;
+    margin-left: 500px;
+
+}
+
 /* carousel */
 
 .image_carousel {
@@ -106,11 +127,6 @@ body {
     height: 80px;
 }
 
-.register {
-    height: 500px;
-    margin-left: 500px;
-
-}
 
 .menu-icon {
     cursor: pointer;
@@ -554,7 +570,7 @@ body {
         margin-bottom: 20px;
         margin: auto; // Centre le div dans son conteneur parent
         width: 80%;
-    
+
         video {
             border-radius: 10px; // Ajoute un bord arrondi à la vidéo
             max-width: 100%; // S'assure que la vidéo ne dépasse pas la largeur de son conteneur
@@ -633,3 +649,4 @@ body {
         }
     }
 }
+
