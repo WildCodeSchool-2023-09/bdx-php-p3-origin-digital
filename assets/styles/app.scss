@@ -9,7 +9,6 @@
     --color-three-hover: #d62b8d;
     --color-four-hover: #3f75c8;
     --color-five-hover: #e6e6e6;
-
 }
 
 body {
@@ -20,7 +19,12 @@ body {
     background-color: var(--color-one);
     color: var(--color-five);
 }
-
+h2 {
+    text-align: center;
+}
+h2>a {
+    color: white;
+}
 /* carousel */
 
 .image_carousel {
@@ -528,9 +532,9 @@ body {
 
     .video-embed {
         margin-bottom: 20px;
-        margin: auto; 
+        margin: auto;
         width: 80%;
-        
+
         video {
             border-radius: 10px; // Ajoute un bord arrondi à la vidéo
             max-width: 100%; // S'assure que la vidéo ne dépasse pas la largeur de son conteneur
@@ -607,7 +611,7 @@ body {
         video {
             width: 100%; /* Les vidéos prennent toute la largeur */
             height: auto; /* Hauteur ajustée automatiquement */
-            
+
         }
     }
     h1  {
@@ -635,7 +639,7 @@ body {
 .videos-category {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row; 
+    flex-direction: row;
     align-items: center; /* Centre les vidéos horizontalement */
     gap: 20px; /* Espacement entre les vidéos */
 
@@ -654,11 +658,11 @@ body {
         h1, h2 {
             font-size: 18px; /* Taille de police réduite pour les titres */
         }
-    
+
         h3 {
             font-size: 15px;
         }
-    
+
         p {
             font-size: 12px;
         }
@@ -677,8 +681,8 @@ body {
     }
     .video-detail p {
         margin-top: -5px;
-    } 
-   
+    }
+
     .video-slider {
         /* Assurez-vous que le conteneur du slider a une largeur et un positionnement corrects */
         width: 100%;
