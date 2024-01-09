@@ -21,26 +21,87 @@ body {
     color: var(--color-five);
 }
 
+.Sign{
+    text-align: center;
+    padding-top: 59px;
+    margin-bottom: 84px;
+}
+
 .login {
-    padding-top: 2%;
-    width: 26%;
+    padding-top: 3%;
+    width: 35%;
     margin: auto;
     display: flex;
     flex-direction: column;
 }
 
 .login_label {
-    padding-top: 20px;
     text-align: left;
-    height: 15px;
-    margin-bottom: 10px;
+    font-size: 19px;
+    height: 42px;
+    margin-bottom: 45px;
+    border-radius: 11px
 }
 
-.register {
-    height: 500px;
-    margin-left: 500px;
-
+.login-label-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.btn-sign{
+    width: 105px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 21px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: auto;
+    border: solid black 1px;
+}
+
+.Signs{
+    text-align: center;
+    padding-top: 59px;
+    margin-bottom: 84px;
+}
+
+.register{
+    padding-top: 3%;
+    width: 45%;
+    margin: auto;
+}
+
+.register-form {
+    font-size: 19px;
+    height: 42px;
+    border-radius: 11px;
+    /* 0= haut, auto= droit, px= bottom, auto= gauche*/
+    margin: 0 auto 37px auto;
+    width: 542px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-register {
+    width: 105px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 21px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: auto;
+    border: solid black 1px;
+}
+
 
 /* carousel */
 

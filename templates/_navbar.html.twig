@@ -18,12 +18,12 @@
         <a href="#" class="navbar_links">Create new page</a>
         <a href="#" class="navbar_links">Categories</a>
         <a href="#" class="navbar_links">Favorites</a>
-        <a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+        <a class="nav-link" href="{{ path('app_register') }}">Registration</a>
         {% if app.user %}
             {{ app.user.email }}
-            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+            <a href="{{ path('app_logout') }}"> Logout</a>
         {% else %}
-            <a href="{{ path('app_login') }}"> Se connecter</a>
+            <a href="{{ path('app_login') }}"> Login </a>
         {% endif %}
     </div>
 </div>
