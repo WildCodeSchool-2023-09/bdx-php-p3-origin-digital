@@ -20,16 +20,16 @@ class SectionType extends AbstractType
             ->add('slugSection')
             ->add('type', EntityType::class, [
                 'class' => Type::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
             ->add('videos', EntityType::class, [
                 'class' => Video::class,
-'choice_label' => 'id',
-'multiple' => true,
+                'choice_label' => 'id',
+                'multiple' => true,
             ])
             ->add('pageSection', EntityType::class, [
                 'class' => PageSection::class,
-'choice_label' => 'id',
+                'choice_label' => 'id',
             ])
         ;
     }

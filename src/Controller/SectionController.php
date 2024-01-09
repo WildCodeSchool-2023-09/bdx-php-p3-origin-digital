@@ -71,7 +71,7 @@ class SectionController extends AbstractController
     #[Route('/{id}', name: 'app_section_delete', methods: ['POST'])]
     public function delete(Request $request, Section $section, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$section->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $section->getId(), $request->request->get('_token'))) {
             $entityManager->remove($section);
             $entityManager->flush();
         }

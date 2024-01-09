@@ -16,10 +16,9 @@ class PageType extends AbstractType
         $builder
             ->add('name')
             ->add('pageSection', EntityType::class, [
-                'class' => PageSection::class,
-'choice_label' => 'id',
-            ])
-        ;
+                    'class' => PageSection::class,
+                    'choice_label' => 'id',
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
