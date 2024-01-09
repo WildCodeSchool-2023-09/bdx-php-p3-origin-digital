@@ -6,12 +6,14 @@
     <h1>Vidéos Publiques</h1>
 
     <div class="video-slider">
+        <button class="slide-btn left-btn">&#8592;</button>
+
         <div class="videos">
             {% for video in videos %}
                 {% if video.isIsPublic %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}">
+                            <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
                         </a>
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
@@ -22,11 +24,6 @@
             {% endfor %}
         </div>
 
-        <div class="slider-buttons">
-            <button class="slide-btn left-btn">&#8592;</button>
-            <button class="slide-btn right-btn">&#8594;</button>
-        </div>
+        <button class="slide-btn right-btn">&#8594;</button>
     </div>
-  
 {% endblock %}
-

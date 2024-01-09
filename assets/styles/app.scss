@@ -281,7 +281,6 @@ body {
     color: var(--color-five);
     cursor: pointer;
     padding: 0px 5px;
-    margin: 10px;
     border: solid black 1px;
 }
 .button_validate:hover {
@@ -345,7 +344,6 @@ body {
 .button_arrow_back {
     width: 150px;
     height: 40px;
-    background-color: var(--color-four);
     background-color: var(--color-four);
     text-align: center;
     font-size: 20px;
@@ -533,29 +531,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
 }
 
-@media (max-width: 768px) {
-    .video {
-        flex-basis: calc(50% - 30px); /* Ajustement pour les petits écrans */
-        max-width: 70%;
-    }
-}
-
-@media (max-width: 480px) {
-    .videos {
-        display: flex;
-        flex-wrap: nowrap; /* Empêche les vidéos de passer à la ligne suivante */
-        overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
-    }
-    h2 {
-        font-size: smaller;
-    }
-    h3 {
-        font-size: smaller;
-    }
-
-
-}
-
 .video {
     flex: 0 0 100%; /* Chaque vidéo prend 100% de la largeur du conteneur */
     box-sizing: border-box;
@@ -629,84 +604,216 @@ body {
 
     .video-embed {
         margin-bottom: 20px;
-        margin: auto; // Centre le div dans son conteneur parent
+        margin: auto;
         width: 80%;
 
         video {
             border-radius: 10px; // Ajoute un bord arrondi à la vidéo
             max-width: 100%; // S'assure que la vidéo ne dépasse pas la largeur de son conteneur
-            height: auto; // Maintient le ratio d'aspect de la vidéo
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); // Optionnel: Ajoute une légère ombre autour de la vidéo
             width: 100%;
         }
     }
 
     .video-image {
-        width: 400px;
+        width: 450px;
         height: auto;
         border-radius: 10px;
         cursor: pointer;
         margin-bottom: 20px;
     }
-}
 
-// Styles pour les petits écrans
-@media only screen and (max-width: 768px) {
-    .video-detail {
-        h1 {
-            font-size: 23px;
-        }
-        h2 {
-            font-size: smaller;
-        }
-        h3 {
-            font-size: smaller;
-        }
-        .video-embed {
-            iframe {
-                height: 300px;
-            }
-        }
+    .video {
+        flex: 0 0 auto;
+        width: 480px;
+        padding: 0 10px;
     }
 }
+
 .video-slider {
     width: 100%;
     overflow: hidden;
-    .videos {
-        display: flex;
-        justify-content: start;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        gap: 20px;
-        padding: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.videos {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    gap: 10px; /* Ajustez l'espacement selon vos besoins */
+    padding: 10px;
+    flex-grow: 1;
+    margin: 0 -10px; /* Compenser le padding pour éviter le défilement horizontal */
+}
+
+.video {
+    flex: 0 0 auto;
+    width: 499px; /* Ajustez la largeur si nécessaire */
+    padding: 0 10px; /* Ajouter du padding interne pour chaque vidéo */
+}
+
+.slide-btn {
+    cursor: pointer;
+    background-color: var(--color-four);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: var(--color-five);
+    z-index: 10;
+    &:hover {
+        background-color: var(--color-four-hover);
     }
-    .video {
-        flex: 0 0 auto;
-        width: 500px; // Ajustez selon la taille souhaitée
-        text-align: center;
-        .video-image {
-            width: 100%;
-            border-radius: 10px;
-        }
-        h3 {
-            margin-top: 5px;
-            font-size: 1rem;
+}
+
+.left-btn {
+    margin-right: 10px;
+}
+
+.right-btn {
+    margin-left: 10px;
+}
+
+.video-detail {
+    padding: 10px; /* Réduire le padding */
+    .video-embed {
+    margin-bottom: 20px;
+        video {
+            width: 100%; /* Les vidéos prennent toute la largeur */
+            height: auto; /* Hauteur ajustée automatiquement */
+
         }
     }
-    .slider-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 10px;
-        .slide-btn {
-            cursor: pointer;
-            background-color: var(--color-four);
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            color: var(--color-five);
-            &:hover {
-                background-color: var(--color-four-hover);
+    h1  {
+        font-size: 35px; /* Taille de police réduite pour les titres */
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 23px;
+        margin-bottom: 20px;
+    }
+    .video-categories a {
+        padding: 10px; /* Réduire le padding des boutons */
+        font-size: 20px; /* Taille de police réduite pour les boutons */
+    }
+}
+
+.videos-category {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center; /* Centre les vidéos horizontalement */
+    gap: 20px; /* Espacement entre les vidéos */
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .video-detail {
+        padding: 10px; /* Réduire le padding */
+        .video-embed {
+            video {
+                width: 100%; /* Les vidéos prennent toute la largeur */
+                height: auto; /* Hauteur ajustée automatiquement */
             }
+        }
+        h1, h2 {
+            font-size: 18px; /* Taille de police réduite pour les titres */
+        }
+
+        h3 {
+            font-size: 15px;
+        }
+
+        p {
+            font-size: 12px;
+        }
+        .video-categories a {
+            padding: 5px; /* Réduire le padding des boutons */
+            font-size: 14px; /* Taille de police réduite pour les boutons */
+        }
+    }
+
+    .video-detail .video-image {
+        width: 260px;
+    }
+
+    .video-detail .video-embed video {
+        height: 250px;
+    }
+    .video-detail p {
+        margin-top: -5px;
+    }
+
+    .video-slider {
+        /* Assurez-vous que le conteneur du slider a une largeur et un positionnement corrects */
+        width: 100%;
+        overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
+    }
+
+    .videos {
+        /* Mettre en flexbox pour un alignement correct des éléments du slider */
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px; /* Espacement entre les vidéos */
+        padding: 0 5px; /* Padding réduit sur les côtés */
+    }
+
+    .video {
+        /* Réglage de la largeur et du flex-grow pour que les vidéos ne se chevauchent pas */
+        flex: 0 0 auto; /* Empêcher les vidéos de se rétrécir */
+        width: 100%; /* Largeur pleine pour chaque vidéo */
+        max-width: 300px; /* Maximum width for each video */
+    }
+
+    .video img, .video-embed video {
+        /* Assurer que les images et vidéos sont pleine largeur et s'adaptent à leur conteneur */
+        width: 100%;
+        height: auto;
+    }
+
+    .video-detail .video-embed {
+        margin-bottom: 20px;
+    }
+    .slide-btn {
+        /* Rendre les boutons de navigation du slider plus petits et mieux positionnés */
+        font-size: 12px;
+        padding: 5px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .left-btn {
+        left: 0;
+    }
+
+    .right-btn {
+        right: 0;
+    }
+
+    .videos-category .video {
+        width: 230px;
+        max-width: 100%;
+
+        h2 {
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 13px;
         }
     }
 }
