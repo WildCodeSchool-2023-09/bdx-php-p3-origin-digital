@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Video;
-use Doctrine\DBAL\Types\DateTimeImmutable;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 
 #[Route('/video', name: '')]
@@ -35,7 +35,7 @@ class VideoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $videoFile = $form->get('file')->getData();
             $imageFile = $form->get('image')->getData();
-            $video->setDatetime(new \DateTimeImmutable());
+            $video->setDatetime(new DateTimeImmutable());
 
             $slug = $slugger->slug($video->getTitle());
             $video->setSlugVideo($slug);

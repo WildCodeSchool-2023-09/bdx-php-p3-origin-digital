@@ -22,7 +22,7 @@
             <a href="#" class="navbar_links">Upload Video</a>
             <a href="#" class="navbar_links">Create new page</a>
             {% endif %}
-            <a href="#" class="navbar_links">Categories</a>
+            <a href="{{ path('app_category') }}"  class="navbar_links">Categories</a>
             <a href="#" class="navbar_links">Favorites</a>
             <a href="{{ path('app_logout') }}"> Se déconnecter</a>
         {% else %}
