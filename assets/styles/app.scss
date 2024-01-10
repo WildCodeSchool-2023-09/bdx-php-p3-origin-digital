@@ -19,9 +19,7 @@ body {
     background-color: var(--color-one);
     color: var(--color-five);
 }
-h2 {
-    text-align: center;
-}
+
 h2>a {
     color: white;
 }
@@ -210,8 +208,38 @@ h2>a {
     padding: 0px 5px;
     border: solid black 1px;
 }
+
+.button_validate>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+
 .button_validate:hover {
     background-color: var(--color-four-hover);
+}
+
+.button_add {
+    width: 150px;
+    height: 55px;
+    border-radius: 10px;
+    background-color: var(--color-two);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 5px 5px;
+    border: solid black 1px;
+}
+.button_add:hover {
+    background-color: var(--color-two-hover);
+}
+
+.button_add>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
 }
 
 .button_modify_page {
@@ -228,11 +256,19 @@ h2>a {
     margin: 10px;
     border: solid black 1px;
 }
+
+.button_modify_page>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+
 .button_modify_page:hover {
     background-color: var(--color-three-hover);
 }
 
 .button_modify {
+    text-decoration: none;
     width: 150px;
     height: 40px;
     border-radius: 10px;
@@ -245,12 +281,19 @@ h2>a {
     padding: 0px 5px;
     margin: 10px;
     border: solid black 1px;
+}
+
+.button_modify>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
 }
 .button_modify:hover {
     background-color: var(--color-four-hover);
 }
 
 .button_upload {
+    text-decoration: none;
     width: 150px;
     height: 40px;
     border-radius: 10px;
@@ -263,6 +306,12 @@ h2>a {
     padding: 0px 5px;
     margin: 10px;
     border: solid black 1px;
+}
+
+.button_upload>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
 }
 .button_upload:hover {
     background-color: var(--color-four-hover);
@@ -282,6 +331,12 @@ h2>a {
     margin: 10px;
     border: solid black 1px;
 }
+
+.button_arrow_back>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
 .button_arrow_back:hover {
     background-color: var(--color-four-hover);
 }
@@ -299,6 +354,12 @@ h2>a {
     padding: 0px 5px;
     margin: 10px;
     border: solid black 1px;
+}
+
+.button_arrow_front>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
 }
 .button_arrow_front:hover {
     background-color: var(--color-four-hover);
@@ -341,6 +402,7 @@ h2>a {
 }
 
 .button_delete {
+    text-decoration: none;
     width: 150px;
     height: 40px;
     border-radius: 10px;
@@ -352,6 +414,12 @@ h2>a {
     cursor: pointer;
     margin: 10px;
     border: solid black 1px;
+}
+
+.button_delete>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
 }
 .button_delete:hover {
     background-color: var(--color-three-hover);
@@ -643,6 +711,47 @@ h2>a {
     align-items: center; /* Centre les vidéos horizontalement */
     gap: 20px; /* Espacement entre les vidéos */
 
+}
+.categories {
+    list-style-type: none;
+}
+
+.categories>h2>a {
+    text-decoration: none;
+    color :var(--color-five)
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+   
+
+    label {
+        margin: 10px 0;
+        color: var(--color-five);
+        font-size: 18px;
+    }
+
+    label.required {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid var(--color-five);
+        border-radius: 5px;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-two);
+        }
+    }
 }
 
 @media only screen and (max-width: 600px) {

@@ -23,7 +23,7 @@
 
         <div class="video-categories">
           {% for category in video.getCategories %}
-         <a href="{{ path('category_videos', {'slugCategory': category.getSlugCategory}) }}" class="button_validate">
+            <button type="submit" class="button_validate"><a href="{{ path('category_videos', {'slugCategory': category.getSlugCategory}) }}">
                 {{ category.getName }}
             </a>
             {% endfor %}

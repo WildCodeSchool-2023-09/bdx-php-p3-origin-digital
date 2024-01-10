@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategoryController!{% endblock %}
+{% block title %}Liste des Catégories{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h1>Liste des Catégories</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% if is_granted('ROLE_ADMIN') %}
+    <button type="submit" class="button_add"><a href="{{ path('category_add') }}">Ajouter une catégorie</a></button>
+{% endif %}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Julie/Wild_Code_School/Projet-3/bdx-php-p3-origin-digital/src/Controller/CategoryController.php'|file_link(0) }}">src/Controller/CategoryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Julie/Wild_Code_School/Projet-3/bdx-php-p3-origin-digital/templates/category/index.html.twig'|file_link(0) }}">templates/category/index.html.twig</a></code></li>
-    </ul>
-</div>
+<ul>
+    {% for category in categories %}
+    <li class="categories">
+        <h2><a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a></h2>
+        {% if is_granted('ROLE_ADMIN') %}
+        <button type="submit" class="button_validate"><a href="{{ path('category_edit', {'id': category.id}) }}" >Éditer</a></button>
+        <button type="submit" class="button_delete"><a href="{{ path('category_delete', {'id': category.id}) }}"
+               onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?');">Supprimer</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
 {% endblock %}

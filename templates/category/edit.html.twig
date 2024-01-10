@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Éditer une Catégorie{% endblock %}
+
+{% block body %}
+<h1>Éditer une Catégorie</h1>
+{{ form_start(form, {'attr': {'class': 'formulaire'}}) }}
+    {{ form_widget(form) }}
+    <button class="button_validate">Mettre à jour</button>
+{{ form_end(form) }}
+{% endblock %}

@@ -5,7 +5,6 @@
 
     <div class="videos-category">
                 {% for video in videos %}
-                {% if video.isIsPublic %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
                             <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}">
@@ -13,7 +12,6 @@
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
                     </div>
-                {% endif %}
             {% else %}
                 <p>Aucune vidéo publique disponible pour le moment.</p>
             {% endfor %}
