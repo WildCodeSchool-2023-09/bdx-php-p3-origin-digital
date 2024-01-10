@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="formulaire_upload">
+        {{ form_start(form, {'attr': {'class': 'formulaire_connexion'}}) }}
+        {{ form_widget(form) }}
+        <div class="form-group text-center">
+            <button type="submit" class="button_validate">Ajoutez une vidéo</button>
+        </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
