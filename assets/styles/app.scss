@@ -19,11 +19,14 @@ body {
     background-color: var(--color-one);
     color: var(--color-five);
 }
-h2 {
-    text-align: center;
+.video_sous_ensemble {
+    width: 90%;
+    margin: 50px auto;
 }
-h2>a {
-    color: white;
+.sous_ensemble_image {
+    width: 300px;
+    height: 200px;
+    margin: 20px;
 }
 /* carousel */
 
