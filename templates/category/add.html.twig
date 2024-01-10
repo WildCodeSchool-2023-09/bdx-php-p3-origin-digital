@@ -3,9 +3,22 @@
 {% block title %}Ajouter une Catégorie{% endblock %}
 
 {% block body %}
-<h1>Ajouter une Catégorie</h1>
+<h1>Ajouter une catégorie</h1>
 {{ form_start(form, {'attr': {'class': 'formulaire'}}) }}
-    {{ form_widget(form) }}
-    <button class="button_validate">Ajouter</button>
+
+    {{ form_row(form.name) }}
+
+    <div class="video-checkboxes">
+        {{ form_label(form.video, 'Choix de la vidéo') }} {# Ajout du label ici #}
+        {% for videoField in form.video %}
+            <div class="form-check">
+                {{ form_widget(videoField) }}
+                {{ form_label(videoField) }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div><button class="button_validate">Ajouter</button></div>
+
 {{ form_end(form) }}
 {% endblock %}

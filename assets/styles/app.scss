@@ -725,34 +725,56 @@ h2>a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-   
+    padding: 50px;
+    color: var(--color-five);
+    background-color: var(--color-one-hover);
 
     label {
         margin: 10px 0;
-        color: var(--color-five);
-        font-size: 18px;
+        font-size: 20px;
+        padding: 10px;
+
+        &.required {
+            font-size: 30px;
+            font-weight: bold;
+        }
     }
 
-    label.required {
-        font-size: 25px;
-        font-weight: bold;
-    }
-
-    input, select, textarea {
+    input[type="text"], select, textarea {
         width: 100%;
         padding: 10px;
+        margin: auto;
         margin-bottom: 20px;
         border: 1px solid var(--color-five);
         border-radius: 5px;
         box-sizing: border-box;
+        font-size: 27px;
 
         &:focus {
             outline: none;
             border-color: var(--color-two);
         }
     }
+
+    .form-check {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        padding: 10px;
+
+        input[type='checkbox'] {
+            margin-right: 10px;
+        }
+
+        label {
+            margin: 0;
+            font-size: 25px;
+        }
+
+    }
 }
+
+
 
 @media only screen and (max-width: 600px) {
 
