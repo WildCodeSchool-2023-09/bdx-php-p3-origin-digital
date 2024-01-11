@@ -46,7 +46,6 @@ class VideoController extends AbstractController
                 $videoFile->move(dirname(__DIR__, 2) . '/assets/images', $newVideoName);
                 $video->setFile($newVideoName);
             }
-
             if ($imageFile) {
                 $originImageName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeImageName = $slugger->slug($originImageName);
