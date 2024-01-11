@@ -9,7 +9,7 @@
     {{ form_row(form.name) }}
 
     <div class="video-checkboxes">
-        {{ form_label(form.video, 'Choix de la vidéo') }} {# Ajout du label ici #}
+        {{ form_label(form.video, 'Choix de la vidéo') }}
         {% for videoField in form.video %}
             <div class="form-check">
                 {{ form_widget(videoField) }}

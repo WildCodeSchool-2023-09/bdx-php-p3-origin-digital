@@ -33,6 +33,7 @@ class VideoType extends AbstractType
                             'video/ogg',     // Exemple : Ogg
                             'video/x-msvideo', // Exemple : AVI
                             'video/mov',     // Exemple : mov
+                            'video/mpeg',
                         ],
                         'mimeTypesMessage' => 'Please upload a valid video',
                     ]),

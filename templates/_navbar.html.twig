@@ -1,9 +1,11 @@
 <div class="navbar" id="navbar">
+
     <div class="menu-icon" id="menu-icon">
         <span></span>
         <span></span>
         <span></span>
     </div>
+
     <div class="logo" id="logo">
         <a href="{{ path('app_home') }}">
             <img src="{{ asset('build/images/logo.png') }}">
@@ -17,17 +19,17 @@
 
     <div class="links" id="links">
         {% if app.user %}
-            <a style="color: var(--color-one);">Welcome {{ app.user.username }}</strong></a>
+            <a style="color: var(--color-one);">Welcome {{ app.user.username }}</a>
+            <a href="{{ path('app_logout') }}"> Déconnexion</a>
             {% if is_granted('ROLE_ADMIN') %}
-            <a href="#" class="navbar_links">Upload Video</a>
-            <a href="#" class="navbar_links">Create new page</a>
+                <a href="{{ path('upload_video') }}" class="navbar_links">Importer une vidéo</a>
+                <a href="#" class="navbar_links">Créer une nouvelle page</a>
             {% endif %}
-            <a href="{{ path('app_category') }}"  class="navbar_links">Categories</a>
-            <a href="#" class="navbar_links">Favorites</a>
-            <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+            <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
+            <a href="#" class="navbar_links">Favoris</a>
         {% else %}
-            <a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
-            <a href="{{ path('app_login') }}"> Se connecter</a>
+            <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
+            <a href="{{ path('app_login') }}"> Connexion </a>
         {% endif %}
     </div>
 </div>
