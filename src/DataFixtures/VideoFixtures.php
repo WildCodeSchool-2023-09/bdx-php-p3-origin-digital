@@ -91,8 +91,8 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video = new Video();
         $video->setTitle('Le passage triomphal de Manon Hily, au championnat de France 
         d\'escalade de difficulté 2023 !');
-        $video->setFile('Le passage triomphal de Manon Hily, au championnat de France 
-        d escalade de difficulté 2023 !.mp4');
+        $video->setFile('Le passage triomphal de Manon Hily au championnat de France 
+        d escalade de difficulté 2023.mp4');
         $video->setImage('escalade.webp');
         $video->setDescription('Manon Hily est devenue championne de France 2023 
         d escalade de difficulté, pour la première fois de sa carrière.');

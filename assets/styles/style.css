@@ -323,7 +323,7 @@ body {
     width:600px;
     height:400px;
   }
-  
+
   .slider-1 {
     max-width: 600px;
     margin: 100px auto;
@@ -334,7 +334,7 @@ body {
   .slider-1 .slider {
     animation: slider-1 50s infinite ease-in-out;
     display: flex;
-  
+
 
   }
   .slider-1 img {
@@ -346,7 +346,7 @@ body {
     font-size: 45px;
     color: #f1f1f1;
   }
-  
+
   @keyframes slider-1 {
     0%,
     6% {
@@ -391,7 +391,7 @@ body {
     100% {
       transform: translateX(-1000%);
     }
-  } 
+  }
 
 @media only screen and (max-width: 850px) {
     .logo {
