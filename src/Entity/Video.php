@@ -215,5 +215,4 @@ class Video
 
         return $this;
     }
-
 }

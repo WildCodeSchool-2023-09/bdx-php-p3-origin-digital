@@ -19,7 +19,7 @@
         {% if app.user %}
             <a style="color: var(--color-one);">Welcome {{ app.user.username }}</strong></a>
             {% if is_granted('ROLE_ADMIN') %}
-            <a href="#" class="navbar_links">Upload Video</a>
+            <a href="{{ path('upload_video') }}" class="navbar_links">Upload Video</a>
             <a href="#" class="navbar_links">Create new page</a>
             {% endif %}
             <a href="#" class="navbar_links">Categories</a>
