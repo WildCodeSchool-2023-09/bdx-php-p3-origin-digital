@@ -54,8 +54,10 @@ class VideoController extends AbstractController
                 $imageFile->move(dirname(__DIR__, 2) . '/assets/images', $newImageName);
                 $video->setImage($newImageName);
             }
-            $entityManager->persist($video);
-            $entityManager->flush();
+
+            dump($video);
+             $entityManager->persist($video);
+             $entityManager->flush();
         }
         return $this->render('video/upload.html.twig', [
             'form' => $form,
