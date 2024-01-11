@@ -32,6 +32,8 @@ class VideoType extends AbstractType
                             'video/webm',    // Exemple : WebM
                             'video/ogg',     // Exemple : Ogg
                             'video/x-msvideo', // Exemple : AVI
+                            'video/mov',
+                            'video/mpeg',
                         ],
                         'mimeTypesMessage' => 'Please upload a valid video',
                     ]),
