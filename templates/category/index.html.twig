@@ -3,22 +3,35 @@
 {% block title %}Liste des Catégories{% endblock %}
 
 {% block body %}
-<h1>Liste des Catégories</h1>
+    <h1>Liste des Catégories</h1>
 
-{% if is_granted('ROLE_ADMIN') %}
-    <div class="add_category"><button type="submit" class="button_add"><a href="{{ path('category_add') }}">Ajouter une catégorie</a></button></div>
-{% endif %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="add_category">
+            <button type="submit" class="button_add">
+                <a href="{{ path('category_add') }}">Ajouter une catégorie</a>
+            </button>
+        </div>
+    {% endif %}
 
-<ul>
-    {% for category in categories %}
-    <li class="categories">
-        <h2><a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a></h2>
-        {% if is_granted('ROLE_ADMIN') %}
-        <button type="submit" class="button_validate"><a href="{{ path('category_edit', {'id': category.id}) }}" >Éditer</a></button>
-        <button type="submit" class="button_delete"><a href="{{ path('category_delete', {'id': category.id}) }}"
-               onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?');">Supprimer</a>
-        {% endif %}
-    </li>
-    {% endfor %}
-</ul>
+    <ul class="category_list">
+        {% for category in categories %}
+        <li class="categories">
+            <h2>
+                <a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a>
+            </h2>
+
+            {% if is_granted('ROLE_ADMIN') %}
+                <button type="submit" class="button_validate">
+                    <a href="{{ path('category_edit', {'id': category.id}) }}" >Éditer</a>
+                </button>
+                <button type="submit" class="button_delete">
+                    <a href="{{ path('category_delete', {'id': category.id}) }}"
+                   onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?');">Supprimer</a>
+                </button>
+            {% endif %}
+
+        </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
