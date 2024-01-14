@@ -43,7 +43,7 @@ class VideoController extends AbstractController
                 $originalVideoName = pathinfo($videoFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeVideoName = $slugger->slug($originalVideoName);
                 $newVideoName = $safeVideoName . '-' . uniqid() . '.' . $videoFile->guessExtension();
-                $videoFile->move(dirname(__DIR__, 2) . '/assets/images', $newVideoName);
+                $videoFile->move(dirname(__DIR__, 2) . '/assets/videos', $newVideoName);
                 $video->setFile($newVideoName);
             }
             if ($imageFile) {
