@@ -13,9 +13,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
+#[Route('/category')]
 class CategoryController extends AbstractController
 {
-    #[Route('/category', name: 'app_category')]
+    #[Route('/', name: 'app_category')]
     public function index(CategoryRepository $categoryRepository): Response
     {
         $categories = $categoryRepository->findAll();
@@ -24,7 +25,7 @@ class CategoryController extends AbstractController
         'categories' => $categories,]);
     }
 
-    #[Route('/category/title/{slugCategory}', name: 'category_videos')]
+    #[Route('/title/{slugCategory}', name: 'category_videos')]
     public function categoryVideos(string $slugCategory, CategoryRepository $categoryRepository): Response
     {
         $category = $categoryRepository->findOneBy(['slugCategory' => $slugCategory]);
@@ -40,7 +41,7 @@ class CategoryController extends AbstractController
     }
 
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/category/add', name: 'category_add')]
+    #[Route('/add', name: 'category_add')]
     public function addCategory(
         Request $request,
         EntityManagerInterface $entityManager,
@@ -68,7 +69,7 @@ class CategoryController extends AbstractController
     }
 
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/category/delete/{id}', name: 'category_delete')]
+    #[Route('/delete/{id}', name: 'category_delete')]
     public function deleteCategory(Category $category, EntityManagerInterface $entityManager): Response
     {
         $entityManager->remove($category);
@@ -80,7 +81,7 @@ class CategoryController extends AbstractController
     }
 
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/category/edit/{id}', name: 'category_edit')]
+    #[Route('/edit/{id}', name: 'category_edit')]
     public function editCategory(Category $category, Request $request, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(CategoryType::class, $category);

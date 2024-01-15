@@ -43,18 +43,20 @@ class VideoController extends AbstractController
                 $originalVideoName = pathinfo($videoFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeVideoName = $slugger->slug($originalVideoName);
                 $newVideoName = $safeVideoName . '-' . uniqid() . '.' . $videoFile->guessExtension();
-                $videoFile->move(dirname(__DIR__, 2) . '/assets/images', $newVideoName);
+                $videoFile->move(dirname(__DIR__, 2) . '/public/upload/video', $newVideoName);
                 $video->setFile($newVideoName);
             }
             if ($imageFile) {
                 $originImageName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeImageName = $slugger->slug($originImageName);
                 $newImageName = $safeImageName . '-' . uniqid() . '-' . $imageFile->guessExtension();
-                $imageFile->move(dirname(__DIR__, 2) . '/assets/images', $newImageName);
+                $imageFile->move(dirname(__DIR__, 2) . '/public/upload/image', $newImageName);
                 $video->setImage($newImageName);
             }
             $entityManager->persist($video);
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_video');
         }
         return $this->render('video/upload.html.twig', [
             'form' => $form,
@@ -71,7 +73,7 @@ class VideoController extends AbstractController
         ]);
     }
 
-    #[Route("/video/{slugVideo}", name: "show_video")]
+    #[Route("/{slugVideo}", name: "show_video")]
     public function showVideo(SluggerInterface $slugger, Video $video, VideoRepository $videoRepository): Response
     {
         $slug = $slugger->slug($video->getTitle());
