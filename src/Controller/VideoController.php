@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\VideoType;
+use App\Service\UploadFunction;
 use App\Repository\VideoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,8 @@ use Doctrine\ORM\EntityManagerInterface;
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
 {
+    public function __construct(private UploadFunction $uploadFunction) {}
+
     #[Route('/', name: 'app_video')]
     public function index(VideoRepository $videoRepository): Response
     {
@@ -27,8 +30,12 @@ class VideoController extends AbstractController
     }
 
     #[Route('/new', name: 'upload_video')]
-    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
-    {
+    public function new(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        SluggerInterface $slugger,
+        UploadFunction $uploadFunction,
+    ): Response {
         $video = new Video();
         $form = $this->createForm(VideoType::class, $video);
         $form->handleRequest($request);
@@ -40,18 +47,10 @@ class VideoController extends AbstractController
             $slug = $slugger->slug($video->getTitle());
             $video->setSlugVideo($slug);
             if ($videoFile) {
-                $originalVideoName = pathinfo($videoFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeVideoName = $slugger->slug($originalVideoName);
-                $newVideoName = $safeVideoName . '-' . uniqid() . '.' . $videoFile->guessExtension();
-                $videoFile->move(dirname(__DIR__, 2) . '/public/upload/video', $newVideoName);
-                $video->setFile($newVideoName);
+                $video->setFile($uploadFunction->uploadFile($videoFile, '/public/upload/video', $slugger));
             }
             if ($imageFile) {
-                $originImageName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeImageName = $slugger->slug($originImageName);
-                $newImageName = $safeImageName . '-' . uniqid() . '-' . $imageFile->guessExtension();
-                $imageFile->move(dirname(__DIR__, 2) . '/public/upload/image', $newImageName);
-                $video->setImage($newImageName);
+                $video->setImage($uploadFunction->uploadFile($imageFile, '/public/upload/image', $slugger));
             }
             $entityManager->persist($video);
             $entityManager->flush();
