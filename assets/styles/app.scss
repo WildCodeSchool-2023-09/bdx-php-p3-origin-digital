@@ -121,6 +121,11 @@ h2.home_title {
 }
 
 /* carousel */
+
+.CAROUSEL_accueil{
+    display: flex;
+}
+
 .image_carousel {
     width:600px;
     height:400px;
@@ -151,8 +156,12 @@ h2.home_title {
         object-fit: cover;
         object-position: center;
     }
-}
 
+}
+.populaire h1 {
+    text-align: center;
+    padding-bottom: 70px;
+}
 @keyframes slider-1 {
     0%,
     6% {
