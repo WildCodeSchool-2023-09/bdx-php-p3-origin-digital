@@ -16,6 +16,7 @@ class PageSectionFixtures extends Fixture implements DependentFixtureInterface
         $pageSection->setSection($this->getReference('section_Championnat de France de Football'));
         $pageSection->setOrdered(1);
         $manager->persist($pageSection);
+      //  $this->addReference('pagesection_1', $pageSection);
         $manager->flush();
     }
 

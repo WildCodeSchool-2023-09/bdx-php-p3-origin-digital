@@ -86,8 +86,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video = new Video();
         $video->setTitle('HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
         Women s Champions League 2023-24');
-        $video->setFile('HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
-        Women s Champions League 2023-24.mp4');
+        $video->setFile('HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA Women s Champions League 2023-24.mp4');
         $video->setImage('ol2.jpg');
         $video->setDescription('Le 14 Novembre 2023 – Slavia Praha vs. Olympique Lyonnais |
         1e journée de l\'UEFA Women\'s Champions League 2023-2024');
