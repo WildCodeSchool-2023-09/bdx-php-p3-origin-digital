@@ -1,7 +1,7 @@
 .idea/
 .vscode/
 .DS_Store
-/public/uploads
+/public/upload
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -35,4 +35,7 @@ yarn-error.log
 ###< phpunit/phpunit ###
 
 /assets/videos
+<<<<<<< HEAD
 /public/upload
+=======
+>>>>>>> 3db83f65cf551580eb574217aa804eb9b7d052b9

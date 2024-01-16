@@ -40,7 +40,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable:true)]
     private ?string $role = null;
 
-    #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'favoris')]
+    #[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'users')]
+    #[ORM\JoinTable(name:'video_user')]
     private Collection $favoris;
 
     public function __construct()
@@ -162,22 +163,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->favoris;
     }
 
-    public function addFavori(Video $favori): static
+    public function addFavoris(Video $video): self
     {
-        if (!$this->favoris->contains($favori)) {
-            $this->favoris->add($favori);
-            $favori->addFavori($this);
+        if (!$this->favoris->contains($video)) {
+            $this->favoris[] = $video;
         }
-
         return $this;
     }
 
-    public function removeFavori(Video $favori): static
+    public function removeFavoris(Video $video): self
     {
-        if ($this->favoris->removeElement($favori)) {
-            $favori->removeFavori($this);
-        }
-
+        $this->favoris->removeElement($video);
         return $this;
     }
 }
