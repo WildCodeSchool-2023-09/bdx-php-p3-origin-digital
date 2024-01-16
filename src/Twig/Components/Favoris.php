@@ -24,7 +24,6 @@ final class Favoris
     ) {
     }
 
-
     #[LiveAction]
     public function toggle(): void
     {

@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Form\VideoType;
+use App\Service\UploadFunction;
 use App\Repository\VideoRepository;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +14,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Video;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Entity\User;
 
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
@@ -27,8 +30,12 @@ class VideoController extends AbstractController
     }
 
     #[Route('/new', name: 'upload_video')]
-    public function new(Request $request, EntityManagerInterface $entityManager, SluggerInterface $slugger): Response
-    {
+    public function new(
+        Request $request,
+        EntityManagerInterface $entityManager,
+        SluggerInterface $slugger,
+        UploadFunction $uploadFunction,
+    ): Response {
         $video = new Video();
         $form = $this->createForm(VideoType::class, $video);
         $form->handleRequest($request);
@@ -40,21 +47,15 @@ class VideoController extends AbstractController
             $slug = $slugger->slug($video->getTitle());
             $video->setSlugVideo($slug);
             if ($videoFile) {
-                $originalVideoName = pathinfo($videoFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeVideoName = $slugger->slug($originalVideoName);
-                $newVideoName = $safeVideoName . '-' . uniqid() . '.' . $videoFile->guessExtension();
-                $videoFile->move(dirname(__DIR__, 2) . '/assets/images', $newVideoName);
-                $video->setFile($newVideoName);
+                $video->setFile($uploadFunction->uploadFile($videoFile, '/public/upload/videos', $slugger));
             }
             if ($imageFile) {
-                $originImageName = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeImageName = $slugger->slug($originImageName);
-                $newImageName = $safeImageName . '-' . uniqid() . '-' . $imageFile->guessExtension();
-                $imageFile->move(dirname(__DIR__, 2) . '/assets/images', $newImageName);
-                $video->setImage($newImageName);
+                $video->setImage($uploadFunction->uploadFile($imageFile, '/public/upload/images', $slugger));
             }
             $entityManager->persist($video);
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_video');
         }
         return $this->render('video/upload.html.twig', [
             'form' => $form,
@@ -71,7 +72,7 @@ class VideoController extends AbstractController
         ]);
     }
 
-    #[Route("/video/{slugVideo}", name: "show_video")]
+    #[Route("/{slugVideo}", name: "show_video")]
     public function showVideo(SluggerInterface $slugger, Video $video, VideoRepository $videoRepository): Response
     {
         $slug = $slugger->slug($video->getTitle());
@@ -80,6 +81,17 @@ class VideoController extends AbstractController
 
         return $this->render('video/show.html.twig', [
             'video' => $video,
+            'videos' => $videos,
+        ]);
+    }
+
+    #[Route('/user/favoris', name: 'app_favoris')]
+    public function favoris(): Response
+    {
+        $user = $this->getUser();
+        $videos = $user->getfavoris();
+
+        return $this->render('video/favoris.html.twig', [
             'videos' => $videos,
         ]);
     }
