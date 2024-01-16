@@ -4,28 +4,31 @@
 
 {% block body %}
     <div class="video-detail">
-
-
         {% if video.file %}
             <div class="video-embed">
                 <video width="1280" height="720" controls>
-                    <source src="{{ asset('build/videos/' ~ video.file) }}" type="video/mp4">
+                    <source src="{{ asset('/upload/videos/' ~ video.file) }}">
                     Votre navigateur ne supporte pas les vidéos HTML5.
                 </video>
         {% else %}
             <p>URL de la vidéo non disponible.</p>
         {% endif %}
 
-        <h1>{{ video.title }}</h1> {{ component('Favoris', {video:video}) }}
-        <p><h3>{{ video.description }}</h3></p>
+
+        <h1>{{ video.title }}</h1>
+                {{ component('Favoris', {video:video}) }}
+        <p>
+            <h3>{{ video.description }}</h3>
+        </p>
 
         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
 
         <div class="video-categories">
-          {% for category in video.getCategories %}
-            <button type="submit" class="button_validate"><a href="{{ path('category_videos', {'slugCategory': category.getSlugCategory}) }}">
-                {{ category.getName }}
-            </a>
+            {% for category in video.getCategories %}
+                <button type="submit" class="button_validate">
+                    <a href="{{ path('category_videos', {'slugCategory': category.getSlugCategory}) }}">
+                    {{ category.getName }}
+                    </a>
             {% endfor %}
         </div>
     </div>
@@ -38,13 +41,11 @@
                 {% if video.isIsPublic %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
+                            <img src="{{ asset('/upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
                         </a>
                         {{ component('Favoris', {video:video}) }}
-
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
-
                     </div>
                 {% endif %}
             {% else %}
@@ -54,5 +55,4 @@
 
         <button class="slide-btn right-btn">&#8594;</button>
     </div>
-
 {% endblock %}
