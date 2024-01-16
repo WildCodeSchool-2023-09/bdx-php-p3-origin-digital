@@ -1,10 +1,10 @@
 {% if app.user %}
 <div{{ attributes }}>
-    <button data-action="live#action" data-action-name="toggle">
+    <button data-action="live#action" data-action-name="toggle" class="imgfavoris">
         {% if app.user.favoris.contains(this.video) %}
-            Enlever des favoris
+             <img src="{{ asset('build/images/Heart.JPG') }}" class="imgfavoris">
         {% else %}
-            Ajouter aux favoris
+            <img src="{{ asset('build/images/heartFull.JPG') }}" class="imgfavoris">
         {% endif %}
     </button>
 </div>

@@ -918,6 +918,23 @@ ul.category_list {
     border: 1px solid #f5c6cb;
 }
 
+.favoris {
+    display: flex;
+    justify-content: space-between;
+}
+button.imgfavoris{
+    background-color: #04104e;
+    color: #04104e;
+    height: 51px;
+    margin-top: 16px;
+    border-radius: 25px;
+}
+
+.imgfavoris {
+    height: 44px;
+    margin-top: 2px;
+}
+
 @media only screen and (max-width: 600px) {
 
     .video-detail {
@@ -1017,4 +1034,5 @@ ul.category_list {
             font-size: 13px;
         }
     }
+
 }
