@@ -36,8 +36,8 @@ class Video
     #[ORM\Column]
     private ?bool $isPublic = null;
 
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'favoris')]
-    private Collection $favoris;
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'favoris')]
+    private Collection $users;
 
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'video')]
     private Collection $categories;
@@ -47,7 +47,7 @@ class Video
 
     public function __construct()
     {
-        $this->favoris = new ArrayCollection();
+        $this->users = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->section = new ArrayCollection();
     }
@@ -144,27 +144,29 @@ class Video
     /**
      * @return Collection<int, User>
      */
-    public function getFavoris(): Collection
+    public function getUsers(): Collection
     {
-        return $this->favoris;
+        return $this->users;
     }
 
-    public function addFavori(User $favori): static
+    public function addUser(User $user): static
     {
-        if (!$this->favoris->contains($favori)) {
-            $this->favoris->add($favori);
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addFavoris($this);
         }
 
         return $this;
     }
 
-    public function removeFavori(User $favori): static
+    public function removeUser(User $user): static
     {
-        $this->favoris->removeElement($favori);
+        if ($this->users->removeElement($user)) {
+            $user->removeFavoris($this);
+        }
 
         return $this;
     }
-
     /**
      * @return Collection<int, Category>
      */
