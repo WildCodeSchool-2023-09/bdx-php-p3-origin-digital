@@ -27,13 +27,13 @@ class Section
 
     #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section')]
     private Collection $videos;
-
-    #[ORM\ManyToOne(inversedBy: 'section_id')]
-    private ?PageSection $pageSection = null;
+    #[ORM\OneToMany(mappedBy: 'section', targetEntity: PageSection::class)]
+    private Collection $pageSections;
 
     public function __construct()
     {
         $this->videos = new ArrayCollection();
+        $this->pageSections = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -104,14 +104,32 @@ class Section
         return $this;
     }
 
-    public function getPageSection(): ?PageSection
+    /**
+     * @return Collection<int, PageSection>
+     */
+    public function getPageSections(): Collection
     {
-        return $this->pageSection;
+        return $this->pageSections;
     }
 
-    public function setPageSection(?PageSection $pageSection): static
+    public function addPageSection(PageSection $pageSection): static
     {
-        $this->pageSection = $pageSection;
+        if (!$this->pageSections->contains($pageSection)) {
+            $this->pageSections->add($pageSection);
+            $pageSection->setSection($this);
+        }
+
+        return $this;
+    }
+
+    public function removePageSection(PageSection $pageSection): static
+    {
+        if ($this->pageSections->removeElement($pageSection)) {
+            // set the owning side to null (unless already changed)
+            if ($pageSection->getSection() === $this) {
+                $pageSection->setSection(null);
+            }
+        }
 
         return $this;
     }
