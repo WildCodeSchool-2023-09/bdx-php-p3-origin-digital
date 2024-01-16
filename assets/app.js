@@ -17,3 +17,6 @@ import './src/slider';
 
 //Play Video JS
 import './src/playVideo';
+
+//Carousel
+import './src/carousel-auto-slide'

@@ -17,8 +17,6 @@ use Doctrine\ORM\EntityManagerInterface;
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
 {
-    public function __construct(private UploadFunction $uploadFunction) {}
-
     #[Route('/', name: 'app_video')]
     public function index(VideoRepository $videoRepository): Response
     {

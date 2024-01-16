@@ -120,8 +120,18 @@ h2.home_title {
     margin: 20px;
 }
 
-/* carousel */
 .image_carousel {
+    width:600px;
+    height:400px;
+}
+.slider {
+    margin: 20px;
+}
+/*button.slick-arrow {
+    display: none !important;
+}*/
+/* carousel */
+/*.image_carousel {
     width:600px;
     height:400px;
 }
@@ -197,7 +207,7 @@ h2.home_title {
     100% {
         transform: translateX(-1000%);
     }
-}
+}*/
 /* end carousel*/
 
 /*navbar*/
