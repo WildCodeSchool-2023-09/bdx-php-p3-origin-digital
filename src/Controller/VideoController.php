@@ -45,10 +45,10 @@ class VideoController extends AbstractController
             $slug = $slugger->slug($video->getTitle());
             $video->setSlugVideo($slug);
             if ($videoFile) {
-                $video->setFile($uploadFunction->uploadFile($videoFile, '/public/upload/video', $slugger));
+                $video->setFile($uploadFunction->uploadFile($videoFile, '/public/upload/videos', $slugger));
             }
             if ($imageFile) {
-                $video->setImage($uploadFunction->uploadFile($imageFile, '/public/upload/image', $slugger));
+                $video->setImage($uploadFunction->uploadFile($imageFile, '/public/upload/images', $slugger));
             }
             $entityManager->persist($video);
             $entityManager->flush();
