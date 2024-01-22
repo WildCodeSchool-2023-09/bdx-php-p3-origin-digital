@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Form\VideoType;
 use App\Service\UploadFunction;
 use App\Repository\VideoRepository;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +13,6 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Video;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
-use Symfony\Entity\User;
 
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
@@ -31,12 +28,11 @@ class VideoController extends AbstractController
     }
 
     #[Route('/new', name: 'upload_video')]
-    #[IsGranted('ROLE_ADMIN')]
     public function new(
         Request $request,
         EntityManagerInterface $entityManager,
         SluggerInterface $slugger,
-        UploadFunction $uploadFunction,
+        UploadFunction $uploadFunction
     ): Response {
         $video = new Video();
         $form = $this->createForm(VideoType::class, $video);

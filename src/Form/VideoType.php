@@ -28,6 +28,7 @@ class VideoType extends AbstractType
                     new File([
                         'maxSize' => '2000000k',
                         'mimeTypes' => [
+
                             'video/mp4',
                             'video/webm',
                             'video/ogg',
