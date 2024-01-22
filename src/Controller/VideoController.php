@@ -64,7 +64,7 @@ class VideoController extends AbstractController
         ]);
     }
 
-    #[Route('/public-videos', name: 'public-videos')]
+    #[Route('/public', name: 'public-videos')]
     public function publicVideos(VideoRepository $videoRepository): Response
     {
         $videos = $videoRepository->findAllPublic();
