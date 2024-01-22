@@ -948,23 +948,7 @@ ul.category_list {
     }
 }
 
-// Bouton de soumission
-.button_validate {
-    padding: 10px 15px;
-    background-color: var(--color-two);
-    color: var(--color-five);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-    display: inline-block;
-    margin-top: 20px;
 
-    &:hover {
-        background-color: var(--color-two-hover);
-    }
-}
 
 
 
