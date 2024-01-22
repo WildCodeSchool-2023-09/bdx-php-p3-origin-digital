@@ -122,98 +122,30 @@ h2.home_title {
 }
 
 .image_carousel {
-    width:600px;
+    width:550px;
     height:400px;
 }
-.slider {
-    margin: 20px;
+
+div.carousel-container {
+    width: 90%;
+    margin: 50px auto;
 }
-/*button.slick-arrow {
+div.carousel-container > button.slick-arrow {
     display: none !important;
-}*/
-/* carousel */
-/*.image_carousel {
-    width:600px;
-    height:400px;
-}
-.slider {
-    height: 100%;
-}
-.slider-1 {
-    max-width: 600px;
-    margin: 100px auto;
-    overflow: hidden;
-    display: flex;
 }
 
-.slider-1 .slider {
-    animation: slider-1 50s infinite ease-in-out;
+.image_slider {
+    width : 400px;
+    height: 250px;
 }
-.slider-1 > div {
-    background: var(--color-one);
-    flex-shrink: 0;
-    width: 100%;
-    font-size: 45px;
-    color: #f1f1f1;
-
-    img {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        object-position: center;
-    }
-
+.lazy-slider {
+    width: 90%;
+    margin: auto;
 }
-.populaire h1 {
-    text-align: center;
-    padding-bottom: 70px;
+.lazy-slider img {
+    padding-right: 10px;
+    padding-left: 10px;
 }
-@keyframes slider-1 {
-    0%,
-    6% {
-        transform: translateX(0);
-    }
-    10%,
-    16% {
-        transform: translateX(-100%);
-    }
-    20%,
-    26% {
-        transform: translateX(-200%);
-    }
-    30%,
-    36% {
-        transform: translateX(-300%);
-    }
-    40%,
-    46% {
-        transform: translateX(-400%);
-    }
-    50%,
-    56% {
-        transform: translateX(-500%);
-    }
-    60%,
-    66% {
-        transform: translateX(-600%);
-    }
-    70%,
-    76% {
-        transform: translateX(-700%);
-    }
-    80%,
-    86% {
-        transform: translateX(-800%);
-    }
-    90%,
-    96% {
-        transform: translateX(-900%);
-    }
-    100% {
-        transform: translateX(-1000%);
-    }
-}*/
-/* end carousel*/
 
 /*navbar*/
 .navbar {
@@ -981,6 +913,23 @@ ul.category_list {
     border: 1px solid #f5c6cb;
 }
 
+.favoris {
+    display: flex;
+    justify-content: space-between;
+}
+button.imgfavoris{
+    background-color: #04104e;
+    color: #04104e;
+    height: 51px;
+    margin-top: 16px;
+    border-radius: 25px;
+}
+
+.imgfavoris {
+    height: 44px;
+    margin-top: 2px;
+}
+
 @media only screen and (max-width: 600px) {
 
     .video-detail {
@@ -1080,4 +1029,5 @@ ul.category_list {
             font-size: 13px;
         }
     }
+
 }
