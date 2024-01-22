@@ -8,12 +8,12 @@
         <h2>{{ pageSection.section.name }}</h2>
         <h2>{{ pageSection.section.type.name }}</h2>
 
-        <div class="video-slider">
+        <div class="lazy-slider">
             <button class="slide-btn left-btn" aria-label="Previous">&#8592;</button>
 
             <div class="videos">
                 {% for video in pageSection.section.videos %}
-                        <div class="video">
+                        <div class="slider">
                             <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
                                 <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
                             </a>
