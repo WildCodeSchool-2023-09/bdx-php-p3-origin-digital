@@ -13,6 +13,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Video;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
@@ -28,6 +29,7 @@ class VideoController extends AbstractController
     }
 
     #[Route('/new', name: 'upload_video')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new(
         Request $request,
         EntityManagerInterface $entityManager,
