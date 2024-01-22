@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Mes favoris :</h1>
+
+    {% for video in videos %}
+    <div>
+        <h2>{{ video.title }}</h2>
+
+        <p></p>
+
+        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">voir</a>
+    </div>
+    {% endfor %}
+
+{% endblock %}
