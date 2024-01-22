@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\VideoType;
 use App\Service\UploadFunction;
 use App\Repository\VideoRepository;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +14,8 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Video;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Entity\User;
 
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
@@ -28,6 +31,7 @@ class VideoController extends AbstractController
     }
 
     #[Route('/new', name: 'upload_video')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new(
         Request $request,
         EntityManagerInterface $entityManager,
@@ -79,6 +83,17 @@ class VideoController extends AbstractController
 
         return $this->render('video/show.html.twig', [
             'video' => $video,
+            'videos' => $videos,
+        ]);
+    }
+
+    #[Route('/user/favoris', name: 'app_favoris')]
+    public function favoris(): Response
+    {
+        $user = $this->getUser();
+        $videos = $user->getfavoris();
+
+        return $this->render('video/favoris.html.twig', [
             'videos' => $videos,
         ]);
     }
