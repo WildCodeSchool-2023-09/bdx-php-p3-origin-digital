@@ -7,7 +7,7 @@
         {% if video.file %}
             <div class="video-embed">
                 <video width="1280" height="720" controls>
-                    <source src="{{ asset('/upload/videos/' ~ video.file) }}">
+                    <source src="{{ asset('/build/videos/' ~ video.file) }}">
                     Votre navigateur ne supporte pas les vidéos HTML5.
                 </video>
         {% else %}
@@ -41,7 +41,7 @@
                 {% if video.isIsPublic %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('/upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
+                            <img src="{{ asset('/build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
                         </a>
 <
                         <h2>{{ video.title }}</h2>
