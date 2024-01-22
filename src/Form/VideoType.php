@@ -28,11 +28,12 @@ class VideoType extends AbstractType
                     new File([
                         'maxSize' => '2000000k',
                         'mimeTypes' => [
-                            'video/mp4',     // Exemple : MP4
-                            'video/webm',    // Exemple : WebM
-                            'video/ogg',     // Exemple : Ogg
-                            'video/x-msvideo', // Exemple : AVI
-                            'video/mov',     // Exemple : mov
+
+                            'video/mp4',
+                            'video/webm',
+                            'video/ogg',
+                            'video/x-msvideo',
+                            'video/mov',
                             'video/mpeg',
                         ],
                         'mimeTypesMessage' => 'Please upload a valid video',

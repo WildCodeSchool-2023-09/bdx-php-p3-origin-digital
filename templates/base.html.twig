@@ -3,32 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/png" href="{{ asset('build/images/logo.png') }}"/>
         <title>
             {% block title %}Sheplays.TV{% endblock %}
         </title>
         {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+            <link rel="icon" type="image/png" href="{{ asset('build/images/logo.png') }}"/>
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
         {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+            <script src="https://code.jquery.com/jquery-migrate-3.4.1.js"></script>
+            <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
     <body>
         {% block header %}
-        {% include '_navbar.html.twig' %}
-        {% for category, messages in app.flashes %}
-            {% for message in messages %}
-                <div class="alert alert-{{ category }}" role="alert">
-                    {{ message }}
-                </div>
+            {% include '_navbar.html.twig' %}
+            {% for category, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
         {% endblock %}
 
         {% block content %}
         {% endblock %}
-        {% block body %}{% endblock %}
+        {% block body %}
+        {% endblock %}
     </body>
 </html>

@@ -1,46 +1,88 @@
+<div class="carousel-container">
 
-<div class="slider-container slider-1">
     <div class="slider">
-        <img src="{{ asset('build/images/Musculation.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/Musculation.png') }}" class="image_carousel" alt="image">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/Course.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/Course.png') }}" class="image_carousel">
     </div class="slider">
 
     <div class="slider">
-    <img src="{{ asset('build/images/Saut.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/Saut.png') }}" class="image_carousel">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/Haies.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/Haies.png') }}" class="image_carousel">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/badminton.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/badminton.png') }}" class="image_carousel">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/beach_volley.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/beach_volley.png') }}" class="image_carousel">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/rugby.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/rugby.png') }}" class="image_carousel">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/football.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/football.png') }}" class="image_carousel">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/basket.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/basket.png') }}" class="image_carousel">
     </div>
 
     <div class="slider">
-    <img src="{{ asset('build/images/handball.png') }}" class="image_carousel">
-    </div>
-
-    <div class="slider">
-    <img src="{{ asset('build/images/Musculation.png') }}" class="image_carousel">
+        <img src="{{ asset('build/images/handball.png') }}" class="image_carousel">
     </div>
 </div>
+
+{#<div class="video-slider">#}
+{#<button class="slide-btn left-btn ">&#8592;</button>#}
+<div class="lazy-slider">
+    <div class="slider">
+        <img src="{{ asset('build/images/Musculation.png') }}" data-lazy="{{ asset('build/images/Musculation.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/Course.png') }}" data-lazy="{{ asset('build/images/Course.png') }}" class="image_slider">
+    </div class="slider">
+
+    <div class="slider">
+        <img src="{{ asset('build/images/Saut.png') }}" data-lazy="{{ asset('build/images/Saut.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/Haies.png') }}" data-lazy="{{ asset('build/images/Haies.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/badminton.png') }}" data-lazy="{{ asset('build/images/badminton.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/beach_volley.png') }}" data-lazy="{{ asset('build/images/beach_volley.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/rugby.png') }}" data-lazy="{{ asset('build/images/rugby.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/football.png') }}" data-lazy="{{ asset('build/images/football.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/basket.png') }}" data-lazy="{{ asset('build/images/basket.png') }}" class="image_slider">
+    </div>
+
+    <div class="slider">
+        <img src="{{ asset('build/images/handball.png') }}" data-lazy="{{ asset('build/images/handball.png') }}" class="image_slider">
+    </div>
+</div>
+{#<button class="slide-btn right-btn">&#8594;</button>#}
+{#</div>#}
