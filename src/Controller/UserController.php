@@ -10,7 +10,6 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class UserController extends AbstractController
 {
-
     #[Route("/export-users", name: "export_users")]
 
     public function exportUsers(EntityManagerInterface $entityManager): Response
