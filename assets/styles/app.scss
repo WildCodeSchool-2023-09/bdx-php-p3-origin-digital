@@ -886,17 +886,17 @@ ul.category_list {
     display: flex;
     justify-content: space-between;
 }
-button.imgfavoris{
-    background-color: #04104e;
-    color: #04104e;
-    height: 51px;
-    margin-top: 16px;
-    border-radius: 25px;
-}
 
 .imgfavoris {
-    height: 44px;
-    margin-top: 2px;
+    height: 50px;
+    width: 60px;
+    margin: auto;
+}
+
+.button_favoris {
+    background-color: var(--color-one);
+    border: none;
+    margin-top: 15px;
 }
 
 @media only screen and (max-width: 600px) {
