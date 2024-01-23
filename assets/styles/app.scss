@@ -622,9 +622,7 @@ div.carousel-container > button.slick-arrow {
     margin: 0 0 10px 0;   /* Ajustez les marges selon vos besoins */
 }
 
-.video h3 {
-    white-space: nowrap;  /* Empêche le texte de passer à la ligne suivante */
-    overflow: hidden;     /* Cache le texte qui dépasse du conteneur */
+.describe {
     text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
     max-width: 100%;      /* Définit une largeur maximale pour le titre */
     margin: 0 0 10px 0;   /* Ajustez les marges selon vos besoins */

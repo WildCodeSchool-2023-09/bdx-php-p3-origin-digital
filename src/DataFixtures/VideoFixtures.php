@@ -122,7 +122,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setFile('Manonhily9a.mp4');
         $video->setImage('ManonH.jpg');
         $video->setDescription('Extrait : le mini docu sur Manon Hily et son nouveau projet : Biographie. Une
-         des voies mythiques de Céüse (9a+)' );
+         des voies mythiques de Céüse (9a+)');
         $video->addCategory($this->getReference('category_Escalade'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -135,7 +135,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setFile('ufc-285-shevchenkoVSgrasso.mp4');
         $video->setImage('MMAshev.jpg');
         $video->setDescription('Valentina Shevchenko domine sa catégorie depuis des années mais a été surprise
-         par Alexa Grasso avec un étranglement à la 4e reprise.' );
+         par Alexa Grasso avec un étranglement à la 4e reprise.');
         $video->addCategory($this->getReference('category_MMA'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -148,7 +148,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setFile('amanda-nunes.mp4');
         $video->setImage('Nunes.jpg');
         $video->setDescription('Amanda Nunes, née le 30 mai 1988 à Pojuca, est une pratiquante brésilienne
-        d\'arts martiaux mixtes. Double championne à l\'Ultimate Fighting Championship' );
+        d\'arts martiaux mixtes. Double championne à l\'Ultimate Fighting Championship');
         $video->addCategory($this->getReference('category_MMA'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -162,7 +162,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setImage('Angela.jpg');
         $video->setDescription('Villanueva del Rosario, près de Malaga en Espagne. Sur « La Planta de Shiva »,
          avec Angela Eiter, une des meilleures grimpeuses de la planète. l’Autrichienne a récemment réaliser le premier
-          9b féminin ! ' );
+          9b féminin ! ');
         $video->addCategory($this->getReference('category_Escalade'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -174,7 +174,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setTitle('Serena Williams : US Open 2020');
         $video->setFile('serena-williams.mp4');
         $video->setImage('serena.jpg');
-        $video->setDescription(' Regardez le meilleur cliché de Serena Williams lors de l\'US Open 2020 ! ' );
+        $video->setDescription(' Regardez le meilleur cliché de Serena Williams lors de l\'US Open 2020 ! ');
         $video->addCategory($this->getReference('category_Tennis'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -186,7 +186,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setTitle('Magdalena Frech v Coco Gauff | Round Four | Australian Open 2024');
         $video->setFile('magdalena-frech-v-coco-gauff.mp4');
         $video->setImage('Magdalena Frech v Coco Gauff.jpg');
-        $video->setDescription('Open d’Australie 2024 en direct sur Eurosport.' );
+        $video->setDescription('Open d’Australie 2024 en direct sur Eurosport.');
         $video->addCategory($this->getReference('category_Tennis'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -199,7 +199,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setFile('iswiatek-vs-kmuchova.mp4');
         $video->setImage('garrosMuchova.jpg');
         $video->setDescription('Iga Swiatek de nouveau reine de Roland-Garros. La Polonaise, n°1 mondiale,
-        parvient à dominer la Tchèque Karolina Muchova !' );
+        parvient à dominer la Tchèque Karolina Muchova !');
         $video->addCategory($this->getReference('category_Tennis'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -211,7 +211,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setTitle('Betisier Athlétisme');
         $video->setFile('betisierAthle.mp4');
         $video->setImage('betisierathle.jpg');
-        $video->setDescription('Les meilleures chuttes de la dicipline !' );
+        $video->setDescription('Les meilleures chuttes de la dicipline !');
         $video->addCategory($this->getReference('category_Funny'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
@@ -223,7 +223,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setTitle('Betisier 1');
         $video->setFile('drole.mp4');
         $video->setImage('droles.jpg');
-        $video->setDescription('Attrapée !' );
+        $video->setDescription('Attrapée !');
         $video->addCategory($this->getReference('category_Funny'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
