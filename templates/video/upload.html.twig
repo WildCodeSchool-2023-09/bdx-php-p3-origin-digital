@@ -1,12 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Ajouter une vidéo{% endblock %}
+
 {% block body %}
-    <div class="formulaire_upload">
-        {{ form_start(form, {'attr': {'class': 'formulaire_connexion'}}) }}
-        {{ form_widget(form) }}
-        <div class="form-group text-center">
-            <button type="submit" class="button_validate">Ajoutez une vidéo</button>
-        </div>
+    <div class="register">
+        <h1 class="form-title">Ajouter une vidéo</h1>
+
+        {{ form_errors(form) }}
+
+        {{ form_start(form, {'attr': {'class': 'register'}}) }}
+        {{ form_row(form.title, {'attr': {'class': 'register-form'}}) }}
+        {{ form_row(form.file, {'attr': {'class': 'register-form'}}) }}
+        {{ form_row(form.image, {'attr': {'class': 'register-form'}}) }}
+        {{ form_row(form.description, {'attr': {'class': 'register-form'}}) }}
+        {{ form_row(form.isPublic, {'attr': {'class': 'register-form'}}) }}
+        {{ form_row(form.categories, {'attr': {'class': 'register-form'}}) }}
+
+        <button type="submit" class="btn-register">Ajouter</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}
