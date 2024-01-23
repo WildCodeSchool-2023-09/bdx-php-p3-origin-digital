@@ -9,10 +9,7 @@
         <h2>{{ pageSection.section.type.name }}</h2>
 
         <div class="lazy-slider">
-
-
-
-                {% for video in pageSection.section.videos %}
+            {% for video in pageSection.section.videos %}
                         <div class="slider">
                             <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
                                 <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
@@ -20,8 +17,8 @@
                             <h2>{{ video.title }}</h2>
                             <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
                         </div>
-                {% endfor %}
-            </div>
+            {% endfor %}
+        </div>
 
         <div>
              <button type="submit" class="button_validate">

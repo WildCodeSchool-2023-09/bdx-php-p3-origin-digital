@@ -18,7 +18,7 @@
         <h1>{{ video.title }} </h1>
                 {{ component('Favoris', {video:video}) }}
         </div>
-        <p><h3>{{ video.description }}</h3></p>
+        <a>{{ video.description }}</a>
 
         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
 
@@ -31,18 +31,14 @@
             {% endfor %}
         </div>
     </div>
-
-    <div class="video-slider">
-        <button class="slide-btn left-btn">&#8592;</button>
-
-        <div class="videos">
+<h3>Autres vidéos</h3>
+    <div class="lazy-slider">
             {% for video in videos %}
                 {% if video.isIsPublic %}
-                    <div class="video">
+                    <div class="slider">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('/build/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
+                            <img src="{{ asset('/build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
                         </a>
-<
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
                     </div>
@@ -50,8 +46,5 @@
             {% else %}
                 <p>Aucune vidéo publique disponible pour le moment.</p>
             {% endfor %}
-        </div>
-
-        <button class="slide-btn right-btn">&#8594;</button>
     </div>
 {% endblock %}
