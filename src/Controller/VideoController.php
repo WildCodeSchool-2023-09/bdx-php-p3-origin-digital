@@ -32,7 +32,7 @@ class VideoController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         SluggerInterface $slugger,
-        UploadFunction $uploadFunction,
+        UploadFunction $uploadFunction
     ): Response {
         $video = new Video();
         $form = $this->createForm(VideoType::class, $video);
@@ -79,6 +79,17 @@ class VideoController extends AbstractController
 
         return $this->render('video/show.html.twig', [
             'video' => $video,
+            'videos' => $videos,
+        ]);
+    }
+
+    #[Route('/user/favoris', name: 'app_favoris')]
+    public function favoris(): Response
+    {
+        $user = $this->getUser();
+        $videos = $user->getfavoris();
+
+        return $this->render('video/favoris.html.twig', [
             'videos' => $videos,
         ]);
     }

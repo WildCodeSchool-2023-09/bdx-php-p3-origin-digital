@@ -28,6 +28,7 @@ class VideoType extends AbstractType
                     new File([
                         'maxSize' => '2000000k',
                         'mimeTypes' => [
+
                             'video/mp4',
                             'video/webm',
                             'video/ogg',
@@ -58,7 +59,16 @@ class VideoType extends AbstractType
                 ]
             ])
             ->add('description', TextType::class)
-            ->add('isPublic', CheckboxType::class)
+            ->add('isPublic', CheckboxType::class, [
+                'required' => false, ])
+            ->add('categories', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name',
+                'multiple' => true ,
+                'expanded' => true ,
+                'by_reference' => false ,
+                'required' => false,
+            ])
         ;
     }
 
