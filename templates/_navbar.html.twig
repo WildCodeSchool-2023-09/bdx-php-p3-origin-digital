@@ -23,10 +23,12 @@
             <a href="{{ path('app_logout') }}"> Déconnexion</a>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('upload_video') }}" class="navbar_links">Importer une vidéo</a>
-                <a href="#" class="navbar_links">Créer une nouvelle page</a>
+                <a href="{{ path('global_form') }}" class="navbar_links">Créer une nouvelle page</a>
             {% endif %}
             <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
             <a href="{{ path('app_favoris') }}" class="navbar_links">Favoris</a>
+            <a href="{{ path('export_users') }}" class="navbar_links">export abonnés</a>
+
         {% else %}
             <a class="nav-link" href="{{ path('app_register') }}">Inscription</a>
             <a href="{{ path('app_login') }}"> Connexion </a>

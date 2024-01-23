@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Form\VideoType;
 use App\Service\UploadFunction;
 use App\Repository\VideoRepository;
-use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,6 +15,7 @@ use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Entity\User;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+
 
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
@@ -36,7 +36,7 @@ class VideoController extends AbstractController
         Request $request,
         EntityManagerInterface $entityManager,
         SluggerInterface $slugger,
-        UploadFunction $uploadFunction,
+        UploadFunction $uploadFunction
     ): Response {
         $video = new Video();
         $form = $this->createForm(VideoType::class, $video);
@@ -64,7 +64,7 @@ class VideoController extends AbstractController
         ]);
     }
 
-    #[Route('/public-videos', name: 'public-videos')]
+    #[Route('/public', name: 'public-videos')]
     public function publicVideos(VideoRepository $videoRepository): Response
     {
         $videos = $videoRepository->findAllPublic();

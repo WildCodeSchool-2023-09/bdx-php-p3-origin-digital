@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PageSection{% endblock %}
+
+{% block body %}
+    <h1>Edit PageSection</h1>
+
+    {{ include('page_section/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_page_section_index') }}">back to list</a>
+
+    {{ include('page_section/_delete_form.html.twig') }}
+{% endblock %}

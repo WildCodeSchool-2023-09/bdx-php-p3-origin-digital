@@ -20,6 +20,7 @@ body {
     color: var(--color-five);
 }
 
+
 .Sign{
     text-align: center;
     padding-top: 59px;
@@ -103,15 +104,16 @@ body {
     border: solid black 1px;
 }
 
-h2>a {
-    color: white;
+h2 {
+    color: var(--color-five);
+
 }
 h2.home_title {
     text-align: center;
 }
 
 .video_sous_ensemble {
-    width: 90%;
+    *width: 90%;
     margin: 50px auto;
 }
 .sous_ensemble_image {
@@ -120,31 +122,92 @@ h2.home_title {
     margin: 20px;
 }
 
+
+/* carrousel slick */
 .image_carousel {
-    width:550px;
+    width:100%;
     height:400px;
 }
 
-div.carousel-container {
-    width: 90%;
-    margin: 50px auto;
+/* fin carrousel slick */
+
+.lazy-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
-div.carousel-container > button.slick-arrow {
+.slider {
+    padding: 20px;
+    padding-top: 30px;
+}
+
+.slider>h2 {
+    font-size: 15px;
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    overflow: hidden; /* Masque le surplus de texte */
+    text-overflow: ellipsis; /* Ajoute des points de suspension (...) pour indiquer qu'il y a plus de texte */
+}
+.slider>p {
+    font-size: 10px;
+}
+
+
+.carousel-container > button.slick-arrow {
     display: none !important;
+
+/* slider-slick */
+}
+button.slick-arrow {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 30px;
+    flex: 0;
+    color: var(--color-five);
+    /*cursor: pointer;*/
+    padding: 0 5px;
+    margin: 10px;
+    border: solid black 1px;
+    text-indent: -9999px;
+    line-height: 0;
+    margin-bottom: 70px;
+}
+
+button.slick-prev.slick-arrow::after {
+    content: '<';
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+button.slick-next.slick-arrow::after {
+    content: '>';
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+
+button.slick-arrow:hover {
+    background-color: var(--color-four-hover);
+    width: 150px;
 }
 
 .image_slider {
-    width : 400px;
-    height: 250px;
+    width : 100%;
+    /*height: 250px;*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding-left: 0;
+    padding-right: 0;
+
 }
-.lazy-slider {
-    width: 90%;
-    margin: auto;
-}
-.lazy-slider img {
-    padding-right: 10px;
-    padding-left: 10px;
-}
+
+
+
+/* fin slider-slick */
 
 /*navbar*/
 .navbar {
@@ -371,7 +434,7 @@ div.carousel-container > button.slick-arrow {
     flex: 0;
     color: var(--color-five);
     cursor: pointer;
-    padding: 0px 5px;
+    padding: 0 5px;
     margin: 10px;
     border: solid black 1px;
 }
@@ -744,8 +807,8 @@ div.carousel-container > button.slick-arrow {
         margin-bottom: 20px;
     }
     .video-categories a {
-        padding: 10px; /* Réduire le padding des boutons */
-        font-size: 20px; /* Taille de police réduite pour les boutons */
+        padding: 10px;
+        font-size: 20px;
     }
 }
 
@@ -753,8 +816,8 @@ div.carousel-container > button.slick-arrow {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-items: center; /* Centre les vidéos horizontalement */
-    gap: 20px; /* Espacement entre les vidéos */
+    align-items: center;
+    gap: 20px;
 
 }
 
@@ -799,7 +862,7 @@ ul.category_list {
         }
     }
 
-    input[type="text"], select, textarea {
+    input[type="text"], select, textarea, {
         width: 100%;
         padding: 10px;
         margin: auto;
@@ -826,12 +889,69 @@ ul.category_list {
         }
 
         label {
-            margin: 0;
-            font-size: 25px;
+            margin: 10px 0;
+            font-size: 20px;
+            padding: 10px;
+
+            &.required {
+                font-size: 30px;
+                font-weight: bold;
+            }
         }
 
     }
 }
+
+.form-group {
+    margin-bottom: 20px;
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 25px;
+        color: var(--color-five);
+    }
+
+    h2 {
+        color: var(--color-five);
+        font-size: 28px;
+    }
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin: auto;
+        margin-bottom: 20px;
+        border: 1px solid var(--color-five);
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 27px;
+    }
+
+
+    .form-check {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .form-group {
+        label, input, select {
+            width: 100%;
+        }
+    }
+}
+
 .alert {
     padding: 15px;
     border-radius: 5px;

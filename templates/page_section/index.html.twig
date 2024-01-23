@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PageSection index{% endblock %}
+
+{% block body %}
+    <h1>PageSection index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ordered</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for page_section in page_sections %}
+            <tr>
+                <td>{{ page_section.id }}</td>
+                <td>{{ page_section.ordered }}</td>
+                <td>
+                    <a href="{{ path('app_page_section_show', {'id': page_section.id}) }}">show</a>
+                    <a href="{{ path('app_page_section_edit', {'id': page_section.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_page_section_new') }}">Create new</a>
+{% endblock %}

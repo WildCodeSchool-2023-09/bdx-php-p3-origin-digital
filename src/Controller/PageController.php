@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Page;
+use App\Entity\PageSection;
+use App\Entity\Section;
 use App\Form\PageType;
 use App\Repository\PageRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -43,10 +45,12 @@ class PageController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_page_show', methods: ['GET'])]
-    public function show(Page $page): Response
+    public function show(Page $page, PageSection $pageSection, Section $section): Response
     {
         return $this->render('page/show.html.twig', [
             'page' => $page,
+            'pageSection' => $pageSection,
+            'section' => $section,
         ]);
     }
 
