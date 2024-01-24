@@ -19,7 +19,7 @@
         <h1>{{ video.title }} </h1>
                 {{ component('Favoris', {video:video}) }}
         </div>
-        <p><h3>{{ video.description }}</h3></p>
+        <p class="describe">{{ video.description }}</p>
 
         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
 
