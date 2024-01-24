@@ -125,7 +125,8 @@ h2.home_title {
 /* carrousel slick */
 .image_carousel {
     width:100%;
-    height:400px;
+    height:300px;
+    border-radius: 10px;
 }
 /* fin carrousel slick */
 
@@ -618,11 +619,6 @@ button.slick-arrow:hover {
     gap: 30px; /* Augmentation de l'espacement entre les éléments */
 }
 
-.video {
-    flex-basis: calc(33.333% - 30px); /* Ajustement de la largeur en fonction du nouvel espacement */
-    max-width: calc(40% - 30px);
-}
-
 .video img {
     width: 100%;
     height: auto;
@@ -630,15 +626,6 @@ button.slick-arrow:hover {
     border-radius: 10px; /* Bord arrondi, si souhaité */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow */
 }
-
-.video {
-    flex: 0 0 100%; /* Chaque vidéo prend 100% de la largeur du conteneur */
-    box-sizing: border-box;
-    padding: 10px;
-    transition: transform 0.5s ease;
-}
-
-
 
 
 .videos {
@@ -648,10 +635,6 @@ button.slick-arrow:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-.video {
-    flex: 0 0 auto;
-    box-sizing: border-box;
-}
 
 .video h2 {
     white-space: nowrap;  /* Empêche le texte de passer à la ligne suivante */
@@ -731,7 +714,7 @@ button.slick-arrow:hover {
 
 .video {
     flex: 0 0 auto;
-    width: 499px; /* Ajustez la largeur si nécessaire */
+    width: 385px; /* Ajustez la largeur si nécessaire */
     padding: 0 10px; /* Ajouter du padding interne pour chaque vidéo */
 }
 
