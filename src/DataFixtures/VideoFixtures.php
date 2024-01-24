@@ -241,6 +241,18 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setIsPublic(true);
         $manager->persist($video);
 
+        $video = new Video();
+        $video->setTitle('Basket : encore raté...');
+        $video->setFile('basketfun.mp4');
+        $video->setImage('basketdrole.jpg');
+        $video->setDescription('WNBA 2023 Stwart VS Wilson');
+        $video->addCategory($this->getReference('category_Funny'));
+        $video->setDatetime(new DateTimeImmutable());
+        $slug = $this->slugger->slug($video->getTitle());
+        $video->setSlugVideo($slug);
+        $video->setIsPublic(true);
+        $manager->persist($video);
+
         $manager->flush();
     }
 
