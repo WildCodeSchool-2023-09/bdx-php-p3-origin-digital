@@ -35,7 +35,7 @@ class PageController extends AbstractController
             $entityManager->persist($page);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_section_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('page/new.html.twig', [

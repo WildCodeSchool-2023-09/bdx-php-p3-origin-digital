@@ -22,6 +22,7 @@ class SectionType extends AbstractType
                     'placeholder' => 'Nom de la section'
                 ]
             ])
+
             ->add('type', EntityType::class, [
                 'class' => Type::class,
                 'choice_label' => 'name',
