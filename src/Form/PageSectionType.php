@@ -15,16 +15,13 @@ class PageSectionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('ordered')
-            ->add('page', EntityType::class, [
-                'class' => Page::class,
-        'choice_label' => 'id',
+            ->add('ordered', null, [
+                'label' => 'Ordre',
             ])
             ->add('section', EntityType::class, [
                 'class' => Section::class,
-        'choice_label' => 'id',
-            ])
-        ;
+        'choice_label' => 'name',
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
