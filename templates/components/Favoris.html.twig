@@ -1,11 +1,11 @@
 {% if app.user %}
-<div{{ attributes }}>
-    <button data-action="live#action" data-action-name="toggle" class="imgfavoris">
-        {% if app.user.favoris.contains(this.video) %}
-             <img src="{{ asset('build/images/heartFull.JPG') }}" class="imgfavoris">
-        {% else %}
-            <img src="{{ asset('build/images/Heart.JPG') }}" class="imgfavoris">
-        {% endif %}
-    </button>
-</div>
+    <div {{ attributes }} class="component_favoris">
+        <button data-action="live#action" data-action-name="toggle" class="button_favoris">
+            {% if app.user.favoris.contains(this.video) %}
+                <img src="{{ asset('build/images/heartFull.JPG') }}" class="imgfavoris">
+            {% else %}
+                <img src="{{ asset('build/images/Heart.JPG') }}" class="imgfavoris">
+            {% endif %}
+        </button>
+    </div>
 {% endif %}
