@@ -45,7 +45,7 @@
                     </div>
                 {% endif %}
                 {% if  pageSection.section.type.name  == 'Grille Dynamique' %}
-                    <div class="slider">
+                    <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
                             <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
                         </a>
