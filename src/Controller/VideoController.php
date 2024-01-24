@@ -16,7 +16,6 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Entity\User;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
 {

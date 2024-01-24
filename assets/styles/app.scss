@@ -203,8 +203,6 @@ button.slick-arrow:hover {
     padding-right: 0;
 }
 
-
-
 /* fin slider-slick */
 
 /*navbar*/
@@ -642,25 +640,7 @@ button.slick-arrow:hover {
     transition: transform 0.5s ease;
 }
 
-/* Style pour les boutons radio (à cacher) */
-.video-slider input[type="radio"] {
-    display: none;
-}
 
-/* Lorsqu'un bouton radio est sélectionné, affiche la vidéo correspondante */
-.video-slider input[type="radio"]:nth-child(1):checked ~ .videos { transform: translateX(0%); }
-.video-slider input[type="radio"]:nth-child(2):checked ~ .videos { transform: translateX(-100%); }
-.video-slider input[type="radio"]:nth-child(3):checked ~ .videos { transform: translateX(-200%); }
-/* Ajoutez plus de règles si vous avez plus de vidéos */
-
-
-.slider-buttons {
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding: 10px 0;
-    margin: 0 10px;
-}
 
 
 .videos {
@@ -791,19 +771,14 @@ button.slick-arrow:hover {
     h1  {
         font-size: 35px; /* Taille de police réduite pour les titres */
     }
-
-    h2 {
-        font-size: 30px;
-    }
-
     h3 {
+        font-size: 28px;
+        margin-bottom: 0;
+    }
+    a {
         font-size: 28px;
     }
 
-    p {
-        font-size: 23px;
-        margin-bottom: 20px;
-    }
     .video-categories a {
         padding: 10px;
         font-size: 20px;
@@ -999,7 +974,10 @@ ul.category_list {
         }
 
         h3 {
-            font-size: 15px;
+            font-size:20px;
+        }
+        a{
+            font-size: 20px;
         }
 
         p {
@@ -1017,9 +995,6 @@ ul.category_list {
 
     .video-detail .video-embed video {
         height: 250px;
-    }
-    .video-detail p {
-        margin-top: -5px;
     }
 
     .video-slider {
@@ -1054,22 +1029,7 @@ ul.category_list {
     .video-detail .video-embed {
         margin-bottom: 20px;
     }
-    .slide-btn {
-        /* Rendre les boutons de navigation du slider plus petits et mieux positionnés */
-        font-size: 12px;
-        padding: 5px;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
 
-    .left-btn {
-        left: 0;
-    }
-
-    .right-btn {
-        right: 0;
-    }
 
     .videos-category .video {
         width: 230px;
