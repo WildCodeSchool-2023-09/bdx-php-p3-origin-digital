@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Mes favoris :</h1>
+    <h1>Mes favoris</h1>
 
     {% for video in videos %}
     <div>
         <h2>{{ video.title }}</h2>
+        <img src="{{ asset('/upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
 
         <p></p>
 

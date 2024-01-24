@@ -201,7 +201,6 @@ button.slick-arrow:hover {
     border-radius: 10px;
     padding-left: 0;
     padding-right: 0;
-
 }
 
 /* fin slider-slick */
@@ -664,9 +663,7 @@ button.slick-arrow:hover {
     margin: 0 0 10px 0;   /* Ajustez les marges selon vos besoins */
 }
 
-.video h3 {
-    white-space: nowrap;  /* Empêche le texte de passer à la ligne suivante */
-    overflow: hidden;     /* Cache le texte qui dépasse du conteneur */
+.describe {
     text-overflow: ellipsis; /* Ajoute des points de suspension si le texte est tronqué */
     max-width: 100%;      /* Définit une largeur maximale pour le titre */
     margin: 0 0 10px 0;   /* Ajustez les marges selon vos besoins */
@@ -916,10 +913,6 @@ ul.category_list {
     }
 }
 
-
-
-
-
 @media (max-width: 768px) {
     .form-group {
         label, input, select {
@@ -953,17 +946,17 @@ ul.category_list {
     display: flex;
     justify-content: space-between;
 }
-button.imgfavoris{
-    background-color: #04104e;
-    color: #04104e;
-    height: 51px;
-    margin-top: 16px;
-    border-radius: 25px;
-}
 
 .imgfavoris {
-    height: 44px;
-    margin-top: 2px;
+    height: 50px;
+    width: 60px;
+    margin: auto;
+}
+
+.button_favoris {
+    background-color: var(--color-one);
+    border: none;
+    margin-top: 15px;
 }
 
 @media only screen and (max-width: 600px) {

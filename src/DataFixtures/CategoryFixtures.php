@@ -20,6 +20,9 @@ class CategoryFixtures extends Fixture
         'Football',
         'Escalade',
         'Beach Volley',
+        'MMA',
+        'Tennis',
+        'Funny'
     ];
 
     public function load(ObjectManager $manager): void

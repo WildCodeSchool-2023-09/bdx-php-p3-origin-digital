@@ -12,13 +12,16 @@
                 </video>
         {% else %}
             <p>URL de la vidéo non disponible.</p>
+            </div>
         {% endif %}
 
         <div class="favoris">
         <h1>{{ video.title }} </h1>
                 {{ component('Favoris', {video:video}) }}
         </div>
-        <a>{{ video.description }}</a>
+
+        <p class="describe">{{ video.description }}</p>
+
 
         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
 
