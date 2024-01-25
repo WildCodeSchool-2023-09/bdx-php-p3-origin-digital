@@ -3,15 +3,19 @@
 {% block body %}
     <h1>Mes favoris</h1>
 
+<div class="videos-category">
     {% for video in videos %}
-    <div>
-        <h2>{{ video.title }}</h2>
-        <img src="{{ asset('/upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
-
-        <p></p>
-
-        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">voir</a>
+    <div class="video">
+        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+            <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}">
+        </a>
+        <h3>{{ video.title }}</h3>
     </div>
-    {% endfor %}
 
+    {% endfor %}
+    <div class="lienf">
+        <a href="{{ path('app_video') }}">Retour aux vidéos</a>
+    </div>
 {% endblock %}
+
+
