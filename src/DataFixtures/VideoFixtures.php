@@ -1,6 +1,5 @@
 <?php
 // src/DataFixtures/VideoFixtures.php
-
 namespace App\DataFixtures;
 
 use App\Entity\Video;
@@ -18,10 +17,9 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
     {
         $this->slugger = $slugger;
     }
-
     public function load(ObjectManager $manager): void
     {
-        $video = new Video();
+        $video = new Video();git pu
         $video->setTitle('Beach-volley : à la rencontre de Clémence Vieira et Aline Chamereau');
         $video->setFile('Beach-volley  à la rencontre de. Clémence Vieira et Aline Chamereau.mp4');
         $video->setImage('beachvolley.jpg');
