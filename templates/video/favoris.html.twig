@@ -10,12 +10,12 @@
             <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}">
         </a>
         <h3>{{ video.title }}</h3>
-        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
     </div>
 
     {% endfor %}
-
-    <a href="{{ path('app_video') }}">Retour aux vidéos</a>
-
-
+    <div class="lienf">
+        <a href="{{ path('app_video') }}">Retour aux vidéos</a>
+    </div>
 {% endblock %}
+
+

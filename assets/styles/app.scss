@@ -959,6 +959,14 @@ ul.category_list {
     margin-top: 15px;
 }
 
+.lienf >a {
+    text-align: center;
+    font-size: 20px;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+}
+
 @media only screen and (max-width: 600px) {
 
     .video-detail {
