@@ -19,7 +19,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
     }
     public function load(ObjectManager $manager): void
     {
-        $video = new Video();git pu
+        $video = new Video();
         $video->setTitle('Beach-volley : à la rencontre de Clémence Vieira et Aline Chamereau');
         $video->setFile('Beach-volley  à la rencontre de. Clémence Vieira et Aline Chamereau.mp4');
         $video->setImage('beachvolley.jpg');
