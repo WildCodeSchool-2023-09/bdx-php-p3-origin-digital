@@ -1,5 +1,4 @@
 <?php
-
 // src/DataFixtures/VideoFixtures.php
 
 namespace App\DataFixtures;
@@ -223,6 +222,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setImage('betisierathle.jpg');
         $video->setDescription('Les meilleures chuttes de la dicipline !');
         $video->addCategory($this->getReference('category_Funny'));
+        $video->addCategory($this->getReference('category_Athlétisme'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
@@ -247,11 +247,42 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setImage('basketdrole.jpg');
         $video->setDescription('WNBA 2023 Stwart VS Wilson');
         $video->addCategory($this->getReference('category_Funny'));
+        $video->addCategory($this->getReference('category_Basket'));
         $video->setDatetime(new DateTimeImmutable());
         $slug = $this->slugger->slug($video->getTitle());
         $video->setSlugVideo($slug);
         $video->setIsPublic(true);
         $manager->persist($video);
+
+        $video = new Video();
+        $video->setTitle('Football : mauvais sens.');
+        $video->setFile('footfun.mp4');
+        $video->setImage('footfun.jpg');
+        $video->setDescription('Marquer contre son camp.');
+        $video->addCategory($this->getReference('category_Funny'));
+        $video->addCategory($this->getReference('category_Football'));
+        $video->setDatetime(new DateTimeImmutable());
+        $slug = $this->slugger->slug($video->getTitle());
+        $video->setSlugVideo($slug);
+        $video->setIsPublic(true);
+        $manager->persist($video);
+
+        $video = new Video();
+        $video->setTitle('Bêtisier : Football');
+        $video->setFile('betisierfoot.mp4');
+        $video->setImage('betisierfoot1.jpg');
+        $video->setDescription('Les moments les plus drôles du foot féminin.');
+        $video->addCategory($this->getReference('category_Funny'));
+        $video->addCategory($this->getReference('category_Football'));
+        $video->setDatetime(new DateTimeImmutable());
+        $slug = $this->slugger->slug($video->getTitle());
+        $video->setSlugVideo($slug);
+        $video->setIsPublic(true);
+        $manager->persist($video);
+
+
+
+
 
         $manager->flush();
     }
