@@ -44,14 +44,13 @@ class Page
         return $this;
     }
 
-
     /**
      * @return Collection<int, PageSection>
 */
     public function getPageSections(): Collection
-{
-    return $this->pageSections;
-}
+    {
+        return $this->pageSections;
+    }
 
     public function addPageSection(PageSection $pageSection): static
     {
