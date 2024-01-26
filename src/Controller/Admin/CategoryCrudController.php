@@ -12,7 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class CategoryCrudController extends AbstractCrudController
 {
-    use Trait\hiddenButton;
+    use Trait\HiddenButton;
 
     public static function getEntityFqcn(): string
     {

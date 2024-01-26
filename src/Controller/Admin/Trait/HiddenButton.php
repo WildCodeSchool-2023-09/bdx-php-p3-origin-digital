@@ -6,9 +6,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
-trait hiddenButton
+trait HiddenButton
 {
-    public function ConfigureActions(Actions $actions): Actions
+    public function configureActions(Actions $actions): Actions
     {
         $actions
             ->disable(Action::NEW)
