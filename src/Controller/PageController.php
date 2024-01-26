@@ -7,6 +7,7 @@ use App\Entity\PageSection;
 use App\Entity\Section;
 use App\Form\PageType;
 use App\Repository\PageRepository;
+use App\Repository\PageSectionRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,12 +46,17 @@ class PageController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_page_show', methods: ['GET'])]
-    public function show(Page $page, PageSection $pageSection, Section $section): Response
+    public function show(Page $page, PageSectionRepository $repository): Response
     {
+        $pagesSections =  $repository->findBy(['page' => $page->getId()], ['ordered' => 'ASC']);
+
+        foreach ($pagesSections as $pageSection) {
+            dump($pageSection->getOrdered());
+        }
+//        $page->getPageSections()->get(0)->getOrdered()
         return $this->render('page/show.html.twig', [
             'page' => $page,
-            'pageSection' => $pageSection,
-            'section' => $section,
+            'pagesSections' => $pagesSections,
         ]);
     }
 
