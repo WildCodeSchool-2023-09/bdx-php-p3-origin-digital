@@ -7,14 +7,14 @@
         {% if video.file %}
             <div class="video-embed">
                 <video width="1280" height="720" controls>
-                    <source src="{{ asset('/upload/videos/' ~ video.file) }}">
-                    Votre navigateur ne supporte pas les vidéos HTML5.
+                    <source src="{{ asset('/build/videos/' ~ video.file) }}">
                 </video>
         {% else %}
             <p>URL de la vidéo non disponible.</p>
             </div>
         {% endif %}
 
+    <div class="infos-video">
         <div class="favoris">
         <h1>{{ video.title }} </h1>
                 {{ component('Favoris', {video:video}) }}
@@ -23,7 +23,7 @@
         <p class="describe">{{ video.description }}</p>
 
 
-        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+        <p class="date-describe">Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
 
         <div class="video-categories">
             {% for category in video.getCategories %}
@@ -31,16 +31,20 @@
                     <a href="{{ path('category_videos', {'slugCategory': category.getSlugCategory}) }}">
                     {{ category.getName }}
                     </a>
+                </button>
             {% endfor %}
         </div>
     </div>
+    </div>
+
 <h3>Autres vidéos</h3>
+    <div class="other-videos">
     <div class="lazy-slider">
             {% for video in videos %}
                 {% if video.isIsPublic %}
                     <div class="slider">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('/upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
+                            <img src="{{ asset('/build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
                         </a>
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
@@ -49,5 +53,6 @@
             {% else %}
                 <p>Aucune vidéo publique disponible pour le moment.</p>
             {% endfor %}
+    </div>
     </div>
 {% endblock %}

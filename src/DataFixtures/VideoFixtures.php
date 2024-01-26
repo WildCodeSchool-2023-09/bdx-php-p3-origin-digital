@@ -110,6 +110,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $manager->persist($video);
         $this->addReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France', $video);
 
+
         $manager->flush();
     }
 
