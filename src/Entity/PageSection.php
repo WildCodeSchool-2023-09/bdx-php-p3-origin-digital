@@ -69,4 +69,9 @@ class PageSection
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return 'Section : ' . $this->section->getName() . " - Ordre : " . $this->ordered ;
+    }
 }
