@@ -19,7 +19,7 @@ class Page
     private ?string $name = null;
 
 
-    #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class)]
+    #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class, cascade: ['persist'])]
     private Collection $pageSections;
 
 
@@ -74,5 +74,10 @@ class Page
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName();
     }
 }

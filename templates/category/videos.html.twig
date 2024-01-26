@@ -7,6 +7,7 @@
                 {% for video in videos %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+
                             <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
                         </a>
                         <h2>{{ video.title }}</h2>

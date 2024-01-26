@@ -176,4 +176,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->favoris->removeElement($video);
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getUserName();
+    }
 }
