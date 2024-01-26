@@ -3,7 +3,7 @@
     --color-two: #9c5fd8;
     --color-three: #e639ab;
     --color-four: #4a90e2;
-    --color-five: #ffffff;
+    --color-five: rgba(255, 255, 255, 0.85);
     --color-one-hover: #02032c;
     --color-two-hover: #8a43c7;
     --color-three-hover: #d62b8d;
@@ -208,7 +208,7 @@ button.slick-arrow:hover {
 
 /*navbar*/
 .navbar {
-    background-color: var(--color-five);
+    background-image: linear-gradient(to right, rgba(230, 221, 231, 0.9), rgb(246, 242, 246));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -233,7 +233,7 @@ button.slick-arrow:hover {
 .logo img {
     height: 80px;
     margin-left: 15px;
-    border-radius: 10px;
+    border-radius: 24px;
 }
 
 .links {
@@ -245,7 +245,7 @@ button.slick-arrow:hover {
 }
 
 .links a {
-    color: var(--color-two);
+    color: 04104ee0;
     background-color: var(--color-five);
     text-decoration: none;
     padding: 8px;
@@ -256,15 +256,15 @@ button.slick-arrow:hover {
 
 .search {
     display: flex;
-    margin-right: 15px;
-    width: 240px;
+    margin-right: 0px;
+    min-width: 30%;
     padding: 10px;
     box-sizing: border-box;
 }
 
 .navbar_input_search {
     flex: 1;
-    background-color: var(--color-two);
+    background-color: rgb(63 117 200 / 42%);
     color: var(--color-five);
     margin-right: 10px;
     padding: 6px;
@@ -294,6 +294,16 @@ button.slick-arrow:hover {
 .navbar_button_search span {
     display: inline-block;
     vertical-align: middle;
+}
+
+.navbar_links{
+    font-size: 18px;
+    color: #3f75c8e0;
+}
+
+.welcome{
+    font-size: 18px;
+    margin-right:72px;
 }
 
 .button_validate {
