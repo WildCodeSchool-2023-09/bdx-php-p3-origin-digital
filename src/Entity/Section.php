@@ -27,6 +27,7 @@ class Section
 
     #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section')]
     private Collection $videos;
+
     #[ORM\OneToMany(mappedBy: 'section', targetEntity: PageSection::class)]
     private Collection $pageSections;
 
@@ -132,5 +133,10 @@ class Section
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName();
     }
 }
