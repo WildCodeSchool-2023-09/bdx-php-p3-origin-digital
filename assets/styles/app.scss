@@ -1138,6 +1138,7 @@ ul.category_list {
     opacity:0.5;
 }
 
+
 .home_content {
     position: absolute;
     top: 40%;
@@ -1180,6 +1181,26 @@ ul.category_list {
      background-color: var(--color-three-hover);
  }
 
+ @media only screen and (max-width: 480px) {
+     .home_content {
+         position: absolute;
+         width: 100%;
+         top: 45%;
+         left: 24%;
+
+     }
+     .home_title {
+         font-size: 38px;
+     }
+     .home_text {
+         font-size: 15px;
+     }
+     .home_img {
+         height: 330px;
+
+     }
+ }
+
 .slick-dots {
     bottom: -25px;
     display: block;
@@ -1187,6 +1208,10 @@ ul.category_list {
     padding: 0;
     margin: 0;
     text-align: center;
+
+}
+.home_slider .slick-dots {
+    display: none !important;
 
 }
  .slick-dots li {
