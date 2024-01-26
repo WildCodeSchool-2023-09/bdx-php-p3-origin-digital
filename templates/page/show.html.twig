@@ -23,14 +23,10 @@
 
             {% for video in pageSection.section.videos %}
                 {% if  pageSection.section.type.name  == 'Hero Slider' %}
-                    <div class="slider" id="slider">
+                    <div class="slider">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
                             <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
                         </a>
-                        <div class="play-icon">
-                            <img src="{{ asset('build/images/playicon.png') }}" alt="play-icon">
-                    test
-                        </div>
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
                     </div>
