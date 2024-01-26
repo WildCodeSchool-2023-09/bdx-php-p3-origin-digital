@@ -40,7 +40,7 @@
                 {% if video.isIsPublic %}
                     <div class="slider">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('/build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
+                            <img src="{{ asset('/upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="video-image">
                         </a>
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>

@@ -3,6 +3,8 @@ $('.carousel-container').slick({
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+    dots: true,
+    adaptiveHeight: true,
     responsive: [{
         breakpoint: 1024,
         settings: {
@@ -25,6 +27,7 @@ $('.carousel-container').slick({
             slidesToScroll: 1
         }
     }
+
     ]
 });
 
@@ -32,8 +35,9 @@ $('.carousel-container').slick({
 $('.lazy-slider').slick({
     lazyLoad: 'ondemand',
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 3,
+    adaptiveHeight: true,
     responsive: [
         {
             breakpoint: 1024,
@@ -54,7 +58,7 @@ $('.lazy-slider').slick({
         {
             breakpoint: 480,
             settings: {
-                slidesToShow: 1,
+                slidesToShow: 2,
                 slidesToScroll: 1
             }
     }

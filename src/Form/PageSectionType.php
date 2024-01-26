@@ -20,7 +20,7 @@ class PageSectionType extends AbstractType
             ])
             ->add('section', EntityType::class, [
                 'class' => Section::class,
-        'choice_label' => 'name',
+                'choice_label' => 'name',
             ]);
     }
 
