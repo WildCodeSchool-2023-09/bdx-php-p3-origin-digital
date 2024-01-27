@@ -20,8 +20,11 @@ class HomeController extends AbstractController
     }
 
     #[Route('/test', name: 'test')]
-    public function test(): Response
+    public function test(VideoRepository $videoRepository): Response
     {
-        return $this->render('home/test.html.twig');
+        $videos = $videoRepository->findAllPublic();
+        return $this->render('home/test.html.twig', [
+            'video' => $videos,
+        ]);
     }
 }
