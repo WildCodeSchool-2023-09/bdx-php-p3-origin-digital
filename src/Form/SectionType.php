@@ -26,7 +26,7 @@ class SectionType extends AbstractType
             ->add('type', EntityType::class, [
                 'class' => Type::class,
                 'choice_label' => 'name',
-                'multiple' => true,
+                'multiple' => false,
                 'expanded' => true,
                 'label' => 'Type de Section'
             ])

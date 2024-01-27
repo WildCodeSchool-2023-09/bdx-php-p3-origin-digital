@@ -10,6 +10,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class TypeCrudController extends AbstractCrudController
 {
+    use Trait\HiddenButton;
+
     public static function getEntityFqcn(): string
     {
         return Type::class;

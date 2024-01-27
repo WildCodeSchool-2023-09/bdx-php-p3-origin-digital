@@ -3,7 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\PageSection;
+use App\Form\SectionType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
@@ -23,7 +25,7 @@ class PageSectionCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             IntegerField::new('ordered'),
             CollectionField::new('page'),
-            CollectionField::new('section')
+            AssociationField::new('section')
         ];
     }
 }
