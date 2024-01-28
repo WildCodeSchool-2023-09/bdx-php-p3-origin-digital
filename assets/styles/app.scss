@@ -1159,8 +1159,8 @@ ul.category_list {
          margin-bottom: 20px;
      }
      .home_container button {
-         width: 160px;
-         height: 39px;
+         width: 200px;
+         height: 49px;
          background-color: var(--color-three);
          text-align: center;
          font-size: 0p;
@@ -1170,9 +1170,6 @@ ul.category_list {
          margin: auto;
          border: solid black 1px;
 
-         a {
-             font-size: 16px;
-         }
      }
      .home_container button:hover {
          background-color: var(--color-three-hover);
@@ -1193,8 +1190,15 @@ ul.category_list {
              font-size: 15px;
          }
          .home_img {
-             height: 300px;
-
+             height: 280px;
+         }
+         .home_container button {
+             width: 160px;
+             height: 39px;
+             font-size: 0p;
+             a {
+                 font-size: 16px;
+             }
          }
      }
 
