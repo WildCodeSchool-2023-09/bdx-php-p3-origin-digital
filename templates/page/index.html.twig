@@ -15,13 +15,16 @@
         </thead>
         <tbody>
         {% for page in pages %}
+            <ul>
+                <li><a href="{{ path('app_page_show',  {id:page.id}) }}">{{ page.name }}</a></li>
+            </ul>
             <tr>
                 <td>{{ page.id }}</td>
                 <td>{{ page.name }}</td>
-                <td>
+                {#<td>
                     <a href="{{ path('app_page_show', {'id': page.id}) }}">show</a>
                     <a href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
-                </td>
+                </td>#}
             </tr>
         {% else %}
             <tr>
