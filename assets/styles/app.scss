@@ -177,7 +177,7 @@ h2.home_title {
 
     .slider {
         padding: 18.5px;
-        margin-left: -5px;
+        margin-left: 2px;
     }
     .slider>h2 {
         font-size: 11px;
@@ -1159,16 +1159,20 @@ ul.category_list {
          margin-bottom: 20px;
      }
      .home_container button {
-         width: 200px;
-         height: 45px;
+         width: 160px;
+         height: 39px;
          background-color: var(--color-three);
          text-align: center;
-         font-size: 21px;
+         font-size: 0p;
          flex: 0;
          color: var(--color-five);
          cursor: pointer;
          margin: auto;
          border: solid black 1px;
+
+         a {
+             font-size: 16px;
+         }
      }
      .home_container button:hover {
          background-color: var(--color-three-hover);
@@ -1189,7 +1193,7 @@ ul.category_list {
              font-size: 15px;
          }
          .home_img {
-             height: 330px;
+             height: 300px;
 
          }
      }
