@@ -60,19 +60,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-           {% if is_granted('ROLE_ADMIN') %}
-        <div class="bouton_admin">
-             <button type="submit" class="button_validate">
-            <a href="{{ path('app_page_section_edit', {'id': pageSection.id}) }}" >Ordre</a>
-             </button>
 
-            <button type="submit" class="button_validate">
-                <a href="{{ path('app_section_edit', {'id': section.id}) }}">Editer</a>
-            </button>
-
-            {{ include('section/_delete_form.html.twig') }}
-        </div>
-        {% endif %}
     {% endfor %}
 
     <a href="{{ path('app_page_index') }}">back to list</a>

@@ -4,11 +4,11 @@
 
 {% block body %}
     <div class="home_container">
-        <img src="{{ asset('public/images/image_index.png') }}" alt="home" class="home_img">
+        <img src="{{ asset('build/images/image_index.png') }}" alt="home" class="home_img">
         <div class="home_content">
-            <img src="{{ asset('build/images/image_index.png') }}" alt="home" class="home_img">
             <h1 class="home_title">SHE PLAYS <span>TV</span></h1>
             <p class="home_text">She Plays TV est une plateforme de vidéos de sports exclusivement féminins. </p>
+
             <div class="home_subtitle">
                 <button type="submit" class="button_validate">
                     <a href="{{ path('app_video') }}">Accéder aux vidéos</a>
@@ -19,12 +19,13 @@
     <div class="home_slider">
         <div class="carousel-container">
             {% for video in videos %}
-                    <div class="slider">
-                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
-                        </a>
-                    </div>
+                <div class="slider">
+                    <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                        <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                    </a>
+                </div>
             {% endfor %}
         </div>
     </div>
+
 {% endblock %}
