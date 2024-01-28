@@ -61,7 +61,7 @@
             {% endfor %}
         </div>
            {% if is_granted('ROLE_ADMIN') %}
-        <div class="bouton_admin">
+        {#<div class="bouton_admin">
              <button type="submit" class="button_validate">
             <a href="{{ path('app_page_section_edit', {'id': pageSection.id}) }}" >Ordre</a>
              </button>
@@ -71,7 +71,7 @@
             </button>
 
             {{ include('section/_delete_form.html.twig') }}
-        </div>
+        </div>#}
         {% endif %}
     {% endfor %}
 

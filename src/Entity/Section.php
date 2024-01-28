@@ -25,10 +25,10 @@ class Section
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
 
-    #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section')]
+    #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section', cascade: ['persist', 'remove'])]
     private Collection $videos;
 
-    #[ORM\OneToMany(mappedBy: 'section', targetEntity: PageSection::class)]
+    #[ORM\OneToMany(mappedBy: 'section', targetEntity: PageSection::class, cascade: ['persist', 'remove'])]
     private Collection $pageSections;
 
     public function __construct()

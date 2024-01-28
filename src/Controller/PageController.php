@@ -48,7 +48,7 @@ class PageController extends AbstractController
     #[Route('/{id}', name: 'app_page_show', methods: ['GET'])]
     public function show(Page $page, PageSectionRepository $repository): Response
     {
-        $pagesSections =  $repository->findBy(['page' => $page->getId()], ['ordered' => 'ASC']);
+        $pagesSections =  $repository->findBy(['page' => $page->getId()], ['ordered' => 'DESC']);
 
         foreach ($pagesSections as $pageSection) {
             dump($pageSection->getOrdered());
