@@ -18,10 +18,8 @@ class Page
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-
-    #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class, cascade: ['persist'])]
+    #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class, cascade: ['persist', 'remove'])]
     private Collection $pageSections;
-
 
     public function __construct()
     {
@@ -45,10 +43,9 @@ class Page
         return $this;
     }
 
-
     /**
      * @return Collection<int, PageSection>
-     */
+*/
     public function getPageSections(): Collection
     {
         return $this->pageSections;

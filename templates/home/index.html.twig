@@ -8,24 +8,22 @@
         <div class="home_content">
             <h1 class="home_title">SHE PLAYS <span>TV</span></h1>
             <p class="home_text">She Plays TV est une plateforme de vidéos de sports exclusivement féminins. </p>
-
             <div class="home_subtitle">
-            <button type="submit" class="button_validate">
-                <a href="{{ path('app_video') }}">Accéder aux vidéos</a>
-            </button>
+                <button type="submit" class="button_validate">
+                    <a href="{{ path('app_video') }}">Accéder aux vidéos</a>
+                </button>
             </div >
         </div>
     </div>
-
-    <div class="carousel-container">
-    {% for video in videos %}
-            <div class="slider">
-            <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
-            </a>
-            </div>
-    {% endfor %}
+    <div class="home_slider">
+        <div class="carousel-container">
+            {% for video in videos %}
+                    <div class="slider">
+                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                            <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                        </a>
+                    </div>
+            {% endfor %}
+        </div>
     </div>
-
-
 {% endblock %}

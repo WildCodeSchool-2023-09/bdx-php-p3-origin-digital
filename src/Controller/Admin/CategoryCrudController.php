@@ -5,8 +5,10 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Form\VideoType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -24,8 +26,8 @@ class CategoryCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
-            TextField::new('slug_category')->hideOnForm(),
-            CollectionField::new('video'),
+            SlugField::new('slug_category')->setTargetFieldName('name'),
+            AssociationField::new('video'),
         ];
     }
 }

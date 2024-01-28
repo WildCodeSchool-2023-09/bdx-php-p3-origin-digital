@@ -34,9 +34,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToCrud('Video', 'fas fa-video', Video::class);
         yield MenuItem::linkToCrud('Category', 'fas fa-list', Category::class);
-        yield MenuItem::linkToCrud('Page', 'fas fa-file-video', Page::class);
-        yield MenuItem::linkToCrud('PageSection', 'fas fa-table', PageSection::class);
         yield MenuItem::linkToCrud('Section', 'fas fa-section', Section::class);
-        yield MenuItem::linkToCrud('Type', 'fas fa-circle', Type::class);
+        yield MenuItem::linkToCrud('Page', 'fas fa-file-video', Page::class);
     }
 }
