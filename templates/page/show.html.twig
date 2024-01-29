@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page{% endblock %}
+{% block title %}{{ page.name }}{% endblock %}
 
 {% block body %}
     <h1>{{ page.name }}</h1>
@@ -21,6 +21,7 @@
                 videos-category
                 {% endif %}">
 
+
             {% for video in pageSection.section.videos %}
                 {% if  pageSection.section.type.name  == 'Hero Slider' %}
                     <div class="slider">
@@ -36,10 +37,6 @@
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
                             <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
                         </a>
-                        <div class="play-icon>">
-                            <img src="{{ asset('build/images/playicon.png') }}" alt="play-icon">
-
-                        </div>
                     </div>
                 {% endif %}
                 {% if  pageSection.section.type.name  == 'Carousel Dynamique' %}
