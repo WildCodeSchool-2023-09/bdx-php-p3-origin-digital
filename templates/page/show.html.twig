@@ -25,7 +25,7 @@
                 {% if  pageSection.section.type.name  == 'Hero Slider' %}
                     <div class="slider">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
                         </a>
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
@@ -34,7 +34,7 @@
                 {% if  pageSection.section.type.name  == 'Carousel Statique' %}
                     <div class="slider">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
                         </a>
                         <div class="play-icon>">
                             <img src="{{ asset('build/images/playicon.png') }}" alt="play-icon">
@@ -45,14 +45,14 @@
                 {% if  pageSection.section.type.name  == 'Carousel Dynamique' %}
                     <div class="slider">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
                         </a>
                     </div>
                 {% endif %}
                 {% if  pageSection.section.type.name  == 'Grille Dynamique' %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('build/images/' ~ video.image) }}" data-lazy="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
                         </a>
                         <h2>{{ video.title }}</h2>
                         <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
@@ -60,19 +60,6 @@
                 {% endif %}
             {% endfor %}
         </div>
-           {% if is_granted('ROLE_ADMIN') %}
-        {#<div class="bouton_admin">
-             <button type="submit" class="button_validate">
-            <a href="{{ path('app_page_section_edit', {'id': pageSection.id}) }}" >Ordre</a>
-             </button>
-
-            <button type="submit" class="button_validate">
-                <a href="{{ path('app_section_edit', {'id': section.id}) }}">Editer</a>
-            </button>
-
-            {{ include('section/_delete_form.html.twig') }}
-        </div>#}
-        {% endif %}
     {% endfor %}
 
     <a href="{{ path('app_page_index') }}">back to list</a>

@@ -25,7 +25,7 @@ class Section
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
 
-    #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'section', cascade: ['persist', 'remove'])]
     private Collection $videos;
 
     #[ORM\OneToMany(mappedBy: 'section', targetEntity: PageSection::class, cascade: ['persist', 'remove'])]
@@ -86,23 +86,23 @@ class Section
         return $this->videos;
     }
 
-    public function addVideo(Video $video): static
+    public function addVideo(Video $video): ArrayCollection|Collection
     {
         if (!$this->videos->contains($video)) {
             $this->videos->add($video);
             $video->addSection($this);
         }
 
-        return $this;
+        return $this->videos;
     }
 
-    public function removeVideo(Video $video): static
+    public function removeVideo(Video $video): ArrayCollection|Collection
     {
         if ($this->videos->removeElement($video)) {
             $video->removeSection($this);
         }
 
-        return $this;
+        return $this->videos;
     }
 
     /**
