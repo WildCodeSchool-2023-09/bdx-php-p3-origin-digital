@@ -6,6 +6,8 @@
 parameters:
     video_directory: '%kernel.project_dir%/public/upload/videos'
     image_directory: '%kernel.project_dir%/public/upload/images'
+    mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
+
 
 services:
     # default configuration for services in *this* file

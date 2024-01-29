@@ -22,10 +22,15 @@
 
         <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}">
-
+         <div>
+            <a class="connection" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
+         </div>
         <button class="btn-sign" type="submit">
             Valider
         </button>
+
         </div>
     </form>
+
+
 {% endblock %}

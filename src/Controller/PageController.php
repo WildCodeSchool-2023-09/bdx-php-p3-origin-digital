@@ -27,7 +27,7 @@ class PageController extends AbstractController
     }
 
     #[Route('/new', name: 'app_page_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, SluggerInterface $slugger,EntityManagerInterface $entityManager): Response
+    public function new(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
     {
         $page = new Page();
         $form = $this->createForm(PageType::class, $page);
