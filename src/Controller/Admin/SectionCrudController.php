@@ -5,8 +5,10 @@ namespace App\Controller\Admin;
 use App\Entity\PageSection;
 use App\Entity\Section;
 use App\Form\PageSectionType;
+use App\Form\SectionType;
 use App\Form\TypeType;
 use App\Form\VideoType;
+use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
@@ -15,6 +17,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use phpDocumentor\Reflection\Types\Collection;
 
 class SectionCrudController extends AbstractCrudController
 {
@@ -30,8 +33,8 @@ class SectionCrudController extends AbstractCrudController
             TextField::new('name'),
             SlugField::new('slug_section')->setTargetFieldName('name'),
             AssociationField::new('type'),
-            AssociationField::new('videos')
-//            CollectionField::new('pageSections')->setEntryIsComplex(),
+            AssociationField::new('videos'),
+            //CollectionField::new('videos')->setEntryType(SectionType::class)
         ];
     }
 }

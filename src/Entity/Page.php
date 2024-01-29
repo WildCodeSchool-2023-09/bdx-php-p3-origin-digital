@@ -21,6 +21,9 @@ class Page
     #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class, cascade: ['persist', 'remove'])]
     private Collection $pageSections;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slugPage = null;
+
     public function __construct()
     {
         $this->pageSections = new ArrayCollection();
@@ -76,5 +79,17 @@ class Page
     public function __toString(): string
     {
         return $this->getName();
+    }
+
+    public function getSlugPage(): ?string
+    {
+        return $this->slugPage;
+    }
+
+    public function setSlugPage(string $slugPage): static
+    {
+        $this->slugPage = $slugPage;
+
+        return $this;
     }
 }
