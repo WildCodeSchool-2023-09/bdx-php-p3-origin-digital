@@ -59,8 +59,9 @@
         </div>
     {% endfor %}
 
-    <a href="{{ path('app_page_index') }}">back to list</a>
-    <a href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
 
-    {{ include('page/_delete_form.html.twig') }}
+    <button type="submit" class="button_validate">
+    <a href="{{ path('app_page_index') }}">Retour</a>
+    </button>
+
 {% endblock %}
