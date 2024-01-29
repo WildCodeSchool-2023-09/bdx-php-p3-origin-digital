@@ -1,37 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Section index{% endblock %}
+{% block title %}Sections existantes{% endblock %}
 
 {% block body %}
-    <h1>Section index</h1>
+    <h1>Sections existantes</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>SlugSection</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for section in sections %}
-            <tr>
-                <td>{{ section.id }}</td>
-                <td>{{ section.name }}</td>
-                <td>{{ section.slugSection }}</td>
-                <td>
-                    <a href="{{ path('app_section_show', {'id': section.id}) }}">show</a>
-                    <a href="{{ path('app_section_edit', {'id': section.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% for section in sections %}
+        <div class="section">
+            <h2>{{ section.name }}</h2>
+            <p class="section_name">{{ section.type.name }}</p>
+        </div>
 
-    <a href="{{ path('app_section_new') }}">Create new</a>
+        <div class="
+                {% if  section.type.name  == 'Hero Slider' %}
+                lazy-slider
+                {% elseif  section.type.name  == 'Carousel Statique'%}
+                carousel-container
+                {% elseif  section.type.name  == 'Carousel Dynamique'%}
+                carousel-container
+                {% elseif  section.type.name  == 'Grille Dynamique' %}
+                videos-category
+                {% endif %}">
+
+            {% for video in section.videos %}
+                {% if  section.type.name  == 'Hero Slider' %}
+                    <div class="slider">
+                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
+                        </a>
+                        <h2>{{ video.title }}</h2>
+                        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+                    </div>
+                {% endif %}
+                {% if  section.type.name  == 'Carousel Statique' %}
+                    <div class="slider">
+                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                        </a>
+                    </div>
+                {% endif %}
+                {% if  section.type.name  == 'Carousel Dynamique' %}
+                    <div class="slider">
+                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                        </a>
+                    </div>
+                {% endif %}
+                {% if  section.type.name  == 'Grille Dynamique' %}
+                    <div class="video">
+                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
+                        </a>
+                        <h2>{{ video.title }}</h2>
+                        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    {% endfor %}
+
 {% endblock %}

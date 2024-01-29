@@ -9,7 +9,8 @@
         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
             <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}">
         </a>
-        <h3>{{ video.title }}</h3>
+        <h2>{{ video.title }}</h2>
+        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
     </div>
 
     {% endfor %}

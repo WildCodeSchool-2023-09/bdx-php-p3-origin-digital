@@ -14,7 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class CategoryCrudController extends AbstractCrudController
 {
-    use Trait\HiddenButton;
+    //use Trait\HiddenButton;
 
     public static function getEntityFqcn(): string
     {
