@@ -42,7 +42,7 @@ class Video
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'video')]
     private Collection $categories;
 
-    #[ORM\ManyToMany(targetEntity: Section::class, inversedBy: 'videos', cascade: ['persist'])]
+    #[ORM\ManyToMany(targetEntity: Section::class, mappedBy: 'videos', cascade: ['persist'])]
     private Collection $section;
 
     public function __construct()

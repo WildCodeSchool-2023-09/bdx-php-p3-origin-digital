@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Provider\FieldProvider;
 
@@ -27,22 +28,13 @@ class PageCrudController extends AbstractCrudController
 //       AssociationField::new()
 
         return [
-            IdField::new('id')->hideOnForm(),
+            IdField::new('id')
+                ->hideOnForm(),
             TextField::new('name'),
+            SlugField::new('slug_page')
+                ->setTargetFieldName('name'),
             CollectionField::new('pageSections')
                 ->setEntryType(PageSectionType::class),
-//            FormField::addPanel('Je fais un test')
-//                ->setFormType(PageSectionType::class),
-//            CollectionField::new('pageSections', 'TEST')
-//                   // ->setFormType()
-//                    ->s('section')->setEntryType(SectionType::class)
-
-
-                //    ->setValue('pageSection')->setEntryType(PageSectionType::class)
-//                ->setEntryType(PageSectionType::class)
-//                ->setEntryType(SectionType::class),
-//            AssociationField::new('pageSections'),
-//            Field::new('')
         ];
     }
 }

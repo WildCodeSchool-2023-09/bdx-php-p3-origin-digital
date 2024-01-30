@@ -158,6 +158,7 @@ h2.home_title {
     position: relative;
     display: flex;
     align-items: center;
+
 }
 .slider {
     padding: 20px;
@@ -177,7 +178,7 @@ h2.home_title {
 
     .slider {
         padding: 18.5px;
-        margin-left: -5px;
+        margin-left: 2px;
     }
     .slider>h2 {
         font-size: 11px;
@@ -852,7 +853,10 @@ button.slick-arrow:hover {
     align-items: center;
     gap: 20px;
     margin-top: 25px;
+}
 
+.videos-category .video {
+    width: 100%;
 }
 
 @media only screen and (max-width: 480px) {
@@ -1055,6 +1059,18 @@ ul.category_list {
         margin-left: 10px;
     }
 
+    .videos-category .video {
+        width: 150px;
+
+        h2 {
+            font-size: 11px;
+        }
+
+        p {
+            font-size: 6px;
+        }
+    }
+
 }
 
 .video-slider {
@@ -1074,22 +1090,8 @@ ul.category_list {
 .video {
     flex: 0 0 auto;
     width: 100%;
-    max-width: 300px;
+    max-width: 440px;
 }
-
-
-.videos-category .video {
-    width: 150px;
-
-    h2 {
-        font-size: 11px;
-        }
-
-    p {
-        font-size: 6px;
-    }
-}
-
 
 
 .button_admin button {
@@ -1109,24 +1111,30 @@ ul.category_list {
      }
  }
 
+ .section-up {
+     h2 {
+         font-size: 30px;
+         margin-left: 15px;
+         margin-bottom: -10px;
+     }
+ }
+
  @media only screen and (max-width: 480px) {
 
-     .section>h2 {
+     .section > h2 {
          font-size: 15px;
      }
-
  }
+
 .home_container {
     position: relative;
-
-
 }
 
 .home_img {
     width: 100%;
     height: auto;
     display: block;
-    opacity:0.5;
+    opacity: 0.5;
 }
 
 
@@ -1158,57 +1166,65 @@ ul.category_list {
 }
 .home_container button {
     width: 200px;
-    height: 45px;
+    height: 49px;
     background-color: var(--color-three);
     text-align: center;
-    font-size: 21px;
+    font-size: 0p;
     flex: 0;
     color: var(--color-five);
     cursor: pointer;
     margin: auto;
     border: solid black 1px;
 }
- .home_container button:hover {
-     background-color: var(--color-three-hover);
- }
 
- @media only screen and (max-width: 480px) {
-     .home_content {
-         position: absolute;
-         width: 100%;
-         top: 45%;
-         left: 24%;
-
-     }
-     .home_title {
-         font-size: 38px;
-     }
-     .home_text {
-         font-size: 15px;
-     }
-     .home_img {
-         height: 330px;
-
-     }
- }
-
-.slick-dots {
-    bottom: -25px;
-    display: block;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-
+.home_container button:hover {
+    background-color: var(--color-three-hover);
 }
+
+@media only screen and (max-width: 480px) {
+    .home_content {
+        position: absolute;
+        width: 100%;
+        top: 45%;
+        left: 24%;
+    }
+
+    .home_title {
+        font-size: 38px;
+    }
+    .home_text {
+        font-size: 15px;
+    }
+    .home_img {
+        height: 280px;
+    }
+    .home_container button {
+        width: 160px;
+        height: 39px;
+        font-size: 0p;
+        a {
+            font-size: 16px;
+        }
+    }
+}
+ .slick-dots {
+     bottom: -25px;
+     display: block;
+     width: 100%;
+     padding: 0;
+     margin: 0;
+     text-align: center;
+ }
+
 .home_slider .slick-dots {
     display: none !important;
-
 }
+
  .slick-dots li {
-    display: inline-block;
+     display: inline-block;
      gap: 10px;
  }
+
 .slick-dots li button {
     background-color: var(--color-five-hover);
     height: 20px;
@@ -1217,12 +1233,13 @@ ul.category_list {
     overflow: hidden;
     border-radius: 50%;
     cursor: pointer;
-    border:none;
+    border: none;
     margin: 30px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     opacity: 0.7;
 
 }
+
 @media only screen and (max-width: 480px) {
     .slick-dots li button {
         height: 10px;
@@ -1230,20 +1247,17 @@ ul.category_list {
         margin: 10px;
     }
 }
-.slick-dots li.slick-active button {
-    background-color: var(--color-five);
-    opacity: 1;
-}
- .play-icon {
-     width: 100%;
-     height: 100%;
-     display: none !important;
+
+ .slick-dots li.slick-active button {
+     background-color: var(--color-five);
+     opacity: 1;
+ }
+
+ .section_name {
+     margin-left: 15px;
+     font-size: 28px;
+     margin-bottom: 0;
  }
 
 
 
- #slider:hover {
-     .play-icon {
-         display: block;
-     }
- }

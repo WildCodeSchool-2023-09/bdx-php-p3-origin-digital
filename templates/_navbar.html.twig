@@ -12,12 +12,6 @@
         </a>
     </div>
 
- {#   <div class="search" id="search">
-        <input type="text" class="navbar_input_search" placeholder="Search">
-        <button type="submit" class="navbar_button_search"><span>GO</span>
-            <a href="{{ path('app_search') }}"</a></button>
-    </div>
-    #}
 
     <form action="{{ path('app_search') }}" method="post" class="search" id="search">
         <input type="text" name="search" class="navbar_input_search" placeholder="Recherche" required="required">
@@ -31,7 +25,7 @@
             <a href="{{ path('app_logout') }}" class="navbar_links"> Déconnexion</a>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('upload_video') }}" class="navbar_links">Import vidéo</a>
-                <a href="/admin" class="navbar_links">Gestion des pages</a>
+                <a href="{{ path('admin') }}" class="navbar_links" target="_blank">Gestion des pages</a>
             {% endif %}
             <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
             <a href="{{ path('app_favoris') }}" class="navbar_links">Favoris</a>
