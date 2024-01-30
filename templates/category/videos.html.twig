@@ -5,6 +5,7 @@
 
     <div class="videos-category">
                 {% for video in videos %}
+                    {% if video.isPublic or (video.isPublic == false and app.user is not null) %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
 
@@ -15,6 +16,7 @@
                     </div>
             {% else %}
                 <p>Aucune vidéo publique disponible pour le moment.</p>
+                {% endif %}
             {% endfor %}
 
     </div>
