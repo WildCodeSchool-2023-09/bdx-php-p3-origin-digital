@@ -40,7 +40,7 @@ class Video
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'favoris')]
     private Collection $users;
 
-    #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'video')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'video')]
     private Collection $categories;
 
     #[ORM\ManyToMany(targetEntity: Section::class, mappedBy: 'videos', cascade: ['persist'])]

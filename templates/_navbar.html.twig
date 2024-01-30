@@ -29,6 +29,7 @@
             <a href="{{ path('app_favoris') }}" class="navbar_links">Favoris</a>
             <a href="{{ path('app_logout') }}" class="navbar_links">Déconnexion</a>
         {% else %}
+            <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
             <a class="navbar_links" href="{{ path('app_register') }}">Inscription</a>
             <a href="{{ path('app_login') }}" class="navbar_links"> Connexion </a>
         {% endif %}

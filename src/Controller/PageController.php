@@ -8,6 +8,8 @@ use App\Entity\Section;
 use App\Form\PageType;
 use App\Repository\PageRepository;
 use App\Repository\PageSectionRepository;
+use App\Repository\SectionRepository;
+use App\Repository\VideoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,15 +50,15 @@ class PageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_page_show', methods: ['GET'])]
-    public function show(Page $page, PageSectionRepository $repository): Response
+    #[Route('/{slugPage}', name: 'app_page_show', methods: ['GET'])]
+    public function show(Page $page, PageSectionRepository $repository, PageRepository $pageRepository): Response
     {
-        $pagesSections =  $repository->findBy(['page' => $page->getId()], ['ordered' => 'DESC']);
-
-        foreach ($pagesSections as $pageSection) {
-            dump($pageSection->getOrdered());
-        }
-//        $page->getPageSections()->get(0)->getOrdered()
+//        $page = $pageRepository->findPageWhereVideoIsPublic($page->getId());
+//        return $this->render('page/show.html.twig', [
+//            'page' => $page,
+//            'pagesSections' => $page->getPageSections(),
+//        ]);
+        $pagesSections =  $repository->findBy(['page' => $page->getId()], ['ordered' => 'ASC']);
         return $this->render('page/show.html.twig', [
             'page' => $page,
             'pagesSections' => $pagesSections,
