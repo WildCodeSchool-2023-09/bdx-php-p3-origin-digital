@@ -6,6 +6,7 @@ use App\Repository\VideoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
@@ -50,6 +51,7 @@ class Video
         $this->users = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->section = new ArrayCollection();
+        $this->datetime = new \DateTimeImmutable();
     }
 
     public function getId(): ?int
