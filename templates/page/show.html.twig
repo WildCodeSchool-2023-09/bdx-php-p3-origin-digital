@@ -23,37 +23,39 @@
 
 
             {% for video in pageSection.section.videos %}
-                {% if  pageSection.section.type.name  == 'Hero Slider' %}
-                    <div class="slider">
-                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
-                        </a>
-                        <h2>{{ video.title }}</h2>
-                        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
-                    </div>
-                {% endif %}
-                {% if  pageSection.section.type.name  == 'Carousel Statique' %}
-                    <div class="slider">
-                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
-                        </a>
-                    </div>
-                {% endif %}
-                {% if  pageSection.section.type.name  == 'Carousel Dynamique' %}
-                    <div class="slider">
-                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
-                        </a>
-                    </div>
-                {% endif %}
-                {% if  pageSection.section.type.name  == 'Grille Dynamique' %}
-                    <div class="video">
-                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                            <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
-                        </a>
-                        <h2>{{ video.title }}</h2>
-                        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
-                    </div>
+                {% if video.isPublic or (video.isPublic == false and app.user is not null) %}
+                    {% if  pageSection.section.type.name  == 'Hero Slider' %}
+                        <div class="slider">
+                            <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                                <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_slider">
+                            </a>
+                            <h2>{{ video.title }}</h2>
+                            <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+                        </div>
+                    {% endif %}
+                    {% if  pageSection.section.type.name  == 'Carousel Statique' %}
+                        <div class="slider">
+                            <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                                <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if  pageSection.section.type.name  == 'Carousel Dynamique' %}
+                        <div class="slider">
+                            <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                                <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_carousel">
+                            </a>
+                        </div>
+                    {% endif %}
+                    {% if  pageSection.section.type.name  == 'Grille Dynamique' %}
+                        <div class="video">
+                            <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                                <img src="{{ asset('upload/images/' ~ video.image) }}" data-lazy="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
+                            </a>
+                            <h2>{{ video.title }}</h2>
+                            <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+                        </div>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>

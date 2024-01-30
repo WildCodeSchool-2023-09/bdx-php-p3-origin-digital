@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Page;
+use App\Entity\PageSection;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,6 +22,21 @@ class PageRepository extends ServiceEntityRepository
         parent::__construct($registry, Page::class);
     }
 
+
+    public function findPageWhereVideoIsPublic(int $id, bool $isPublic = true): ?Page
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.pageSections', 'ps')
+            ->join('ps.section', 's')
+            ->join('s.videos', 'video')
+            ->andWhere('p.id = :id')
+            ->setParameter('id', $id)
+            ->andWhere('video.isPublic = :isPublic')
+            ->setParameter('isPublic', $isPublic)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
 //    /**
 //     * @return Page[] Returns an array of Page objects
 //     */
