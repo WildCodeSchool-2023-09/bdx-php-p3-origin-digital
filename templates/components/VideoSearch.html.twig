@@ -11,11 +11,11 @@
     </div>
 
     {% for video in this.videos %}
-        <div>
+            <div class="video">
+                <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
 
-            <h2 class="mt-4"> {{ video.id }} / {{ video.title }}</h2>
-            <p>{{ video.description }}</p>
-            <a href="{{ path("show_video", { slugVideo: video.slugvideo }) }}"> see more </a>
-        </div>
+                    <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
+                </a>
+                <h2>{{ video.title }}</h2>
+            </div>
     {% endfor %}
-</div>

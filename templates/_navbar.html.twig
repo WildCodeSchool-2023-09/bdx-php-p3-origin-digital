@@ -12,14 +12,22 @@
         </a>
     </div>
 
-    <div class="search" id="search">
+ {#   <div class="search" id="search">
         <input type="text" class="navbar_input_search" placeholder="Search">
-        <button type="submit" class="navbar_button_search"><span>GO</span></button>
+        <button type="submit" class="navbar_button_search"><span>GO</span>
+            <a href="{{ path('app_search') }}"</a></button>
     </div>
+    #}
+
+    <form action="{{ path('app_search') }}" method="post" class="search" id="search">
+        <input type="text" name="search" class="navbar_input_search" placeholder="Recherche" required="required">
+        <input type="hidden" name="navbar_token" value="{{ csrf_token('nav-search') }}">
+        <button type="submit" class="navbar_button_search"><span>GO</span></button>
+    </form>
 
     <div class="links" id="links">
         {% if app.user %}
-            <a style="color: var(--color-four);" class="welcome">Welcome {{ app.user.username }}</a>
+            <a style="color: var(--color-four);" class="welcome">Bienvenue {{ app.user.username }}</a>
             <a href="{{ path('app_logout') }}" class="navbar_links"> Déconnexion</a>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('upload_video') }}" class="navbar_links">Import vidéo</a>
