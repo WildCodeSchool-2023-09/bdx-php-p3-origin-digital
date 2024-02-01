@@ -25,15 +25,16 @@ class Section
     #[ORM\JoinColumn(nullable: false)]
     private ?Type $type = null;
 
-    #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'section')]
+    #[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'section', cascade: ['persist', 'remove'])]
     private Collection $videos;
 
-    #[ORM\ManyToOne(inversedBy: 'section_id')]
-    private ?PageSection $pageSection = null;
+    #[ORM\OneToMany(mappedBy: 'section', targetEntity: PageSection::class, cascade: ['persist', 'remove'])]
+    private Collection $pageSections;
 
     public function __construct()
     {
         $this->videos = new ArrayCollection();
+        $this->pageSections = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,34 +86,57 @@ class Section
         return $this->videos;
     }
 
-    public function addVideo(Video $video): static
+    public function addVideo(Video $video): ArrayCollection|Collection
     {
         if (!$this->videos->contains($video)) {
             $this->videos->add($video);
             $video->addSection($this);
         }
 
-        return $this;
+        return $this->videos;
     }
 
-    public function removeVideo(Video $video): static
+    public function removeVideo(Video $video): ArrayCollection|Collection
     {
         if ($this->videos->removeElement($video)) {
             $video->removeSection($this);
         }
 
+        return $this->videos;
+    }
+
+    /**
+     * @return Collection<int, PageSection>
+     */
+    public function getPageSections(): Collection
+    {
+        return $this->pageSections;
+    }
+
+    public function addPageSection(PageSection $pageSection): static
+    {
+        if (!$this->pageSections->contains($pageSection)) {
+            $this->pageSections->add($pageSection);
+            $pageSection->setSection($this);
+        }
+
         return $this;
     }
 
-    public function getPageSection(): ?PageSection
+    public function removePageSection(PageSection $pageSection): static
     {
-        return $this->pageSection;
-    }
-
-    public function setPageSection(?PageSection $pageSection): static
-    {
-        $this->pageSection = $pageSection;
+        if ($this->pageSections->removeElement($pageSection)) {
+            // set the owning side to null (unless already changed)
+            if ($pageSection->getSection() === $this) {
+                $pageSection->setSection(null);
+            }
+        }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName();
     }
 }

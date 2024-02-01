@@ -18,12 +18,15 @@ class Page
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToOne(inversedBy: 'page_id')]
-    private ?PageSection $pageSection = null;
+    #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class, cascade: ['persist', 'remove'])]
+    private Collection $pageSections;
 
+    #[ORM\Column(length: 255)]
+    private ?string $slugPage = null;
 
     public function __construct()
     {
+        $this->pageSections = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -43,14 +46,49 @@ class Page
         return $this;
     }
 
-    public function getPageSection(): ?PageSection
+    /**
+     * @return Collection<int, PageSection>
+*/
+    public function getPageSections(): Collection
     {
-        return $this->pageSection;
+        return $this->pageSections;
     }
 
-    public function setPageSection(?PageSection $pageSection): static
+    public function addPageSection(PageSection $pageSection): static
     {
-        $this->pageSection = $pageSection;
+        if (!$this->pageSections->contains($pageSection)) {
+            $this->pageSections->add($pageSection);
+            $pageSection->setPage($this);
+        }
+
+        return $this;
+    }
+
+    public function removePageSection(PageSection $pageSection): static
+    {
+        if ($this->pageSections->removeElement($pageSection)) {
+            // set the owning side to null (unless already changed)
+            if ($pageSection->getPage() === $this) {
+                $pageSection->setPage(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName();
+    }
+
+    public function getSlugPage(): ?string
+    {
+        return $this->slugPage;
+    }
+
+    public function setSlugPage(string $slugPage): static
+    {
+        $this->slugPage = $slugPage;
 
         return $this;
     }

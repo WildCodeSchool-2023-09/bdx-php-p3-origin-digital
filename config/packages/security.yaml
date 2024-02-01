@@ -35,8 +35,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/video/new, roles: ROLE_CONTRIBUTOR }
-        - { path: ^/category, roles: ROLE_CONTRIBUTOR }
+        - { path: ^/category/add, roles: ROLE_CONTRIBUTOR }
         - { path: ^/section, roles: ROLE_CONTRIBUTOR }
+        - { path: ^/admin, roles: ROLE_ADMIN }
     role_hierarchy:
         ROLE_CONTRIBUTOR: ROLE_USER
         ROLE_ADMIN: ROLE_CONTRIBUTOR

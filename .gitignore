@@ -35,3 +35,7 @@ yarn-error.log
 ###< phpunit/phpunit ###
 
 /assets/videos
+
+/assets/images
+
+/public/upload

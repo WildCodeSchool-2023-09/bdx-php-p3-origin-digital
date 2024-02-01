@@ -4,16 +4,20 @@
     <h1>Vidéos dans la catégorie : {{ category.getName }}</h1>
 
     <div class="videos-category">
-        {% for video in videos %}
-            <div class="video">
-                <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-                    <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}">
-                </a>
-                <h2>{{ video.title }}</h2>
-                <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
-            </div>
-        {% else %}
-            <p>Aucune vidéo publique disponible pour le moment.</p>
-        {% endfor %}
+                {% for video in videos %}
+                    {% if video.isPublic or (video.isPublic == false and app.user is not null) %}
+                    <div class="video">
+                        <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+
+                            <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
+                        </a>
+                        <h2>{{ video.title }}</h2>
+                        <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+                    </div>
+            {% else %}
+                <p>Aucune vidéo publique disponible pour le moment.</p>
+                {% endif %}
+            {% endfor %}
+
     </div>
 {% endblock %}

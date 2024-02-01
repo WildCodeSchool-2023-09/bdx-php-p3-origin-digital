@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PageSection{% endblock %}
+
+{% block body %}
+    <h1>PageSection</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ page_section.id }}</td>
+            </tr>
+            <tr>
+                <th>Ordered</th>
+                <td>{{ page_section.ordered }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_page_section_index') }}">back to list</a>
+
+    <a href="{{ path('app_page_section_edit', {'id': page_section.id}) }}">edit</a>
+
+    {{ include('page_section/_delete_form.html.twig') }}
+{% endblock %}

@@ -13,6 +13,8 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use App\Entity\Video;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Entity\User;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/video', name: '')]
 class VideoController extends AbstractController
@@ -28,6 +30,7 @@ class VideoController extends AbstractController
     }
 
     #[Route('/new', name: 'upload_video')]
+    #[IsGranted('ROLE_ADMIN')]
     public function new(
         Request $request,
         EntityManagerInterface $entityManager,
@@ -63,7 +66,8 @@ class VideoController extends AbstractController
     #[Route('/public', name: 'public-videos')]
     public function publicVideos(VideoRepository $videoRepository): Response
     {
-        $videos = $videoRepository->findAllPublic();
+        //$videos = $videoRepository->findAllPublic();
+        $videos = $videoRepository->findBy(['isPublic' => true]);
 
         return $this->render('video/public.html.twig', [
             'videos' => $videos,

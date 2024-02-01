@@ -3,13 +3,19 @@
 namespace App\Controller;
 
 use App\Entity\Page;
+use App\Entity\PageSection;
+use App\Entity\Section;
 use App\Form\PageType;
 use App\Repository\PageRepository;
+use App\Repository\PageSectionRepository;
+use App\Repository\SectionRepository;
+use App\Repository\VideoRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/page')]
 class PageController extends AbstractController
@@ -23,17 +29,19 @@ class PageController extends AbstractController
     }
 
     #[Route('/new', name: 'app_page_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
+    public function new(Request $request, SluggerInterface $slugger, EntityManagerInterface $entityManager): Response
     {
         $page = new Page();
         $form = $this->createForm(PageType::class, $page);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $slug = $slugger->slug($page->getName());
+            $page->setSlugPage($slug);
             $entityManager->persist($page);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_page_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_section_new', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('page/new.html.twig', [
@@ -42,11 +50,18 @@ class PageController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_page_show', methods: ['GET'])]
-    public function show(Page $page): Response
+    #[Route('/{slugPage}', name: 'app_page_show', methods: ['GET'])]
+    public function show(Page $page, PageSectionRepository $repository, PageRepository $pageRepository): Response
     {
+//        $page = $pageRepository->findPageWhereVideoIsPublic($page->getId());
+//        return $this->render('page/show.html.twig', [
+//            'page' => $page,
+//            'pagesSections' => $page->getPageSections(),
+//        ]);
+        $pagesSections =  $repository->findBy(['page' => $page->getId()], ['ordered' => 'ASC']);
         return $this->render('page/show.html.twig', [
             'page' => $page,
+            'pagesSections' => $pagesSections,
         ]);
     }
 

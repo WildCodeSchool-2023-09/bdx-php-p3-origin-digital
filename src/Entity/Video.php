@@ -6,6 +6,7 @@ use App\Repository\VideoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
@@ -39,10 +40,11 @@ class Video
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'favoris')]
     private Collection $users;
 
-    #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'video')]
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'video')]
+    /*#[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'video')]*/
     private Collection $categories;
 
-    #[ORM\ManyToMany(targetEntity: Section::class, inversedBy: 'videos')]
+    #[ORM\ManyToMany(targetEntity: Section::class, mappedBy: 'videos', cascade: ['persist'])]
     private Collection $section;
 
     public function __construct()
@@ -50,6 +52,8 @@ class Video
         $this->users = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->section = new ArrayCollection();
+
+        $this->datetime = new DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -216,5 +220,10 @@ class Video
         $this->section->removeElement($section);
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getTitle();
     }
 }

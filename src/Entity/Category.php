@@ -22,7 +22,8 @@ class Category
     private ?string $slugCategory = null;
 
 
-    #[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'categories')]
+    #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'categories')]
+    /*#[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'categories')]*/
     private Collection $video;
 
     public function __construct()
@@ -80,5 +81,10 @@ class Category
     {
         $this->slugCategory = $slugCategory;
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName();
     }
 }
