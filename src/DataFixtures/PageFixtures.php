@@ -20,11 +20,11 @@ class PageFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
          $page = new Page();
-         $page->setName('Football Féminin');
+         $page->setName('Football');
          $slug = $this->slugger->slug($page->getName());
          $page->setSlugPage($slug);
          $manager->persist($page);
-         $this->addReference('page_Football Féminin', $page);
+         $this->addReference('page_Football', $page);
 
          $manager->flush();
     }

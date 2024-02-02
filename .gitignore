@@ -36,6 +36,6 @@ yarn-error.log
 
 /assets/videos
 
-/assets/images
+##/assets/images ###
 
-/public/upload
+##/public/upload ##

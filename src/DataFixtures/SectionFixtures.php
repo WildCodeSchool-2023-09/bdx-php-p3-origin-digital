@@ -28,8 +28,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
         Women s Champions League 2023-24'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
-        $section->addVideo($this->getReference('video_Le passage triomphal de Manon Hily, au championnat de France
-        d\'escalade de difficulté 2023 !'));
+        $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
         $section->setType($this->getReference('type_Carousel Statique'));
         $slug = $this->slugger->slug($section->getName());
         $section->setSlugSection($slug);
@@ -44,8 +43,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
         Women s Champions League 2023-24'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
-        $section->addVideo($this->getReference('video_Le passage triomphal de Manon Hily, au championnat de France
-        d\'escalade de difficulté 2023 !'));
+        $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
         $section->setType($this->getReference('type_Hero Slider'));
         $slug = $this->slugger->slug($section->getName());
         $section->setSlugSection($slug);
@@ -60,8 +58,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
         Women s Champions League 2023-24'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
-        $section->addVideo($this->getReference('video_Le passage triomphal de Manon Hily, au championnat de France
-        d\'escalade de difficulté 2023 !'));
+        $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
         $section->setType($this->getReference('type_Carousel Dynamique'));
         $slug = $this->slugger->slug($section->getName());
         $section->setSlugSection($slug);
@@ -76,8 +73,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
         Women s Champions League 2023-24'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
-        $section->addVideo($this->getReference('video_Le passage triomphal de Manon Hily, au championnat de France
-        d\'escalade de difficulté 2023 !'));
+        $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
         $section->setType($this->getReference('type_Grille Dynamique'));
         $slug = $this->slugger->slug($section->getName());
         $section->setSlugSection($slug);
