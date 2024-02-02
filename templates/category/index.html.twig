@@ -13,12 +13,18 @@
         </div>
     {% endif %}#}
 
-    <ul class="category_list">
-        {% for category in categories %}
-        <li class="categories">
-            <h2>
-                <a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a>
-            </h2>
+    <div class="page-index">
+        <img src="{{ asset('build/images/background.png') }}" alt="background" class="background_img">
+        <h1>Liste des Catégories</h1>
+
+        <div class="page-list">
+            {% for category in categories %}
+                <div class="page-card">
+                    <h2><a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a></h2>
+                </div>
+            {% else %}
+                <p>Aucune page trouvée</p>
+            {% endfor %}
 
            {# {% if is_granted('ROLE_ADMIN') %}
                 <button type="submit" class="button_validate">
@@ -30,8 +36,6 @@
                 </button>
             {% endif %}#}
 
-        </li>
-        {% endfor %}
-    </ul>
-
+        </div>
+    </div>
 {% endblock %}
