@@ -1,0 +1,298 @@
+.btn-sign{
+    width: 105px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 21px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 50px auto;
+    border: solid black 1px;
+}
+
+.btn-register {
+    width: 105px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 21px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 50px auto;
+    border: solid black 1px;
+}
+
+button.slick-arrow {
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 30px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0 5px;
+    margin: 10px;
+    border: solid black 1px;
+    text-indent: -9999px;
+    line-height: 0;
+    margin-bottom: 70px;
+}
+
+button.slick-prev.slick-arrow::after {
+    content: '<';
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+button.slick-next.slick-arrow::after {
+    content: '>';
+    text-indent: 0;
+    display: block;
+    line-height: initial;
+}
+
+button.slick-arrow:hover {
+    background-color: var(--color-four-hover);
+    width: 150px;
+}
+
+.button_validate {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+    border: solid black 1px;
+}
+
+.button_validate>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+
+.button_validate:hover {
+    background-color: var(--color-four-hover);
+}
+
+.button_add {
+    width: 300px;
+    height: 65px;
+    border-radius: 10px;
+    background-color: var(--color-two);
+    text-align: center;
+    font-size: 20px;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 5px 5px;
+    border: solid black 1px;
+    display: block;
+    margin: auto;
+    text-decoration: none;
+}
+
+.button_add:hover {
+    background-color: var(--color-two-hover);
+}
+
+.button_add>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.button_modify_page {
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--color-three);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+.button_modify_page>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+
+.button_modify_page:hover {
+    background-color: var(--color-three-hover);
+}
+
+.button_modify {
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+.button_modify>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+.button_modify:hover {
+    background-color: var(--color-four-hover);
+}
+
+.button_upload {
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+.button_upload>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+.button_upload:hover {
+    background-color: var(--color-four-hover);
+}
+
+.button_arrow_back {
+    width: 150px;
+    height: 40px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+.button_arrow_back>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+.button_arrow_back:hover {
+    background-color: var(--color-four-hover);
+}
+
+.button_arrow_front {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+.button_arrow_front>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+.button_arrow_front:hover {
+    background-color: var(--color-four-hover);
+}
+
+.button_plus {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-four);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+.button_plus:hover {
+    background-color: var(--color-four-hover);
+}
+
+.button_moins {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-three);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 10px;
+    border: solid black 1px;
+}
+.button_moins:hover {
+    background-color: var(--color-three-hover);
+}
+
+.button_delete {
+    text-decoration: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-three);
+    text-align: center;
+    font-size: 20px;
+    flex: 0;
+    color: var(--color-five);
+    cursor: pointer;
+    margin: 0px;
+    border: solid black 1px;
+}
+
+.button_delete>a {
+    text-decoration: none;
+    color: var(--color-five);
+    font-size: 20px;
+}
+.button_delete:hover {
+    background-color: var(--color-three-hover);
+}

@@ -15,8 +15,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class VideoCrudController extends AbstractCrudController
 {
-    /*use Trait\HiddenButton;*/
-
     public static function getEntityFqcn(): string
     {
         return Video::class;
@@ -36,7 +34,7 @@ class VideoCrudController extends AbstractCrudController
                 ->setUploadDir('public/upload/images/')
                 ->setBasePath('upload/images/'),
             TextField::new('description'),
-            DateTimeField::new('datetime')->hideOnForm(),
+//            DateTimeField::new('datetime')->setTimezone('Europe/Paris'),
             BooleanField::new('is_public'),
             AssociationField::new('categories'),
         ];
