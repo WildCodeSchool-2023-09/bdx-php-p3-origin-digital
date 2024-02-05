@@ -19,9 +19,9 @@
 
         <div class="page-list">
             {% for category in categories %}
-                <div class="page-card">
-                    <h2><a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a></h2>
-                </div>
+
+            <h2><a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}"><div class="page-card">{{ category.name }}</div></a></h2>
+
             {% else %}
                 <p>Aucune page trouvée</p>
             {% endfor %}

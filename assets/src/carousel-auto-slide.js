@@ -14,7 +14,7 @@ $('.carousel-container').slick({
             dots: true}
     },
     {
-        breakpoint: 600,
+        breakpoint: 769,
         settings: {
             slidesToShow: 2,
             slidesToScroll: 1
@@ -45,7 +45,6 @@ $('.lazy-slider').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
                 infinite: true,
-                dots: true
             }
     },
         {
