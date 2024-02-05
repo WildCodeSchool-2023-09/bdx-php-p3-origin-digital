@@ -13,9 +13,9 @@
 
         <div class="page-list">
             {% for page in pages %}
-                <div class="page-card">
-                    <h2><a href="{{ path('app_page_show',  {slugPage: page.slugPage}) }}">{{ page.name }}</a></h2>
-                </div>
+
+                    <h2><a href="{{ path('app_page_show',  {slugPage: page.slugPage}) }}"><div class="page-card">{{ page.name }}</div></a></h2>
+
             {% else %}
                 <p>Aucune page trouvée</p>
             {% endfor %}

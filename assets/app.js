@@ -20,3 +20,5 @@ import './src/playVideo';
 
 //Carousel
 import './src/carousel-auto-slide'
+
+
