@@ -278,6 +278,19 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setIsPublic(true);
         $manager->persist($video);
 
+        $video = new Video();
+        $video->setTitle('Le meilleur du Rugby');
+        $video->setFile('le-meilleur-du-rugby-feminin-plaquages.mp4');
+        $video->setImage('rugbye.jpg');
+        $video->setDescription('la Coupe du Monde de Rugby féminin, venant tout juste de commencer en
+        Nouvelle-Zélande, découvrez le meilleur du Rugby féminin de la sphère internationale..');
+        $video->addCategory($this->getReference('category_Rugby'));
+        $video->setDatetime(new DateTimeImmutable());
+        $slug = $this->slugger->slug($video->getTitle());
+        $video->setSlugVideo($slug);
+        $video->setIsPublic(true);
+        $manager->persist($video);
+
         $manager->flush();
     }
 
