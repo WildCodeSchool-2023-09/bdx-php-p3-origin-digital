@@ -12,7 +12,6 @@
         </a>
     </div>
 
-
     <form action="{{ path('app_search') }}" method="post" class="search" id="search">
         <input type="text" name="search" class="navbar_input_search" placeholder="Recherche" required="required">
         <input type="hidden" name="navbar_token" value="{{ csrf_token('nav-search') }}">
