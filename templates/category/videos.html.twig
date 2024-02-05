@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Vidéos dans la catégorie : {{ category.getName }}</h1>
+    <h1 class="sign">Vidéos de la catégorie : {{ category.getName }}</h1>
 
     <div class="videos-category">
                 {% for video in videos %}
+                    {% if video.isPublic or (video.isPublic == false and app.user is not null) %}
                     <div class="video">
                         <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
-
                             <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
                         </a>
                         <h2>{{ video.title }}</h2>
@@ -15,7 +15,7 @@
                     </div>
             {% else %}
                 <p>Aucune vidéo publique disponible pour le moment.</p>
+                {% endif %}
             {% endfor %}
-
     </div>
 {% endblock %}

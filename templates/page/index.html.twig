@@ -3,17 +3,22 @@
 {% block title %}Liste des Pages{% endblock %}
 
 {% block body %}
+
+   {# <h1 class="sign">Liste des Pages</h1>
+#}
+    <div class="page-index">
+        <img src="{{ asset('build/images/background.png') }}" alt="background" class="background_img">
     <h1>Liste des Pages</h1>
 
-        {% for page in pages %}
-            <ul>
-                <li class="categories">
-                    <h2><a href="{{ path('app_page_show',  {id:page.id}) }}">{{ page.name }}</a></h2>
-            </ul>
-        {% else %}
-            <tr>
-                <td colspan="3">Aucune page trouvée</td>
-            </tr>
-        {% endfor %}
 
+        <div class="page-list">
+            {% for page in pages %}
+                <div class="page-card">
+                    <h2><a href="{{ path('app_page_show',  {slugPage: page.slugPage}) }}">{{ page.name }}</a></h2>
+                </div>
+            {% else %}
+                <p>Aucune page trouvée</p>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

@@ -12,19 +12,18 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(VideoRepository $videoRepository): Response
     {
-        $videos = $videoRepository->findAllPublic();
+        $videos = $this->getUser() == null ?
+            $videoRepository->findBy(['isPublic' => true]) :
+            $videoRepository->findAll();
 
         return $this->render('home/index.html.twig', [
             'videos' => $videos,
         ]);
     }
 
-    #[Route('/test', name: 'test')]
+    #[Route('/admin_gestion', name: 'app_test')]
     public function test(VideoRepository $videoRepository): Response
     {
-        $videos = $videoRepository->findAllPublic();
-        return $this->render('home/test.html.twig', [
-            'video' => $videos,
-        ]);
+        return $this->render('home/admin_gestion.html.twig');
     }
 }

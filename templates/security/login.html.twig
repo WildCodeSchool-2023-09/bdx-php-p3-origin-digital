@@ -13,18 +13,14 @@
                 You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
             </div>
         {% endif %}
+        <h1 class="sign">Se connecter</h1>
         <div class="login">
-        <h1 class="Sign">Se connecter</h1>
-        <label for="username"> </label>
-        <input class="login_label" placeholder="email" type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-        <label for="password"> </label>
-        <input class="login_label" placeholder="mot de passe" type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}">
-         <div>
+            {#<label for="username"></label>#}
+            <input class="login_label" placeholder="email" type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
+            {#<label for="password"> </label>#}
+            <input class="login_label" placeholder="mot de passe" type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <a class="connection" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié?</a>
-         </div>
         <button class="btn-sign" type="submit">
             Valider
         </button>

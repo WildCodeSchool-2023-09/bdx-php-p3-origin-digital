@@ -1,0 +1,28 @@
+.login {
+    /*padding-top: 3%;*/
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_label {
+    text-align: left;
+    font-size: 19px;
+    height: 42px;
+    margin-top: 50px;
+    border-radius: 11px
+}
+
+div .login_label {
+    width:100%;
+}
+
+a.connection {
+    color: var(--color-three);
+    text-decoration: none;
+    padding-top: 20px;
+    text-align: center;
+}
+
+

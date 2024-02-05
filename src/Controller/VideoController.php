@@ -66,7 +66,8 @@ class VideoController extends AbstractController
     #[Route('/public', name: 'public-videos')]
     public function publicVideos(VideoRepository $videoRepository): Response
     {
-        $videos = $videoRepository->findAllPublic();
+        //$videos = $videoRepository->findAllPublic();
+        $videos = $videoRepository->findBy(['isPublic' => true]);
 
         return $this->render('video/public.html.twig', [
             'videos' => $videos,

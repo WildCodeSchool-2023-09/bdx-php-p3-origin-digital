@@ -5,22 +5,28 @@
 {% block body %}
 
 
-    {% if is_granted('ROLE_ADMIN') %}
+    {#{% if is_granted('ROLE_ADMIN') %}
         <div class="add_category">
             <button type="submit" class="button_add">
                 <a href="{{ path('category_add') }}">Ajouter une catégorie</a>
             </button>
         </div>
-    {% endif %}
+    {% endif %}#}
 
-    <ul class="category_list">
-        {% for category in categories %}
-        <li class="categories">
-            <h2>
-                <a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a>
-            </h2>
+    <div class="page-index">
+        <img src="{{ asset('build/images/background.png') }}" alt="background" class="background_img">
+        <h1>Liste des Catégories</h1>
 
-            {% if is_granted('ROLE_ADMIN') %}
+        <div class="page-list">
+            {% for category in categories %}
+                <div class="page-card">
+                    <h2><a href="{{ path('category_videos', {'slugCategory': category.slugCategory}) }}">{{ category.name }}</a></h2>
+                </div>
+            {% else %}
+                <p>Aucune page trouvée</p>
+            {% endfor %}
+
+           {# {% if is_granted('ROLE_ADMIN') %}
                 <button type="submit" class="button_validate">
                     <a href="{{ path('category_edit', {'id': category.id}) }}" >Éditer</a>
                 </button>
@@ -28,10 +34,8 @@
                     <a href="{{ path('category_delete', {'id': category.id}) }}"
                    onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?');">Supprimer</a>
                 </button>
-            {% endif %}
+            {% endif %}#}
 
-        </li>
-        {% endfor %}
-    </ul>
-
+        </div>
+    </div>
 {% endblock %}
