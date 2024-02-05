@@ -47,13 +47,15 @@ class VideoRepository extends ServiceEntityRepository
     public function findByName(string $name): array
     {
         $queryBuilder = $this->createQueryBuilder('v')
-            ->where('v.title LIKE :name')
+            ->leftJoin('v.categories', 'c')
+            ->where('v.title LIKE :name OR c.name LIKE :name')
             ->setParameter('name', '%' . $name . '%')
             ->orderBy('v.title', 'ASC')
             ->getQuery();
 
         return $queryBuilder->getResult();
     }
+
 
 //    /**
 //     * @return Video[] Returns an array of Video objects
