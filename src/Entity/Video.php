@@ -3,10 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\VideoRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use DateTimeImmutable;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
@@ -29,7 +29,7 @@ class Video
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $datetime = null;
+    private ?DateTimeImmutable $datetime = null;
 
     #[ORM\Column(length: 255)]
     private ?string $slugVideo = null;
@@ -41,7 +41,6 @@ class Video
     private Collection $users;
 
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'video')]
-    /*#[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'video')]*/
     private Collection $categories;
 
     #[ORM\ManyToMany(targetEntity: Section::class, mappedBy: 'videos', cascade: ['persist'])]
@@ -52,7 +51,6 @@ class Video
         $this->users = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->section = new ArrayCollection();
-
         $this->datetime = new DateTimeImmutable();
     }
 
@@ -109,12 +107,12 @@ class Video
         return $this;
     }
 
-    public function getDatetime(): ?\DateTimeImmutable
+    public function getDatetime(): ?DateTimeImmutable
     {
         return $this->datetime;
     }
 
-    public function setDatetime(\DateTimeImmutable $datetime): static
+    public function setDatetime(DateTimeImmutable $datetime): static
     {
         $this->datetime = $datetime;
 

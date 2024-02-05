@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}She Plays TV - Gestion Administrateur{% endblock %}
+
+{% block body %}
+    <h1 class="sign">Le Coin de l'Administrateur</h1>
+
+<ul>
+    <a href="{{ path('export_users') }}">
+        <li>Récuperer la liste des utilisateurs en CSV</li>
+    </a>
+    <a href="{{ path('admin') }}">
+        <li>Créer une nouvelle page</li>
+    </a>
+</ul>
+{% endblock %}

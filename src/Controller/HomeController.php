@@ -21,12 +21,9 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/test', name: 'test')]
+    #[Route('/admin_gestion', name: 'app_test')]
     public function test(VideoRepository $videoRepository): Response
     {
-        $videos = $videoRepository->findAllPublic();
-        return $this->render('home/test.html.twig', [
-            'video' => $videos,
-        ]);
+        return $this->render('home/admin_gestion.html.twig');
     }
 }

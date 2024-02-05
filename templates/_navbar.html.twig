@@ -20,14 +20,14 @@
     <div class="links" id="links">
         {% if app.user %}
             <a style="color: var(--color-four);" class="welcome">Welcome {{ app.user.username }}</a>
-            <a href="{{ path('app_logout') }}" class="navbar_links"> Déconnexion</a>
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('upload_video') }}" class="navbar_links">Import vidéo</a>
-                <a href="{{ path('admin') }}" class="navbar_links" target="_blank">Gestion des pages</a>
+                <a href="{{ path('upload_video') }}" class="navbar_links">Ajouter une vidéo</a>
+                <a href="{{ path('app_test') }}" class="navbar_links" target="_blank">Gestion des pages</a>
             {% endif %}
+            <a href="{{ path('app_video') }}"  class="navbar_links">Vidéos</a>
             <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
             <a href="{{ path('app_favoris') }}" class="navbar_links">Favoris</a>
-
+            <a href="{{ path('app_logout') }}" class="navbar_links">Déconnexion</a>
         {% else %}
             <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
             <a class="navbar_links" href="{{ path('app_register') }}">Inscription</a>
