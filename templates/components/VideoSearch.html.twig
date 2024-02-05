@@ -1,0 +1,21 @@
+<div{{ attributes }}>
+    <div class="mb-3">
+        <label class="form-label" for="search">
+            Recherche
+        </label>
+        <input type="search"
+               id="search"
+               class="form-control"
+               value="{{ query }}"
+               data-model="query">
+    </div>
+
+    {% for video in this.videos %}
+            <div class="video">
+                <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+
+                    <img src="{{ asset('build/images/' ~ video.image) }}" alt="{{ video.title }}" class="image_category">
+                </a>
+                <h2>{{ video.title }}</h2>
+            </div>
+    {% endfor %}

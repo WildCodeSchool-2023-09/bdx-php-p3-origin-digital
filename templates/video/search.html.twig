@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+{#    {{ form_start(form) }}#}
+{#    {{ form_widget(form) }}#}
+{#    {{ form_end(form) }}#}
+{% if videos is defined %}
+    {% for video in videos %}
+        <div class="video">
+            <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}">
+            </a>
+            <h3>{{ video.title }}</h3>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
