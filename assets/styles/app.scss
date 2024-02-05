@@ -874,7 +874,6 @@ button.slick-arrow:hover {
 @media only screen and (max-width: 480px) {
     .videos-category {
         gap: 0;
-        margin-left: 27px;
     }
 }
 
@@ -1066,7 +1065,7 @@ ul.category_list {
 }
 
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1024px) {
     .video-detail h1 {
         font-size: 17px;
     }
@@ -1085,7 +1084,7 @@ ul.category_list {
     }
 
     .videos-category .video {
-        width: 150px;
+        width: 175px;
 
         h2 {
             font-size: 11px;
@@ -1095,6 +1094,15 @@ ul.category_list {
             font-size: 6px;
         }
     }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .videos-category .video {
+        width: 149px;
+        margin-left: 18px;
+    }
+
 
 }
 
@@ -1144,7 +1152,7 @@ ul.category_list {
      }
  }
 
- @media only screen and (max-width: 480px) {
+ @media only screen and (max-width: 600px) {
 
      .section > h2 {
          font-size: 15px;
@@ -1206,19 +1214,19 @@ ul.category_list {
     background-color: var(--color-three-hover);
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
     .home_content {
         position: absolute;
         width: 100%;
         top: 45%;
-        left: 24%;
+        left: 18%;
     }
 
     .home_title {
-        font-size: 38px;
+        font-size: 29px;
     }
     .home_text {
-        font-size: 15px;
+        font-size: 14px;
     }
     .home_img {
         height: 280px;
@@ -1230,6 +1238,32 @@ ul.category_list {
         a {
             font-size: 16px;
         }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .home_content {;
+        left: 24%;
+    }
+
+    .home_container {
+        height: 410px;
+
+    }
+    .home_title {
+        font-size: 38px;
+        margin-bottom: 35px;
+    }
+    .home_img {
+        height: 100%;
+    }
+
+    .home_text {
+        font-size: 24px;
+    }
+    .image_carousel {
+        height: 270px;
     }
 }
  .slick-dots {
@@ -1265,7 +1299,7 @@ ul.category_list {
 
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 600px) {
     .slick-dots li button {
         height: 10px;
         width: 10px;
