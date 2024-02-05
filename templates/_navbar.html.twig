@@ -21,7 +21,7 @@
     <div class="links" id="links">
         {% if app.user %}
             <a style="color: var(--color-four);" class="welcome">Bienvenue {{ app.user.username }}</a>
-            <a href="{{ path('app_logout') }}" class="navbar_links"> Déconnexion</a>
+
 
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('upload_video') }}" class="navbar_links">Ajouter une vidéo</a>
