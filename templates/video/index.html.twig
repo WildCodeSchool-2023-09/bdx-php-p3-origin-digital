@@ -3,6 +3,7 @@
 {% block title %}Hello VideoController!{% endblock %}
 
 {% block body %}
+    {# {{ component('VideoSearch') }} #}
     <div class="videos-category">
         {% for video in videos %}
             {% if video.isIsPublic %}
