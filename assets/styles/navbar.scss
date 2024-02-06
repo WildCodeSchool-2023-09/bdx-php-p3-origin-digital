@@ -1,10 +1,17 @@
 .navbar {
     background-color: var(--color-five);
-// background-image: linear-gradient(to right, rgba(230, 221, 231, 0.9), rgb(246, 242, 246));
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 80px;
+}
+
+#desktop-logo {
+    display: block;
+}
+
+#mobile-logo {
+    display: none;
 }
 
 .menu-icon {
@@ -34,6 +41,7 @@
     margin-top: 10px;
     margin-right: 15px;
     border-radius: 10px;
+
 }
 
 .links a {
@@ -94,6 +102,18 @@
 }
 
 @media only screen and (max-width: 850px) {
+    #nav-content {
+        display: none;
+    }
+
+    #desktop-logo {
+        display: none;
+    }
+
+    #mobile-logo {
+        display: block;
+    }
+
     .logo {
         order: 1;
     }
@@ -108,16 +128,18 @@
 
     .menu-icon {
         display: flex;
+        z-index: 1;
     }
 
     .links {
-        display: none;
+        z-index: 100;
         flex-direction: column;
         position: absolute;
         top: 68px;
         left: 0;
         width: 30%;
         border: solid 1px var(--color-one)
+
     }
 
     .links a {

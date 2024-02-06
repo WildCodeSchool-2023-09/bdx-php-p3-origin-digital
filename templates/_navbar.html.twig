@@ -7,9 +7,11 @@
     </div>
 
     <div class="logo" id="logo">
-        <a href="{{ path('app_home') }}">
+        <a id="desktop-logo" href="{{ path('app_home') }}">
             <img src="{{ asset('build/images/logo.png') }}">
         </a>
+
+        <img id="mobile-logo" src="{{ asset('build/images/logo.png') }}">
     </div>
 
     <form action="{{ path('app_search') }}" method="post" class="search" id="search">
@@ -18,23 +20,24 @@
         <button type="submit" class="navbar_button_search"><span>GO</span></button>
     </form>
 
-    <div class="links" id="links">
-        {% if app.user %}
-            <a style="color: var(--color-four);" class="welcome">Bienvenue {{ app.user.username }}</a>
-            <a href="{{ path('app_logout') }}" class="navbar_links"> Déconnexion</a>
+    <div id="nav-content">
+        <div class="links" id="links">
+            {% if app.user %}
+                <a style="color: var(--color-four);" class="welcome">Bienvenue {{ app.user.username }}</a>
 
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('upload_video') }}" class="navbar_links">Ajouter une vidéo</a>
-                <a href="{{ path('app_test') }}" class="navbar_links" target="_blank">Gestion des pages</a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('upload_video') }}" class="navbar_links">Ajouter une vidéo</a>
+                    <a href="{{ path('app_test') }}" class="navbar_links" target="_blank">Gestion des pages</a>
+                {% endif %}
+                <a href="{{ path('app_video') }}"  class="navbar_links">Vidéos</a>
+                <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
+                <a href="{{ path('app_favoris') }}" class="navbar_links">Favoris</a>
+                <a href="{{ path('app_logout') }}" class="navbar_links">Déconnexion</a>
+            {% else %}
+                <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
+                <a class="navbar_links" href="{{ path('app_register') }}">Inscription</a>
+                <a href="{{ path('app_login') }}" class="navbar_links"> Connexion </a>
             {% endif %}
-            <a href="{{ path('app_video') }}"  class="navbar_links">Vidéos</a>
-            <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
-            <a href="{{ path('app_favoris') }}" class="navbar_links">Favoris</a>
-            <a href="{{ path('app_logout') }}" class="navbar_links">Déconnexion</a>
-        {% else %}
-            <a href="{{ path('app_category') }}"  class="navbar_links">Catégories</a>
-            <a class="navbar_links" href="{{ path('app_register') }}">Inscription</a>
-            <a href="{{ path('app_login') }}" class="navbar_links"> Connexion </a>
-        {% endif %}
+        </div>
     </div>
 </div>

@@ -193,14 +193,6 @@ h1 {
 
 /* fin slider-slick */
 
-/*navbar*/
-.navbar {
-    background-color : white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 80px;
-}
 
 .menu-icon {
     cursor: pointer;
@@ -247,45 +239,6 @@ h1 {
     min-width: 30%;
     padding: 10px;
     box-sizing: border-box;
-}
-
-.navbar_input_search {
-    flex: 1;
-    background-color: rgb(63 117 200 / 42%);
-    color: var(--color-five);
-    margin-right: 10px;
-    padding: 6px;
-    border: none;
-    border-radius: 10px;
-}
-
-.navbar_button_search {
-    border-radius: 50%;
-    margin: 5px;
-    width: 30px;
-    text-align: center;
-    flex: 0;
-    background: url(../images/balle_tennis.png) center center no-repeat;
-    background-size: cover;
-    color: var(--color-one);
-    cursor: pointer;
-    padding: 5px;
-    border: none;
-    opacity: 0.8;
-}
-
-.navbar_button_search:hover {
-    opacity: 1;
-}
-
-.navbar_button_search span {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.navbar_links{
-    font-size: 18px;
-    color: #3f75c8e0;
 }
 
 .welcome{
