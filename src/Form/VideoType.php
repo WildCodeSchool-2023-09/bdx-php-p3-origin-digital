@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Category;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Validator\Constraints\File;
 use App\Entity\Video;
@@ -13,6 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\UX\Dropzone\Form\DropzoneType;
 
 class VideoType extends AbstractType
 {
@@ -20,15 +22,23 @@ class VideoType extends AbstractType
     {
         $builder
             ->add('title', TextType::class)
-            ->add('file', FileType::class, [
-                'label' => 'Video (Video file)',
+            ->add('categories', EntityType::class, [
+                'class' => Category::class,
+                'placeholder' => 'catégorie',
+                'choice_label' => 'name',
+                'multiple' => true ,
+                'expanded' => false ,
+                'by_reference' => false ,
+                'required' => false,
+                'autocomplete' => true
+            ])
+            ->add('file', DropzoneType::class, [
+                'label' => 'vidéo',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
-                    new File([
-                        'maxSize' => '2000000k',
+                    new File([ 'maxSize' => '200M',
                         'mimeTypes' => [
-
                             'video/mp4',
                             'video/webm',
                             'video/ogg',
@@ -40,36 +50,26 @@ class VideoType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('image', FileType::class, [
-                'label' => 'Image (Image file)',
+            ->add('image', DropzoneType::class, [
+                'label' => 'image',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
-                    new File([
-                        'maxSize' => '1024k',
-                        'mimeTypes' => [
-                            'image/jpeg',
-                            'image/png',
-                            'image/bmp',
-                            'image/svg+xml',
-                            'image/webp',
-                        ],
-                        'mimeTypesMessage' => 'Please upload a valid image',
+                    new File([ 'maxSize' => '2M',
+                        'mimeTypes' => ['image/jpeg', 'image/png', 'image/webp'],
                     ]),
                 ]
             ])
             ->add('description', TextType::class)
-            ->add('isPublic', CheckboxType::class, [
-                'required' => false, ])
-            ->add('categories', EntityType::class, [
-                'class' => Category::class,
-                'choice_label' => 'name',
-                'multiple' => true ,
-                'expanded' => true ,
-                'by_reference' => false ,
+            ->add('isPublic', ChoiceType::class, [
+                'label' => false,
+                'placeholder' => 'Type de vidéo',
+                'choices' => [
+                    'Publique' => true,
+                    'Privée' => false,
+                ],
                 'required' => false,
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

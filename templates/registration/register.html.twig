@@ -8,7 +8,7 @@
 
     {{ form_errors(registrationForm) }}
 
-    {#{{ form_start(registrationForm, {'attr': {'class': 'login'}}) }}#}
+    {{ form_start(registrationForm, {'attr': {'class': 'login'}}) }}
         {{ form_row(registrationForm.username, {'attr': {'class': 'login_label'}}) }}
         {{ form_row(registrationForm.email, {'attr': {'class': 'login_label'}}) }}
         {{ form_row(registrationForm.plainPassword, {
@@ -16,8 +16,8 @@
             'attr': {'class': 'login_label'}
         }) }}
 
-        <button type="submit" class="btn-register">Valider</button>
-    {#{{ form_end(registrationForm) }}#}
+        <button type="submit" class="btn-register" href="{{ path('app_home') }}">Valider</button>
+    {{ form_end(registrationForm) }}
 
 </div>
 {% endblock %}
