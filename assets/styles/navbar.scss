@@ -6,13 +6,13 @@
     height: 80px;
 }
 
-#desktop-logo {
+/*#desktop-logo {
     display: block;
 }
 
 #mobile-logo {
     display: none;
-}
+} */
 
 .menu-icon {
     cursor: pointer;
@@ -102,18 +102,18 @@
 }
 
 @media only screen and (max-width: 850px) {
-    #nav-content {
-        display: none;
-    }
+    /*    #nav-content {
+           display: none;
+       }
 
-    #desktop-logo {
-        display: none;
-    }
+       #desktop-logo {
+           display: none;
+       }
 
-    #mobile-logo {
-        display: block;
-    }
-
+    /*   #mobile-logo {
+           display: block;
+       }
+   */
     .logo {
         order: 1;
     }
@@ -133,6 +133,7 @@
 
     .links {
         z-index: 100;
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 68px;

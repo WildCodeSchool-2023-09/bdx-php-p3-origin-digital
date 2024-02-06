@@ -25,4 +25,36 @@ a.connection {
     text-align: center;
 }
 
+.dropzone-form {
+    margin-top: 50px;
+}
 
+label.required {
+    display:none;
+}
+
+.autocomplete-form {
+    border-radius: 10px;
+}
+
+.register{
+    width: 50%;
+    margin: auto;
+}
+
+.register-form {
+    font-size: 20px;
+    height: 40px;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+div.ts-control {
+    border-radius: 10px;
+    height: 40px;
+}
+
+.dropzone-container {
+    border-radius: 10px;
+}

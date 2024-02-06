@@ -34,7 +34,7 @@ class SearchController extends AbstractController
             $search = $request->getPayload()->get("search");
             $videos = $this->videoRepository->FindByName($search);
             if (str_replace(' ', '', $search) === '' || empty($videos)) {
-                $this->addFlash('danger', 'Aucuns resultats trouvés.');
+                $this->addFlash('danger', 'Aucun resultats trouvés.');
                 return $this->render('video/search.html.twig');
             }
             dump($videos);
