@@ -3,14 +3,32 @@
 {% block title %}She Plays TV - Gestion Administrateur{% endblock %}
 
 {% block body %}
+<div class="page-index">
+    <img src="{{ asset('build/images/background.png') }}" alt="background" class="background_img">
     <h1 class="sign">Le Coin de l'Administrateur</h1>
 
-<ul>
-    <a href="{{ path('export_users') }}">
-        <li>Récuperer la liste des utilisateurs en CSV</li>
-    </a>
-    <a href="{{ path('admin') }}">
-        <li>Créer une nouvelle page</li>
-    </a>
-</ul>
+    <div class="page-list">
+        <h2>
+            <a href="{{ path('export_users') }}">
+                <div class="page-card">
+                    Récuperer la liste des utilisateurs en CSV
+                </div>
+            </a>
+        </h2>
+        <h2>
+            <a href="{{ path('admin') }}">
+                <div class="page-card">
+                    Créer une nouvelle page
+                </div>
+            </a>
+        </h2>
+        <h2>
+            <a href="{{ path('app_page_index') }}">
+                <div class="page-card">
+                    Accéder aux pages
+                </div>
+            </a>
+        </h2>
+    </div>
+    <div>
 {% endblock %}
