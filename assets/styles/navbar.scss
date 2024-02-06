@@ -6,13 +6,13 @@
     height: 80px;
 }
 
-/*#desktop-logo {
+#desktop-logo {
     display: block;
 }
 
 #mobile-logo {
     display: none;
-} */
+}
 
 .menu-icon {
     cursor: pointer;
@@ -102,7 +102,7 @@
 }
 
 @media only screen and (max-width: 850px) {
-    /*    #nav-content {
+        #nav-content {
            display: none;
        }
 
@@ -110,10 +110,10 @@
            display: none;
        }
 
-    /*   #mobile-logo {
+       #mobile-logo {
            display: block;
        }
-   */
+
     .logo {
         order: 1;
     }
