@@ -3,6 +3,10 @@
 {% block title %}{{ page.name }}{% endblock %}
 
 {% block body %}
+    <div class="lienf">
+        <a href="{{ path('app_page_index') }}">Retour aux pages</a>
+    </div>
+
     <h1 class="sign">{{ page.name }}</h1>
 
        {% for pageSection in pagesSections %}
@@ -61,8 +65,6 @@
         </div>
     {% endfor %}
 
-    <a href="{{ path('app_page_index') }}">back to list</a>
-    <a href="{{ path('app_page_edit', {'id': page.id}) }}">edit</a>
 
-    {{ include('page/_delete_form.html.twig') }}
+
 {% endblock %}

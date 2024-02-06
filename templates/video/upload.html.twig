@@ -4,18 +4,29 @@
 
 {% block body %}
     <div class="register">
-        <h1 class="form-title">Ajouter une vidéo</h1>
+        <h1 class="sign">Ajouter une vidéo</h1>
 
         {{ form_errors(form) }}
 
         {{ form_start(form, {'attr': {'class': 'register'}}) }}
-        {{ form_row(form.title, {'attr': {'class': 'register-form'}}) }}
-        {{ form_row(form.file, {'attr': {'class': 'register-form'}}) }}
-        {{ form_row(form.image, {'attr': {'class': 'register-form'}}) }}
-        {{ form_row(form.description, {'attr': {'class': 'register-form'}}) }}
-        {{ form_row(form.isPublic, {'attr': {'class': 'register-form'}}) }}
-        {{ form_row(form.categories, {'attr': {'class': 'register-form'}}) }}
-
+        <div class="dropzone-form">
+            {{ form_row(form.title, {'attr': {'class': 'register-form', 'placeholder': 'titre'}}) }}
+        </div>
+        <div class="dropzone-form">
+        {{ form_row(form.description, {'attr': {'class': 'register-form', 'placeholder': 'description'}}) }}
+        </div>
+        <div class="dropzone-form">
+            {{ form_row(form.isPublic, {'attr': {'class': 'register-form'}}) }}
+        </div>
+        <div class="dropzone-form">
+            {{ form_row(form.file, {'attr': { class: 'dropzone-form'}}) }}
+        </div>
+        <div class="dropzone-form">
+            {{ form_row(form.image, {'attr': {class: 'dropzone-form'}}) }}
+        </div>
+        <div class="dropzone-form">
+            {{ form_row(form.categories, {'attr': {class: 'autocomplete-form'}}) }}
+        </div>
         <button type="submit" class="btn-register">Ajouter</button>
         {{ form_end(form) }}
     </div>

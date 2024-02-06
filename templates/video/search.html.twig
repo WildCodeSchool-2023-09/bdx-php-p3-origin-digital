@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+{#    {{ form_start(form) }}#}
+{#    {{ form_widget(form) }}#}
+{#    {{ form_end(form) }}#}
+
+    <h1 class="sign">Résultat de la recherche</h1>
+
+<div class="videos-category">
+{% if videos is defined %}
+    {% for video in videos %}
+        {% if video.isPublic or (video.isPublic == false and app.user is not null) %}
+        <div class="video">
+            <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
+                <img src="{{ asset('upload/images/' ~ video.image) }}" alt="{{ video.title }}">
+            </a>
+            <h2>{{ video.title }}</h2>
+            <p>Date de publication : {{ video.datetime|date('d-m-Y') }}</p>
+        </div>
+        {% else %}
+            <p>Aucune vidéo disponible pour le moment.</p>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+</div>
+{% endblock %}
