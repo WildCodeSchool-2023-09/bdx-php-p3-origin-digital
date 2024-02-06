@@ -30,7 +30,11 @@ h1 {
     padding-top: 25px;
     padding-bottom: 50px;
 }
-
+ @media only screen and (max-width: 600px) {
+     h1.sign  {
+         font-size: 40px;
+     }
+ }
 .login {
     padding-top: 3%;
     width: 335px;
@@ -105,6 +109,12 @@ h1 {
     align-items: center;
 }
 
+@media only screen and (max-width: 600px) {
+    .lazy-slider {
+        margin-top: 10px;
+    }
+}
+
 .slider {
     padding: 20px;
     padding-top: 30px;
@@ -117,23 +127,17 @@ h1 {
     text-overflow: ellipsis;
 }
 
+
 .slider>p {
     font-size: 15px;
 }
 
-@media only screen and (max-width: 480px) {
-    .slider {
-        padding: 18.5px;
-        margin-left: 2px;
-    }
+@media only screen and (max-width: 1024px) {
     .slider>h2 {
         font-size: 11px;
     }
     .slider>p {
         font-size: 6px;
-    }
-    .section>h2 {
-        font-size: 15px;
     }
 }
 
@@ -158,6 +162,103 @@ h1 {
     .image_slider {
         width : 100%;
     }
+}
+
+/* fin slider-slick */
+
+/*navbar*/
+.navbar {
+    background-color : white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    padding-left: 15px;
+    border-radius: 10%;
+}
+
+.menu-icon span {
+    height: 5px;
+    width: 30px;
+    background-color: var(--color-one);
+    margin: 5px 0;
+}
+
+.logo img {
+    height: 80px;
+    margin-left: 15px;
+    border-radius: 24px;
+}
+
+.links {
+    display: flex;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.links a {
+    color: 04104ee0;
+    background-color: var(--color-five);
+    text-decoration: none;
+    padding: 8px;
+}
+.links>a:hover {
+    color: var(--color-two-hover);
+}
+
+.search {
+    display: flex;
+    margin-right: 0px;
+    min-width: 30%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.navbar_input_search {
+    flex: 1;
+    background-color: rgb(63 117 200 / 42%);
+    color: var(--color-five);
+    margin-right: 10px;
+    padding: 6px;
+    border: none;
+    border-radius: 10px;
+}
+
+.navbar_button_search {
+    border-radius: 50%;
+    margin: 5px;
+    width: 30px;
+    text-align: center;
+    flex: 0;
+    background: url(../images/balle_tennis.png) center center no-repeat;
+    background-size: cover;
+    color: var(--color-one);
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    opacity: 0.8;
+}
+
+.navbar_button_search:hover {
+    opacity: 1;
+}
+
+.navbar_button_search span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar_links{
+    font-size: 18px;
+    color: #3f75c8e0;
 }
 
 .welcome{
@@ -578,6 +679,9 @@ ul.category_list {
     border: none;
     margin-top: 15px;
 }
+.lienf {
+    margin-top: 25px;
+}
 
 .lienf >a {
     text-align: center;
@@ -589,6 +693,9 @@ ul.category_list {
 
 
 @media only screen and (max-width: 1024px) {
+    .videos-category {
+        gap: 10px;
+    }
     .video-detail h1 {
         font-size: 17px;
     }
@@ -607,7 +714,7 @@ ul.category_list {
     }
 
     .videos-category .video {
-        width: 175px;
+        width: 164px;
 
         h2 {
             font-size: 11px;
@@ -786,7 +893,7 @@ ul.category_list {
         font-size: 24px;
     }
     .image_carousel {
-        height: 270px;
+        height: 240px;
     }
 }
  .slick-dots {
@@ -845,6 +952,10 @@ ul.category_list {
     position: relative;
     width: 100%;
     height: 130vh;
+
+    h1 {
+        margin-left: 10px;
+    }
 }
 .background_img {
     width: 100%;
@@ -858,14 +969,16 @@ ul.category_list {
 
 .page-list {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    flex-direction: row;
+    gap: 45px;
     padding: 20px;
-    width: 100%;
+    width: 97%;
     z-index: 1;
     align-items: center;
     margin: auto;
     position: absolute;
+    flex-wrap: wrap;
+
 }
 
 .page-list a {
@@ -905,7 +1018,20 @@ ul.category_list {
     .page-list {
         padding: 0;
         margin-top: 30px;
+        gap: 20px;
+        margin-left: 15px;
+        width: 100%;
 
+    }
+
+    .page-card {
+        width: 132px;
+    }
+
+    .page-index {
+        h1 {
+            font-size: 29px;
+        }
     }
 }
 

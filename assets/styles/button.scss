@@ -46,6 +46,14 @@ button.slick-arrow {
     margin-bottom: 70px;
 }
 
+@media (max-width: 600px) {
+    button.slick-arrow {
+        margin-bottom: 37px;
+        height: 34px;
+        font-size: 15px;
+    }
+}
+
 button.slick-prev.slick-arrow::after {
     content: '<';
     text-indent: 0;
