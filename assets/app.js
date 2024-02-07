@@ -1,7 +1,7 @@
 import './styles/app.scss';
 
 document.addEventListener('DOMContentLoaded', function () {
-    const menuIcon = document.getElementById('mobile-logo');
+    const menuIcon = document.getElementById('menu-icon');
     const links = document.getElementById('nav-content');
 
     menuIcon.addEventListener('click', function () {
