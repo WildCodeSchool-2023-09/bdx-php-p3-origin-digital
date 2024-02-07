@@ -27,6 +27,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_Dans les coulisses de la Ligue des Nations I FFF 2023'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
+        $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais'));
         $section->setType($this->getReference('type_Carousel Statique'));
         $slug = $this->slugger->slug($section->getName());
         $section->setSlugSection($slug);
@@ -39,8 +40,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_INSIDE - PSG : le film de la qualif'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Dans les coulisses de la Ligue des Nations I FFF 2023'));
-        $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
-        Women s Champions League 2023-24'));
+        $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
         $section->setType($this->getReference('type_Hero Slider'));
@@ -54,8 +54,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_INSIDE - PSG : le film de la qualif'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Dans les coulisses de la Ligue des Nations I FFF 2023'));
-        $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
-        Women s Champions League 2023-24'));
+        $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
         $section->setType($this->getReference('type_Carousel Dynamique'));
@@ -69,8 +68,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $section->addVideo($this->getReference('video_INSIDE - PSG : le film de la qualif'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Dans les coulisses de la Ligue des Nations I FFF 2023'));
-        $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
-        Women s Champions League 2023-24'));
+        $section->addVideo($this->getReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !'));
         $section->setType($this->getReference('type_Grille Dynamique'));
