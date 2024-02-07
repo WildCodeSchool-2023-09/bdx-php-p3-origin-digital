@@ -10,10 +10,6 @@
     display: block;
 }
 
-#mobile-logo {
-    /*display: none;*/
-}
-
 .menu-icon {
     display: none;
     position: relative;
@@ -108,14 +104,6 @@
            display: none;
        }
 
-       #desktop-logo {
-           //display: none;//
-       }
-       //
-       //.menu-logo {
-       //    display: block;
-       //    z-index: 1;
-       //}
 
     .logo {
         order: 1;
@@ -133,10 +121,6 @@
         display: flex;
     }
 
-/*    .menu-icon {
-        display: flex;
-        z-index: 1;
-    }*/
 
     .links {
         z-index: 100;

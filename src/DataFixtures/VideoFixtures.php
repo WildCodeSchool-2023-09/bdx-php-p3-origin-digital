@@ -66,7 +66,8 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video = new Video();
         $video->setTitle('Le passage triomphal de Manon Hily, au championnat de France
         d\'escalade de difficulté 2023 !');
-        $video->setFile('Le passage triomphal de Manon Hily au championnat de France descalade de difficulté 2023.mp4');
+        $video->setFile('Le passage triomphal de Manon Hily au championnat de France
+        d escalade de difficulté 2023.mp4');
         $video->setImage('escalade.jpg');
         $video->setDescription('Manon Hily est devenue championne de France 2023
         d escalade de difficulté, pour la première fois de sa carrière.');
@@ -77,6 +78,21 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setIsPublic(false);
         $manager->persist($video);
         $this->addReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !', $video);
+
+        $video = new Video();
+        $video->setTitle('HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
+        Women s Champions League 2023-24');
+        $video->setFile('HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA Women s Champions League 2023-24.mp4');
+        $video->setImage('ol2.jpg');
+        $video->setDescription('Le 14 Novembre 2023 – Slavia Praha vs. Olympique Lyonnais |
+        1e journée de l\'UEFA Women\'s Champions League 2023-2024');
+        $video->addCategory($this->getReference('category_Football'));
+        $video->setDatetime(new DateTimeImmutable());
+        $slug = $this->slugger->slug($video->getTitle());
+        $video->setSlugVideo($slug);
+        $video->setIsPublic(true);
+        $manager->persist($video);
+        $this->addReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais', $video);
 
         $video = new Video();
         $video->setTitle('Résumé OL - Montpellier 16e de finale de Coupe de France');
@@ -91,6 +107,7 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $video->setIsPublic(true);
         $manager->persist($video);
         $this->addReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France', $video);
+
 
         $manager->flush();
     }
