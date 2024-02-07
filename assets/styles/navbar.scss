@@ -1,3 +1,4 @@
+/*
 .navbar {
     background-color: var(--color-five);
 // background-image: linear-gradient(to right, rgba(230, 221, 231, 0.9), rgb(246, 242, 246));
@@ -93,6 +94,132 @@
     color: #3f75c8e0;
 }
 
+@media only screen and (max-width: 850px) {
+    .logo {
+        order: 1;
+    }
+
+    .links {
+        order: 3;
+    }
+
+    .search {
+        order: 2;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 30%;
+        border: solid 1px var(--color-one)
+    }
+
+    .links a {
+        padding: 10px 20px;
+        border-bottom: 1px solid #555;
+        background-color: #e9e9e9;
+    }
+    .login{
+        width: 70%;
+    }
+}
+*/
+/*navbar*/
+.navbar {
+    background-color: var(--color-five);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    padding-left: 15px;
+    border-radius: 10%;
+}
+
+.menu-icon span {
+    height: 5px;
+    width: 30px;
+    background-color: var(--color-one);
+    margin: 5px 0;
+}
+
+.logo img {
+    height: 80px;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+.links {
+    display: flex;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+.links a {
+    color: var(--color-two);
+    background-color: var(--color-five);
+    text-decoration: none;
+    padding: 8px;
+}
+.links>a:hover {
+    color: var(--color-two-hover);
+}
+
+.search {
+    display: flex;
+    margin-right: 15px;
+    width: 240px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.navbar_input_search {
+    flex: 1;
+    background-color: var(--color-two);
+    color: var(--color-five);
+    margin-right: 10px;
+    padding: 6px;
+    border: none;
+    border-radius: 10px;
+}
+
+.navbar_button_search {
+    border-radius: 50%;
+    margin: 5px;
+    width: 30px;
+    text-align: center;
+    flex: 0;
+    background: url(../images/balle_tennis.png) center center no-repeat;
+    background-size: cover;
+    color: var(--color-one);
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    opacity: 0.8;
+}
+
+.navbar_button_search:hover {
+    opacity: 1;
+}
+
+.navbar_button_search span {
+    display: inline-block;
+    vertical-align: middle;
+}
 @media only screen and (max-width: 850px) {
     .logo {
         order: 1;
