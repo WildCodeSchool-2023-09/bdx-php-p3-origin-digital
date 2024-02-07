@@ -23,7 +23,6 @@ class Category
 
 
     #[ORM\ManyToMany(targetEntity: Video::class, mappedBy: 'categories')]
-    /*#[ORM\ManyToMany(targetEntity: Video::class, inversedBy: 'categories')]*/
     private Collection $video;
 
     public function __construct()
