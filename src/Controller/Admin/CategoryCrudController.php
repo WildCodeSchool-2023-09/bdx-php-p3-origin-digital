@@ -27,7 +27,6 @@ class CategoryCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('name'),
             SlugField::new('slug_category')->setTargetFieldName('name'),
-            AssociationField::new('video'),
         ];
     }
 }
