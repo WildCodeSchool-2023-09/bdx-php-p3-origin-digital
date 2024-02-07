@@ -21,7 +21,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         $section = new Section();
-        $section->setName('Championnat de France de Football');
+        $section->setName('A la une');
         $section->addVideo($this->getReference('video_INSIDE - PSG : le film de la qualif'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Dans les coulisses de la Ligue des Nations I FFF 2023'));
@@ -66,7 +66,7 @@ class SectionFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('section_TEST 3', $section);
 
         $section = new Section();
-        $section->setName('Championnat de France de Football');
+        $section->setName('Toutes les vidéos de football');
         $section->addVideo($this->getReference('video_INSIDE - PSG : le film de la qualif'));
         $section->addVideo($this->getReference('video_Résumé OL - Montpellier 16e de finale de Coupe de France'));
         $section->addVideo($this->getReference('video_Dans les coulisses de la Ligue des Nations I FFF 2023'));
