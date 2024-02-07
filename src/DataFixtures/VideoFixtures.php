@@ -79,22 +79,6 @@ class VideoFixtures extends Fixture implements DependentFixtureInterface
         $this->addReference('video_Le passage triomphal de Manon d\'escalade de difficulté 2023 !', $video);
 
         $video = new Video();
-        $video->setTitle('HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
-        Women s Champions League 2023-24');
-        $video->setFile('HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA Women s Champions League 2023-24.mp4');
-        $video->setImage('ol2.jpg');
-        $video->setDescription('Le 14 Novembre 2023 – Slavia Praha vs. Olympique Lyonnais |
-        1e journée de l\'UEFA Women\'s Champions League 2023-2024');
-        $video->addCategory($this->getReference('category_Football'));
-        $video->setDatetime(new DateTimeImmutable());
-        $slug = $this->slugger->slug($video->getTitle());
-        $video->setSlugVideo($slug);
-        $video->setIsPublic(true);
-        $manager->persist($video);
-        $this->addReference('video_HIGHLIGHTS Slavia Prague vs Olympique Lyonnais -- UEFA
-        Women s Champions League 2023-24', $video);
-
-        $video = new Video();
         $video->setTitle('Résumé OL - Montpellier 16e de finale de Coupe de France');
         $video->setFile('Résumé OL - Montpellier 16e de finale de Coupe de France.mp4');
         $video->setImage('OL.jpg');
