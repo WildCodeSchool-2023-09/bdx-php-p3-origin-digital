@@ -18,7 +18,7 @@ class Page
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class, cascade: ['persist', 'remove'])]
+    #[ORM\OneToMany(mappedBy: 'page', targetEntity: PageSection::class, cascade: ['persist'])]
     private Collection $pageSections;
 
     #[ORM\Column(length: 255)]
