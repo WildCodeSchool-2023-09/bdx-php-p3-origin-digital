@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello VideoController!{% endblock %}
+{% block title %}Toutes les videos{% endblock %}
 
 {% block body %}
     {# {{ component('VideoSearch') }} #}
     <div class="videos-category">
         {% for video in videos %}
-            {% if video.isIsPublic %}
+            {% if video.isPublic or (video.isPublic == false and app.user is not null) %}
                 <div class="video">
                     <a href="{{ path('show_video', {'slugVideo': video.slugVideo}) }}">
                         <img src="{{ asset('/upload/images/' ~ video.image) }}" alt="{{ video.title }}">
