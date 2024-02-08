@@ -1,8 +1,9 @@
 {
-  "build/app.css": "/build/app.c07e4590.css",
-  "build/app.js": "/build/app.6e7b8ddb.js",
-  "build/runtime.js": "/build/runtime.188fa053.js",
-  "build/723.825e785a.js": "/build/723.825e785a.js",
+  "build/app.css": "/build/app.css",
+  "build/app.js": "/build/app.js",
+  "build/runtime.js": "/build/runtime.js",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-e25349.css": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-e25349.css",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-e25349.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_symfony_ux-autocomple-e25349.js",
   "build/images/funniest-moments-in-women-s-sports-LSxoyaqh-65a4fbedd714a.mp4": "/build/images/funniest-moments-in-women-s-sports-LSxoyaqh-65a4fbedd714a.mp4",
   "build/images/funniest-moments-in-women-s-sports-LSxoyaqh-65a4fcc676f0b.mp4": "/build/images/funniest-moments-in-women-s-sports-LSxoyaqh-65a4fcc676f0b.mp4",
   "build/images/background.png": "/build/images/background.png",
