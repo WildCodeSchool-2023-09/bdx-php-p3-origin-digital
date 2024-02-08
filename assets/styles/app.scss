@@ -186,7 +186,7 @@ h1 {
     background-color: var(--color-five);
     text-decoration: none;
     padding: 8px;
-    width: 100%;
+
 }
 .links>a:hover {
     color: var(--color-two-hover);
@@ -202,7 +202,10 @@ h1 {
 
 .welcome{
     font-size: 18px;
-    margin-right:72px;
+}
+
+a.welcome {
+    color: var(--color-three) !important;
 }
 
 .input_text {
